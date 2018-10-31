@@ -1,5 +1,5 @@
 import { MD5 } from "crypto-js";
-import apiKeys from "./apiKeys";
+import apiKeys from "../apiKeys";
 import * as helper from "./helper"
 
 const timeStamp = Date.now();
