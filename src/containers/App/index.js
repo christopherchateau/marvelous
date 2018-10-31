@@ -4,8 +4,9 @@ import "./App.css";
 
 class App extends Component {
 
-  componentDidMount = () => {
-    getRandomCharacter()
+  componentDidMount = async () => {
+    const character = await getRandomCharacter()
+    console.log(character)
   }
 
   render() {
