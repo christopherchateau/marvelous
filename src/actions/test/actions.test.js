@@ -12,6 +12,7 @@ describe("actions", () => {
     const result = actions.storeCharacter(character, direction);
     expect(result).toEqual(expectedAction);
   });
+
   it("should have a type of UPDATE_STORAGE_DETAILS", () => {
     const currentIndex = 1;
     const count = 3;
