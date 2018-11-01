@@ -1,10 +1,10 @@
 export const cleanCharacter = (character) => {
-  //console.log(character);
+  console.log(character.thumbnail.path)
   return {
     name: character.name,
     id: character.id,
     description: character.description,
-    picURL: character.thumbnail.path + '.jpg',
+    pic: character.thumbnail.path + '.jpg',
     comics: character.comics.items
   }
 }

@@ -2,10 +2,14 @@ import { MD5 } from "crypto-js";
 import apiKeys from "../apiKeys";
 import { cleanCharacter } from "./helper"
 
-export const getRandomCharacter = async () => {
+const min = 1010801;
+const max = 1011428;
+
+export const getRandomCharacter = async (randomCharacterId) => {
+  console.log(randomCharacterId)
   const timeStamp = Date.now();
   const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
-  const url = `http://gateway.marvel.com/v1/public/characters/1017100?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`;
+  const url = `http://gateway.marvel.com/v1/public/characters/${randomCharacterId}?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`;
   //const searchUrl = `http://gateway.marvel.com/v1/public/characters?name=spider-man&ts=${ts}&apikey=${apiKey}&hash=${hashA}`;
 
   const response = await fetch(url);
