@@ -1,22 +1,30 @@
 .CharacterProfile {
-  border: green 2px solid;
+  background-color: black;
+}
+
+.profile-wrapper {
+  background-color: lightgrey;
   display: grid;
   grid-template-areas:
     "picture description"
     "picture  comics";
-    grid-template-rows: 50px 1fr;
-    grid-template-columns: 150px 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  width: 80%;
 }
 
 .picture {
-  grid-area: picture
+  grid-area: picture;
+  margin: 0 auto;
 }
 
 .description {
+  display: flex;
   grid-area: description;
-
+  align-items: center;
 }
 
 .comics {
-  grid-area: comics
+  grid-area: comics;
 }
