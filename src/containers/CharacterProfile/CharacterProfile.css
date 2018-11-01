@@ -1,0 +1,5 @@
+.CharacterProfile{
+  display: grid;
+  grid-template-areas: "picture description"
+                       "picture  comics";
+}

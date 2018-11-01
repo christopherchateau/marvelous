@@ -6,7 +6,6 @@ import { cleanCharacter } from "./helper"
 // const max = 1011428;
 
 export const getRandomCharacter = async (randomCharacterId) => {
-  console.log(randomCharacterId)
   const timeStamp = Date.now();
   const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
   const url = `http://gateway.marvel.com/v1/public/characters/${randomCharacterId}?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`;

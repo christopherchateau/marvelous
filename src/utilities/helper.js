@@ -1,5 +1,4 @@
 export const cleanCharacter = (character) => {
-  console.log(character.thumbnail)
   return {
     name: character.name,
     id: character.id,
