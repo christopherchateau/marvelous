@@ -12,7 +12,8 @@ class App extends Component {
     super(props);
   }
   componentDidMount = () => {
-    //this.initializeStoreWithThreeCharacters();
+    this.initializeStoreWithThreeCharacters();
+    //this.getCharacter()
   };
 
   getCharacter = async () => {
@@ -26,9 +27,10 @@ class App extends Component {
     this.props.dispatchStoreCharacter(character);
   };
 
-  initializeStoreWithThreeCharacters = () => {
+  initializeStoreWithThreeCharacters = async () => {
     while (this.props.storedCharacters.length < 3) {
-      this.getCharacter();
+      await this.getCharacter();
+      console.log(this.props.storedCharacters)
     }
   };
 
@@ -37,7 +39,9 @@ class App extends Component {
   };
 
   generateRandomCharacterId = () => {
-    return Math.floor(Math.random() * 627) + 1010801;
+    return Math.floor(Math.random() * 10);
+
+    // return Math.floor(Math.random() * 627) + 1010801;
   };
 
   render() {

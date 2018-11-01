@@ -1,5 +1,6 @@
 .CharacterProfile {
   background-color: black;
+  height: 1000px;
 }
 
 .profile-wrapper {
@@ -20,11 +21,16 @@
 }
 
 .description {
+  border: 2px solid black;
   display: flex;
   grid-area: description;
   align-items: center;
 }
 
 .comics {
+  border: 2px solid black;
+  display: flex;
   grid-area: comics;
+  align-items: center;
+
 }
