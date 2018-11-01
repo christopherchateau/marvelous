@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { getRandomCharacter } from "../../utilities/apiCalls";
+import Header from '../../components/Header'
+import Main from '../Main'
 import "./App.css";
 
 class App extends Component {
@@ -27,10 +29,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1 className="main-logo">MARVELOUS</h1>
-        <h3>{this.state.character.name}</h3>
+      <Header />
+      <Main />
+        {/* <h3>{this.state.character.name}</h3>
         <p>{this.state.character.description}</p>
-        <img src={this.state.character.pic} />
+        <img src={this.state.character.pic} /> */}
       </div>
     );
   }

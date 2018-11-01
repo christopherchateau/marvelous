@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Anton");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
 * {
   box-sizing: border-box;
@@ -7,13 +8,4 @@
 }
 
 .App {
-
-}
-
-.main-logo {
-  background-color: red;
-  color: white;
-  font-family: 'Anton', sans-serif;
-  font-size: 76px;
-  text-align: center;
 }

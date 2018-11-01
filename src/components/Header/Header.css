@@ -1,0 +1,16 @@
+.Header {
+  background-color: red;
+  text-align: center;
+}
+
+.main-logo {
+  color: white;
+  font-family: 'Anton', sans-serif;
+  font-size: 76px;
+}
+
+.explore-marvel-text {
+  color: lightgrey;
+  font-family: 'Roboto', sans-serif;
+  font-size: 36px;
+}
