@@ -12,19 +12,23 @@ class App extends Component {
     super(props);
   }
   componentDidMount = () => {
-    this.loadCharacter();
+    //this.initializeStoreWithThreeCharacters();
   };
 
-  loadCharacter = async () => {
+  getCharacter = async () => {
+    const randomCharacterId = this.generateRandomCharacterId();
+    const character = await getRandomCharacter(randomCharacterId);
+    console.log(character);
+    if (this.validateCharacter(character)) {
+      this.getCharacter();
+      return;
+    }
+    this.props.dispatchStoreCharacter(character);
+  };
+
+  initializeStoreWithThreeCharacters = () => {
     while (this.props.storedCharacters.length < 3) {
-      const randomCharacterId = this.generateRandomCharacterId();
-      const character = await getRandomCharacter(randomCharacterId);
-      console.log(character);
-      if (this.validateCharacter(character)) {
-        this.loadCharacter();
-        return;
-      }
-      this.props.dispatchStoreCharacter(character);
+      this.getCharacter();
     }
   };
 
