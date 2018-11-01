@@ -13,13 +13,12 @@ class App extends Component {
   }
   componentDidMount = () => {
     this.initializeStoreWithThreeCharacters();
-    //this.getCharacter()
   };
 
   getCharacter = async () => {
     const randomCharacterId = this.generateRandomCharacterId();
     const character = await getRandomCharacter(randomCharacterId);
-    console.log(character);
+    //console.log(character);
     if (this.validateCharacter(character)) {
       this.getCharacter();
       return;
@@ -30,7 +29,6 @@ class App extends Component {
   initializeStoreWithThreeCharacters = async () => {
     while (this.props.storedCharacters.length < 3) {
       await this.getCharacter();
-      console.log(this.props.storedCharacters)
     }
   };
 

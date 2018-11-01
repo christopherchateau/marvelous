@@ -34,5 +34,22 @@
   display: flex;
   grid-area: comics;
   align-items: center;
+}
 
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fas {
+  color: lightgrey;
+  font-size: 66px;
+}
+
+.fas:hover {
+  color: red;
+  /* background-color: lightgrey; */
+  transition: all 0.5s ease-in-out;
 }
