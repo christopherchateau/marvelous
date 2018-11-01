@@ -12,7 +12,8 @@ class App extends Component {
   loadCharacter = async () => {
     const randomCharacterId = this.generateRandomCharacterId()
     const character = await getRandomCharacter(randomCharacterId);
-    if (character && character.pic.includes('image_not_available')) {
+    console.log(character)
+    if (character === 'error' || character.pic.includes('image_not_available')) {
       this.loadCharacter();
       return;
     }
