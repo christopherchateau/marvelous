@@ -16,7 +16,6 @@ export const getRandomCharacter = async (randomCharacterId) => {
   const data = await response.json();
   return cleanCharacter(data.data.results[0]);
   } catch {
-    console.log('error!')
     return 'error';
   }
 }
