@@ -4,9 +4,9 @@ import { updateStorageDetails } from "../../actions";
 import "./CharacterProfile.css";
 
 class CharacterProfile extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
+  constructor(props) {
+    super(props);
+  }
 
   handleArrowClick = direction => {
     let {
@@ -15,16 +15,22 @@ class CharacterProfile extends Component {
       dispatchStorageDetailsUpdate,
       getCharacter
     } = this.props;
-    getCharacter(direction);
 
-    direction === "right"
-      ? dispatchStorageDetailsUpdate(currentIndex + 1, characterCount + 1)
-      : dispatchStorageDetailsUpdate(currentIndex, characterCount + 1);
+    let updatedIndex = currentIndex;
+    let updatedCount = characterCount + 1;
+
+    if (direction === "FORWARD") {
+      updatedIndex++;
+    }
+    if (updatedIndex === 1 || updatedIndex === characterCount - 1) {
+      getCharacter(direction);
+    }
+    dispatchStorageDetailsUpdate(updatedIndex, updatedCount);
   };
 
   render() {
     const { storedCharacters, characterCount } = this.props;
-    if (storedCharacters.length >= characterCount) {
+    if (storedCharacters.length >= 3) {
       const { id, name, description, pic } = this.props.storedCharacters[
         this.props.currentIndex
       ];
@@ -33,7 +39,7 @@ class CharacterProfile extends Component {
         <div className="CharacterProfile">
           <nav className="nav-left">
             <i
-              onClick={() => this.handleArrowClick("left")}
+              onClick={() => this.handleArrowClick("BACK")}
               className="fas fa-chevron-circle-left"
             />
           </nav>
@@ -50,7 +56,7 @@ class CharacterProfile extends Component {
           </section>
           <nav className="nav-right">
             <i
-              onClick={() => this.handleArrowClick("right")}
+              onClick={() => this.handleArrowClick("FORWARD")}
               className="fas fa-chevron-circle-right"
             />
           </nav>

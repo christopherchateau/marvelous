@@ -17,13 +17,13 @@ class App extends Component {
     this.initializeStoreWithThreeCharacters();
   };
 
-  getCharacter = async frontOrBack => {
+  getCharacter = async direction => {
     const character = await getRandomCharacter(this.generateRandomId());
     console.log(character);
 
     this.validateCharacter(character)
       ? this.getCharacter()
-      : this.props.dispatchStoreCharacter(character, frontOrBack);
+      : this.props.dispatchStoreCharacter(character, direction);
   };
 
   initializeStoreWithThreeCharacters = async () => {

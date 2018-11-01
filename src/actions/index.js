@@ -1,7 +1,7 @@
-export const storeCharacter = (character, frontOrBack) => ({
+export const storeCharacter = (character, direction) => ({
   type: "STORE_CHARACTER",
   character,
-  frontOrBack
+  direction
 });
 
 export const updateStorageDetails = (currentIndex, count) => ({
