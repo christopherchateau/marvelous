@@ -3,5 +3,5 @@ export const storeCharacter = (character) => ({
   character
 })
 
-export const updateStorageDetails = (currentIndex, length) => ({
+export const updateStorageDetails = (currentIndex, count) => ({
   });

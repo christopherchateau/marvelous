@@ -1,6 +1,7 @@
 .CharacterProfile {
   background-color: black;
-  height: 1000px;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
 }
 
 .profile-wrapper {
@@ -11,11 +12,12 @@
     "picture  comics";
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-  margin: 0 auto;
-  width: 80%;
+
 }
 
 .picture {
+  border: 2px solid black;
+
   grid-area: picture;
   margin: 0 auto;
 }

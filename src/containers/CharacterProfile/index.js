@@ -3,11 +3,12 @@ import { connect } from "react-redux";
 import "./CharacterProfile.css";
 
 const CharacterProfile = props => {
-  //const { name, description, pic } = props.storedCharacters[1]
-  console.log(props.storedCharacters.length)
-  if (props.storedCharacters.length > 2) {
+  if (props.storedCharacters.length >= props.characterCount) {
+    const { name, description, pic } = props.storedCharacters[props.characterIndex]
+    console.log(props.characterIndex)
   return (
     <div className="CharacterProfile">
+    <nav className="left-nav"></nav>
       <section className="profile-wrapper">
         <img
           className="picture"
@@ -16,11 +17,13 @@ const CharacterProfile = props => {
         />
         <article className="description">
           <p>
-            {props.storedCharacters[1].name}
+            {name}
           </p>
         </article>
         <article className="comics">comics comics comics comics comics</article>
       </section>
+      <nav className="right-nav"></nav>
+
     </div>
   );
 } else {
@@ -29,7 +32,9 @@ const CharacterProfile = props => {
 };
 
 export const mapStateToProps = state => ({
-  storedCharacters: state.characters
+  storedCharacters: state.characters,
+  characterCount: state.storageDetails.count,
+  characterIndex: state.storageDetails.currentIndex,
 });
 
 export default connect(mapStateToProps)(CharacterProfile);
