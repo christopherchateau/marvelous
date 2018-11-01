@@ -7,6 +7,8 @@ import CharacterProfile from "../CharacterProfile";
 import Main from "../Main";
 import "./App.css";
 
+let counter = 0;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -15,20 +17,18 @@ class App extends Component {
     this.initializeStoreWithThreeCharacters();
   };
 
-  getCharacter = async () => {
-    const randomCharacterId = this.generateRandomCharacterId();
-    const character = await getRandomCharacter(randomCharacterId);
-    //console.log(character);
-    if (this.validateCharacter(character)) {
-      this.getCharacter();
-      return;
-    }
-    this.props.dispatchStoreCharacter(character);
+  getCharacter = async frontOrBack => {
+    const character = await getRandomCharacter(this.generateRandomId());
+    console.log(character);
+
+    this.validateCharacter(character)
+      ? this.getCharacter()
+      : this.props.dispatchStoreCharacter(character, frontOrBack);
   };
 
   initializeStoreWithThreeCharacters = async () => {
     while (this.props.storedCharacters.length < 3) {
-      await this.getCharacter();
+      await this.getCharacter("BACK");
     }
   };
 
@@ -36,9 +36,8 @@ class App extends Component {
     return data === "error" || data.pic.includes("image_not_available");
   };
 
-  generateRandomCharacterId = () => {
-    return Math.floor(Math.random() * 10);
-
+  generateRandomId = () => {
+    return counter++;
     // return Math.floor(Math.random() * 627) + 1010801;
   };
 
@@ -46,7 +45,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <CharacterProfile />
+        <CharacterProfile getCharacter={this.getCharacter} />
         {/* <Main /> */}
       </div>
     );
@@ -58,7 +57,8 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  dispatchStoreCharacter: character => dispatch(storeCharacter(character))
+  dispatchStoreCharacter: (character, frontOrBack) =>
+    dispatch(storeCharacter(character, frontOrBack))
 });
 
 export default connect(

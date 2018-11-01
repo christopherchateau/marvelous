@@ -17,7 +17,6 @@
 
 .picture {
   border: 2px solid black;
-
   grid-area: picture;
   margin: 0 auto;
 }
@@ -25,8 +24,10 @@
 .description {
   border: 2px solid black;
   display: flex;
+  flex-direction: column;
   grid-area: description;
-  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 
 .comics {
@@ -49,7 +50,9 @@
 }
 
 .fas:hover {
+  border: 3px solid lightgrey;
+  border-radius: 50%;
   color: red;
-  /* background-color: lightgrey; */
-  transition: all 0.5s ease-in-out;
+  margin: 5px;
+  transition: all 0.4s ease-in-out;
 }
