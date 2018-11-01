@@ -3,30 +3,29 @@ import { connect } from "react-redux";
 import { getRandomCharacter } from "../../utilities/apiCalls";
 import { storeCharacter } from "../../actions";
 import Header from "../../components/Header";
+import CharacterProfile from "../CharacterProfile";
 import Main from "../Main";
 import "./App.css";
 
 class App extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     character: {}
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+  }
   componentDidMount = () => {
     this.loadCharacter();
   };
 
   loadCharacter = async () => {
-    const randomCharacterId = this.generateRandomCharacterId();
-    const character = await getRandomCharacter(randomCharacterId);
-    console.log(character)
-    if (this.validateCharacter(character)) {
-      this.loadCharacter();
-      return;
+    while (this.props.storedCharacters.length < 3) {
+      const randomCharacterId = this.generateRandomCharacterId();
+      const character = await getRandomCharacter(randomCharacterId);
+      console.log(character);
+      if (this.validateCharacter(character)) {
+        this.loadCharacter();
+        return;
+      }
+      this.props.dispatchStoreCharacter(character);
     }
-    this.props.dispatchStoreCharacter(character);
-    // this.setState({ character })
   };
 
   validateCharacter = data => {
@@ -38,14 +37,11 @@ class App extends Component {
   };
 
   render() {
-    //const { name, description, pic } = this.state.character;
     return (
       <div className="App">
         <Header />
+        <CharacterProfile />
         {/* <Main /> */}
-        {/* <h3>{name}</h3>
-        <p>{description}</p>
-        <img src={pic} /> */}
       </div>
     );
   }

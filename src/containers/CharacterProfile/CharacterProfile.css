@@ -1,5 +1,22 @@
-.CharacterProfile{
+.CharacterProfile {
+  border: green 2px solid;
   display: grid;
-  grid-template-areas: "picture description"
-                       "picture  comics";
+  grid-template-areas:
+    "picture description"
+    "picture  comics";
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 150px 1fr;
+}
+
+.picture {
+  grid-area: picture
+}
+
+.description {
+  grid-area: description;
+
+}
+
+.comics {
+  grid-area: comics
 }
