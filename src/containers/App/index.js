@@ -38,7 +38,7 @@ class App extends Component {
 
   generateRandomId = () => {
     return counter++;
-    // return Math.floor(Math.random() * 627) + 1010801;
+    //return Math.floor(Math.random() * 627) + 1010801;
   };
 
   render() {
