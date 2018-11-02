@@ -1,6 +1,9 @@
 .Header {
   background-color: red;
+  display: flex;
+  justify-content: space-around;
   height: 215px;
+  background: linear-gradient(to right, red, rgb(255, 83, 112));
   text-align: center;
 }
 
@@ -26,3 +29,13 @@
   1px 1px 0 #000; */
 }
 
+.spider-man-pic,
+.wolverine-pic {
+  height: 200px;
+  width: 200px;
+}
+
+.spider-man-pic {
+  position: relative;
+  top: 6px;
+}

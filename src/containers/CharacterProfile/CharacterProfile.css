@@ -27,9 +27,9 @@
   flex-direction: column;
   grid-area: description;
   height: 250px;
-  margin: auto;
+  margin: auto 26px;
   padding: 40px;
-  width: 90%;
+  /* width: 100%; */
 }
 
 .description-title {
