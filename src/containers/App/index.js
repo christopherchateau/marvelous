@@ -46,8 +46,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        {/* <CharacterProfile getCharacter={this.getCharacter} /> */}
-        <LandingPage />
+        <CharacterProfile getCharacter={this.getCharacter} />
+        {/* <LandingPage /> */}
       </div>
     );
   }

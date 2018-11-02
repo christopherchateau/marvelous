@@ -5,8 +5,8 @@
   font-size: 32px;
   padding: 4px;
   position: absolute;
-  right: 105px;
-  top: 218px;
+  right: 0px;
+  top: 2px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
   1px 1px 0 #000;
 }
@@ -15,14 +15,20 @@
   background-color: darkgrey;
   border-radius: 50%;
   color: red;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.8s ease-in-out;
 }
 
 .favorited {
+  border-radius: 50%;
+  border: 2px solid black;
+  background-color: darkgrey;
   color: red;
-  font-size: 42px;
+  font-size: 35px;
   padding: 8px;
-  top: 218px;
-  text-shadow: -0px -0px 0 #000, 0px -0px 0 #000, -0px 0px 0 #000,
-0px 0px 0 #000;
+  right: 8px;
+  top: 188px;
+}
+
+.favorited:hover {
+  border: solid 2px red;
 }

@@ -1,35 +1,36 @@
 .CharacterProfile {
-  background-color: black;
+  background: url("../../images/comic-bg.jpg");
   display: grid;
   grid-template-columns: 100px 1fr 100px;
 }
 
 .profile-wrapper {
-  background-color: lightgrey;
+  background: transparent;
   display: grid;
   grid-template-areas:
-    "picture description"
-    "picture  comics";
+  "picture description"
+  "picture  comics";
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
 }
 
 .picture {
-  border: 2px solid black;
+  border: 12px solid black;
   grid-area: picture;
   height: 600px;
   margin: 0 auto;
 }
 
 .description {
+  background-color: lightgrey;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
   grid-area: description;
   height: 250px;
   margin: auto 26px;
-  padding: 40px;
-  /* width: 100%; */
+  padding: 60px;
+  position: relative;
 }
 
 .description-title {
@@ -38,16 +39,17 @@
 
 .comics {
   align-items: center;
-  border: 2px solid black;
+  background-color: lightgrey;
+  border: 1px solid black;
   display: flex;
   grid-area: comics;
   height: 250px;
-  margin: auto;
-  width: 90%;
+  margin: auto 26px;
 }
 
 .nav-left,
 .nav-right {
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
