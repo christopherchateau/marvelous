@@ -1,16 +1,28 @@
 .Header {
   background-color: red;
+  height: 210px;
   text-align: center;
 }
 
 .main-logo {
+  background: url("../../images/wolverine-bg.jpg") center top no-repeat;
+  background-size: 710px;
+  bottom: 20px;
   color: white;
-  font-family: 'Anton', sans-serif;
-  font-size: 76px;
+  font-family: "Anton", sans-serif;
+  font-size: 160px;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .explore-marvel-text {
+  bottom: 68px;
   color: lightgrey;
-  font-family: 'Roboto', sans-serif;
-  font-size: 36px;
+  font-family: "Roboto", sans-serif;
+  font-size: 32px;
+  position: relative;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+  1px 1px 0 #000;
 }
+

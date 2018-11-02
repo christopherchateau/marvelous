@@ -4,6 +4,7 @@ export const cleanCharacter = (character) => {
     id: character.id,
     description: character.description || 'n/a',
     pic: character.thumbnail.path + '.' + character.thumbnail.extension,
-    comics: character.comics.items
+    comics: character.comics.items,
+    favorited: false
   }
 }

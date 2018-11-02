@@ -28,10 +28,14 @@ class CharacterProfile extends Component {
     dispatchStorageDetailsUpdate(updatedIndex, updatedCount);
   };
 
+  handleFavoriteClick = () => {
+
+  }
+
   render() {
     const { storedCharacters, characterCount } = this.props;
     if (storedCharacters.length >= 3) {
-      const { id, name, description, pic } = this.props.storedCharacters[
+      const { id, name, description, pic, favorited } = this.props.storedCharacters[
         this.props.currentIndex
       ];
       console.log(this.props.storedCharacters);
@@ -46,6 +50,10 @@ class CharacterProfile extends Component {
           <section className="profile-wrapper">
             <img className="picture" alt="character" src={pic} />
             <article className="description">
+            <i
+              className={"fa-star" + (favorited ? " fas favorited" : " far")}
+              onClick={this.handleFavoriteClick}
+            />
               <h3>Description</h3>
               <br />
               <p>{id}</p>

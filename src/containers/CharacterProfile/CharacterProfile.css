@@ -56,3 +56,10 @@
   margin: 5px;
   transition: all 0.4s ease-in-out;
 }
+
+.fa-star {
+  top: 150px;
+  font-size: 28px;
+  position: absolute;
+  right: 105px;
+}
