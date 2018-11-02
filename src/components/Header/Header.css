@@ -1,0 +1,41 @@
+.Header {
+  background-color: red;
+  display: flex;
+  justify-content: space-around;
+  height: 215px;
+  background: linear-gradient(to right, red, rgb(255, 83, 112));
+  text-align: center;
+}
+
+.main-logo {
+  background: url("../../images/wolverine-bg.jpg") center top no-repeat;
+  background-size: 710px;
+  bottom: 20px;
+  color: white;
+  font-family: "Anton", sans-serif;
+  font-size: 160px;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.explore-marvel-text {
+  bottom: 60px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 26px;
+  position: relative;
+  /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+  1px 1px 0 #000; */
+}
+
+.spider-man-pic,
+.wolverine-pic {
+  height: 200px;
+  width: 200px;
+}
+
+.spider-man-pic {
+  position: relative;
+  top: 6px;
+}

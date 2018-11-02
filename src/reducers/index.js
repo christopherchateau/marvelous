@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import charactersReducer from './charactersReducer'
-
+import { characterReducer } from './characterReducer'
+import { storageDetailsReducer } from './storageDetailsReducer'
+import { favoritesReducer } from './favoritesReducer'
+ 
 const rootReducer = combineReducers({
-  characters: charactersReducer
+  characters: characterReducer,
+  storageDetails: storageDetailsReducer,
+  showFavorites: favoritesReducer
 });
 
 export default rootReducer;

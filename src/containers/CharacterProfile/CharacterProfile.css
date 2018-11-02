@@ -1,0 +1,79 @@
+.CharacterProfile {
+  background: url("../../images/comic-bg.jpg");
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+}
+
+.profile-wrapper {
+  background: black;
+  display: grid;
+  grid-template-areas:
+    "picture description-comics-wrapper";
+  grid-template-columns: 1fr 1fr;
+  height: 90%;
+  margin: auto;
+  width: 80%;
+}
+
+.picture {
+  grid-area: picture;
+  height: 90%;
+  margin: 5% auto;
+}
+
+.description-comics-wrapper {
+  grid-area: description-comics-wrapper;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center
+
+}
+
+.description {
+  flex-direction: column;
+  /* margin: auto 26px; */
+  padding: 60px;
+  position: relative;
+}
+
+.description-title {
+  background-color: silver;
+}
+
+.comics {
+  align-items: center;
+  justify-content: center;
+  /* margin: auto 26px; */
+}
+
+.description,
+.comics {
+  background-color: lightgrey;
+  display: flex;
+  height: 250px;
+  width: 90%
+}
+
+.nav-left,
+.nav-right {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-chevron-circle-left,
+.fa-chevron-circle-right {
+  color: lightgrey;
+  font-size: 66px;
+}
+
+.fa-chevron-circle-left:hover,
+.fa-chevron-circle-right:hover {
+  border: 3px solid lightgrey;
+  border-radius: 50%;
+  color: red;
+  margin: 5px;
+  transition: all 0.4s ease-in-out;
+}
