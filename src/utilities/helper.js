@@ -5,6 +5,7 @@ export const cleanCharacter = (character) => {
     description: character.description || 'No description found.',
     pic: character.thumbnail.path + '.' + character.thumbnail.extension,
     comics: character.comics.items,
-    favorited: false
+    favorited: false,
+    show: true
   }
 }

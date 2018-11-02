@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import { storeCharacter, updateStorageDetails } from "../../../actions";
-import { App, mapStateToProps, mapDispatchToProps } from "../index";
+//import { storeCharacter, updateStorageDetails } from "../../../actions";
+import { App } from "../index";
 
 describe("App", () => {
   let wrapper;

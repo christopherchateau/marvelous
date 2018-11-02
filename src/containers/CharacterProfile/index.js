@@ -31,8 +31,11 @@ class CharacterProfile extends Component {
   };
 
   render() {
-    const { storedCharacters, characterCount } = this.props;
-    if (storedCharacters.length >= 3) {
+    console.log(this.props);
+    if (
+      this.props.storedCharacters.length >= 3 &&
+      this.props.storedCharacters[this.props.currentIndex]
+    ) {
       const {
         id,
         name,
