@@ -16,16 +16,16 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    //this.initializeStoreWithThreeCharacters();
+    this.initializeStoreWithThreeCharacters();
   };
 
   getCharacter = async direction => {
     const character = await getRandomCharacter(this.generateRandomId());
     console.log(character);
 
-    this.validateCharacter(character)
-      ? this.getCharacter()
-      : this.props.dispatchStoreCharacter(character, direction);
+    !this.validateCharacter(character)
+      ? await this.getCharacter(direction)
+      : await this.props.dispatchStoreCharacter(character, direction);
   };
 
   initializeStoreWithThreeCharacters = async () => {
@@ -35,7 +35,7 @@ class App extends Component {
   };
 
   validateCharacter = data => {
-    return data === "error" || data.pic.includes("image_not_available");
+    return !data === "error" || !data.pic.includes("image_not_available");
   };
 
   generateRandomId = () => {

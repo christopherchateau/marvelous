@@ -30,8 +30,6 @@ class CharacterProfile extends Component {
     dispatchStorageDetailsUpdate(updatedIndex, updatedCount);
   };
 
-  handleFavoriteClick = () => {};
-
   render() {
     const { storedCharacters, characterCount } = this.props;
     if (storedCharacters.length >= 3) {
