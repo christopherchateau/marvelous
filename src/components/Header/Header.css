@@ -1,6 +1,6 @@
 .Header {
   background-color: red;
-  height: 210px;
+  height: 215px;
   text-align: center;
 }
 
@@ -17,12 +17,12 @@
 }
 
 .explore-marvel-text {
-  bottom: 68px;
-  color: lightgrey;
+  bottom: 60px;
+  color: white;
   font-family: "Roboto", sans-serif;
-  font-size: 32px;
+  font-size: 26px;
   position: relative;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-  1px 1px 0 #000;
+  /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+  1px 1px 0 #000; */
 }
 

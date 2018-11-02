@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateStorageDetails } from "../../actions";
+import FavoriteButton from '../FavoriteButton'
 import "./CharacterProfile.css";
 
 class CharacterProfile extends Component {
@@ -50,10 +51,7 @@ class CharacterProfile extends Component {
           <section className="profile-wrapper">
             <img className="picture" alt="character" src={pic} />
             <article className="description">
-            <i
-              className={"fa-star" + (favorited ? " fas favorited" : " far")}
-              onClick={this.handleFavoriteClick}
-            />
+            <FavoriteButton id={id}/>
               <h3>Description</h3>
               <br />
               <p>{id}</p>

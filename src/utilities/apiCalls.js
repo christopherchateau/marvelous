@@ -27,7 +27,8 @@ const mockData = [
     description: "description",
     pic:
       "https://pbs.twimg.com/profile_images/image_not_available/gpfF5-xH_400x400.jpg",
-    comics: ["asdf"]
+    comics: ["asdf"],
+    favorited: false
   },
   {
     name: "spider-man2",
@@ -35,7 +36,8 @@ const mockData = [
     description: "description",
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
-    comics: ["asdf"]
+    comics: ["asdf"],
+    favorited: false
   },
   {
     name: "spider-man3",
@@ -43,7 +45,8 @@ const mockData = [
     description: "description",
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
-    comics: ["asdf"]
+    comics: ["asdf"],
+    favorited: true
   },
   {
     name: "spider-man4",
@@ -51,7 +54,8 @@ const mockData = [
     description: "description",
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
-    comics: ["asdf"]
+    comics: ["asdf"],
+    favorited: false
   },
   {
     name: "spider-man5",
@@ -59,7 +63,8 @@ const mockData = [
     description: "description",
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
-    comics: ["asdf"]
+    comics: ["asdf"],
+    favorited: true
   },
   {
     name: "spider-man6",
@@ -67,7 +72,8 @@ const mockData = [
     description: "description",
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
-    comics: ["asdf"]
+    comics: ["asdf"],
+    favorited: false
   },
   {
     name: "spider-man7",
@@ -75,7 +81,8 @@ const mockData = [
     description: "description",
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
-    comics: ["asdf"]
+    comics: ["asdf"],
+    favorited: true
   },
   {
     name: "spider-man8",
@@ -83,7 +90,8 @@ const mockData = [
     description: "description",
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
-    comics: ["asdf"]
+    comics: ["asdf"],
+    favorited: false
   },
   {
     name: "spider-man9",
@@ -91,7 +99,8 @@ const mockData = [
     description: "description",
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
-    comics: ["asdf"]
+    comics: ["asdf"],
+    favorited: false
   },
   {
     name: "spider-man10",
@@ -99,6 +108,7 @@ const mockData = [
     description: "description",
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
-    comics: ["asdf"]
+    comics: ["asdf"],
+    favorited: false
   }
 ];

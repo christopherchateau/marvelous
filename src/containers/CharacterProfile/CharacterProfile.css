@@ -22,7 +22,7 @@
 }
 
 .description {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   display: flex;
   flex-direction: column;
   grid-area: description;
@@ -31,7 +31,7 @@
 }
 
 .comics {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   display: flex;
   grid-area: comics;
   align-items: center;
@@ -44,22 +44,3 @@
   justify-content: center;
 }
 
-.fas {
-  color: lightgrey;
-  font-size: 66px;
-}
-
-.fas:hover {
-  border: 3px solid lightgrey;
-  border-radius: 50%;
-  color: red;
-  margin: 5px;
-  transition: all 0.4s ease-in-out;
-}
-
-.fa-star {
-  top: 150px;
-  font-size: 28px;
-  position: absolute;
-  right: 105px;
-}
