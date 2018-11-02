@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateStorageDetails } from "../../actions";
-import FavoriteButton from '../FavoriteButton'
+import FavoriteButton from "../FavoriteButton";
 import "./CharacterProfile.css";
 
 class CharacterProfile extends Component {
@@ -29,16 +29,18 @@ class CharacterProfile extends Component {
     dispatchStorageDetailsUpdate(updatedIndex, updatedCount);
   };
 
-  handleFavoriteClick = () => {
-
-  }
+  handleFavoriteClick = () => {};
 
   render() {
     const { storedCharacters, characterCount } = this.props;
     if (storedCharacters.length >= 3) {
-      const { id, name, description, pic, favorited } = this.props.storedCharacters[
-        this.props.currentIndex
-      ];
+      const {
+        id,
+        name,
+        description,
+        pic,
+        favorited
+      } = this.props.storedCharacters[this.props.currentIndex];
       return (
         <div className="CharacterProfile">
           <nav className="nav-left">
@@ -49,15 +51,17 @@ class CharacterProfile extends Component {
           </nav>
           <section className="profile-wrapper">
             <img className="picture" alt="character" src={pic} />
-            <article className="description">
-            <FavoriteButton id={id} favorited={favorited}/>
-              <h3 className="description-title">Description</h3>
-              <br />
-              <p>{id}</p>
-            </article>
-            <article className="comics">
-              comics comics comics comics comics
-            </article>
+            <div className="description-comics-wrapper">
+              <article className="description">
+                <FavoriteButton id={id} favorited={favorited} />
+                <h3 className="description-title">Description</h3>
+                <br />
+                <p>{id}</p>
+              </article>
+              <article className="comics">
+                comics comics comics comics comics
+              </article>
+            </div>
           </section>
           <nav className="nav-right">
             <i

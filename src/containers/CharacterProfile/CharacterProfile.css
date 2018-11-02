@@ -5,30 +5,34 @@
 }
 
 .profile-wrapper {
-  background: transparent;
+  background: black;
   display: grid;
   grid-template-areas:
-  "picture description"
-  "picture  comics";
-  grid-template-rows: 1fr 1fr;
+    "picture description-comics-wrapper";
   grid-template-columns: 1fr 1fr;
+  height: 90%;
+  margin: auto;
+  width: 80%;
 }
 
 .picture {
-  border: 12px solid black;
   grid-area: picture;
-  height: 600px;
-  margin: 0 auto;
+  height: 90%;
+  margin: 5% auto;
+}
+
+.description-comics-wrapper {
+  grid-area: description-comics-wrapper;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center
+
 }
 
 .description {
-  background-color: lightgrey;
-  border: 1px solid black;
-  display: flex;
   flex-direction: column;
-  grid-area: description;
-  height: 250px;
-  margin: auto 26px;
+  /* margin: auto 26px; */
   padding: 60px;
   position: relative;
 }
@@ -39,12 +43,16 @@
 
 .comics {
   align-items: center;
+  justify-content: center;
+  /* margin: auto 26px; */
+}
+
+.description,
+.comics {
   background-color: lightgrey;
-  border: 1px solid black;
   display: flex;
-  grid-area: comics;
   height: 250px;
-  margin: auto 26px;
+  width: 90%
 }
 
 .nav-left,

@@ -1,4 +1,4 @@
-export const favortesReducer = (state = false, action) =>  {
+export const favoritesReducer = (state = false, action) =>  {
   switch(action.type) {
     case "SHOW_FAVORITES": 
       return action.displayFavorites;

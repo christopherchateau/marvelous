@@ -5,6 +5,7 @@ import { storeCharacter } from "../../actions";
 import Header from "../../components/Header";
 import CharacterProfile from "../CharacterProfile";
 import LandingPage from "../../components/LandingPage";
+import Footer from "../Footer";
 import "./App.css";
 
 let counter = 0;
@@ -48,6 +49,7 @@ class App extends Component {
         <Header />
         <CharacterProfile getCharacter={this.getCharacter} />
         {/* <LandingPage /> */}
+        <Footer />
       </div>
     );
   }
