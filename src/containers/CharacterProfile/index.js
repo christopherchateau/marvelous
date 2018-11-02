@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateStorageDetails } from "../../actions";
 import FavoriteButton from "../FavoriteButton";
+import spiderManLoading from "../../images/spiderman-loading.gif";
 import "./CharacterProfile.css";
 
 class CharacterProfile extends Component {
@@ -77,7 +78,12 @@ class CharacterProfile extends Component {
         </div>
       );
     } else {
-      return <div>loading</div>;
+      return (
+        <div className="loading-screen">
+          <img className="loading-pic" src={spiderManLoading} />
+          <h3 className="loading-msg">Loading...</h3>
+        </div>
+      );
     }
   }
 }
