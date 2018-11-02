@@ -12,6 +12,7 @@
   cursor: pointer;
   font-size: 50px;
   outline: none;
+  padding-bottom: 18px;
   transition: all 0.4s ease-in-out;
   width: 80%
 }
@@ -36,5 +37,5 @@
 .my-favs {
   display: inline;
   position: relative;
-  top: 6px;
+  top: 9px;
 }

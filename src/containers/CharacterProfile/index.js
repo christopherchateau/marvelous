@@ -50,14 +50,19 @@ class CharacterProfile extends Component {
             />
           </nav>
           <section className="profile-wrapper">
-            <img className="picture" alt="character" src={pic} />
+            <div className="picture-wrapper">
+              <img className="picture" alt="character" src={pic} />
+            </div>
             <div className="description-comics-wrapper">
-              <article className="description">
+              <section className="description">
+                <h3 className="name">{name}</h3>
                 <FavoriteButton id={id} favorited={favorited} />
-                <h3 className="description-title">Description</h3>
-                <br />
-                <p>{id}</p>
-              </article>
+                <article className="description-text">
+                  <h3 className="description-title">Description</h3>
+                  <br />
+                  <p>{description}</p>
+                </article>
+              </section>
               <article className="comics">
                 comics comics comics comics comics
               </article>

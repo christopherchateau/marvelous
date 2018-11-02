@@ -6,18 +6,18 @@ import { cleanCharacter } from "./helper";
 // const max = 1011428;
 
 export const getRandomCharacter = async randomCharacterId => {
-  // const timeStamp = Date.now();
-  // const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
-  // const url = `http://gateway.marvel.com/v1/public/characters/${randomCharacterId}?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`;
-  // //const searchUrl = `http://gateway.marvel.com/v1/public/characters?name=spider-man&ts=${ts}&apikey=${apiKey}&hash=${hashA}`;
-  // try {
-  // const response = await fetch(url);
-  // const data = await response.json();
-  // return cleanCharacter(data.data.results[0]);
-  // } catch {
-  //   return 'error';
-  // }
-  return mockData[randomCharacterId];
+  const timeStamp = Date.now();
+  const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
+  const url = `http://gateway.marvel.com/v1/public/characters/${randomCharacterId}?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`;
+  //const searchUrl = `http://gateway.marvel.com/v1/public/characters?name=spider-man&ts=${ts}&apikey=${apiKey}&hash=${hashA}`;
+  try {
+  const response = await fetch(url);
+  const data = await response.json();
+  return cleanCharacter(data.data.results[0]);
+  } catch {
+    return 'error';
+  }
+  //return mockData[randomCharacterId];
 };
 
 const mockData = [
