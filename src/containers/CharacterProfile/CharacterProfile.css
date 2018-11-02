@@ -1,5 +1,4 @@
 .CharacterProfile {
-  background: url("../../images/comic-bg.jpg");
   display: grid;
   grid-template-columns: 100px 1fr 100px;
 }
@@ -7,8 +6,7 @@
 .profile-wrapper {
   background: black;
   display: grid;
-  grid-template-areas:
-    "picture description-comics-wrapper";
+  grid-template-areas: "picture description-comics-wrapper";
   grid-template-columns: 1fr 1fr;
   height: 90%;
   margin: auto;
@@ -26,13 +24,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center
-
+  align-items: center;
 }
 
 .description {
   flex-direction: column;
-  /* margin: auto 26px; */
   padding: 60px;
   position: relative;
 }
@@ -44,7 +40,6 @@
 .comics {
   align-items: center;
   justify-content: center;
-  /* margin: auto 26px; */
 }
 
 .description,
@@ -52,7 +47,7 @@
   background-color: lightgrey;
   display: flex;
   height: 250px;
-  width: 90%
+  width: 90%;
 }
 
 .nav-left,
@@ -63,9 +58,18 @@
   justify-content: center;
 }
 
+.nav-left {
+  border-bottom-right-radius: 75px;
+}
+
+.nav-right {
+  border-bottom-left-radius: 55px;
+}
+
 .fa-chevron-circle-left,
 .fa-chevron-circle-right {
   color: lightgrey;
+  cursor: pointer;
   font-size: 66px;
 }
 
