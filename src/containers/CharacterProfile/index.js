@@ -17,14 +17,14 @@ class CharacterProfile extends Component {
     } = this.props;
 
     let updatedIndex = currentIndex;
-    let updatedCount = characterCount + 1;
+    let updatedCount = characterCount;
 
-    if (direction === "FORWARD") {
-      updatedIndex++;
-    }
-    if (updatedIndex === 1 || updatedIndex === characterCount - 1) {
+    direction === "FORWARD" ? updatedIndex++ : updatedIndex--;
+    if (updatedIndex === 0 || updatedIndex === characterCount - 1) {
+      updatedCount++;
       getCharacter(direction);
     }
+    if (updatedIndex === 0) updatedIndex = 1;
     dispatchStorageDetailsUpdate(updatedIndex, updatedCount);
   };
 
