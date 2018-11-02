@@ -12,29 +12,38 @@
     "picture  comics";
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-
 }
 
 .picture {
   border: 2px solid black;
   grid-area: picture;
+  height: 600px;
   margin: 0 auto;
 }
 
 .description {
-  /* border: 2px solid black; */
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
   grid-area: description;
-  justify-content: center;
-  padding: 10px;
+  height: 250px;
+  margin: auto;
+  padding: 40px;
+  width: 90%;
+}
+
+.description-title {
+  background-color: silver;
 }
 
 .comics {
-  /* border: 2px solid black; */
+  align-items: center;
+  border: 2px solid black;
   display: flex;
   grid-area: comics;
-  align-items: center;
+  height: 250px;
+  margin: auto;
+  width: 90%;
 }
 
 .nav-left,

@@ -51,7 +51,7 @@ class CharacterProfile extends Component {
             <img className="picture" alt="character" src={pic} />
             <article className="description">
             <FavoriteButton id={id} favorited={favorited}/>
-              <h3>Description</h3>
+              <h3 className="description-title">Description</h3>
               <br />
               <p>{id}</p>
             </article>
