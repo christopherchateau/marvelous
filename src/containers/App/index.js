@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getRandomCharacter } from "../../utilities/apiCalls";
+import { getRandomCharacter, localStoreCharacter } from "../../utilities/apiCalls";
 import { storeCharacter } from "../../actions";
 import Header from "../../components/Header";
 import CharacterProfile from "../CharacterProfile";
@@ -34,8 +34,19 @@ class App extends Component {
     }
   };
 
-  validateCharacter = data => {
-    return !data === "error" || !data.pic.includes("image_not_available");
+  validateCharacter = character => {
+    if (
+      !character.show ||
+      character === "error" ||
+      character.pic.includes("image_not_available")
+    ) {
+      character.show = false;
+      console.log(character);
+      localStoreCharacter(character);
+      return false;
+    }
+    localStoreCharacter(character);
+    return true;
   };
 
   generateRandomId = () => {

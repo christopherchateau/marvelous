@@ -6,8 +6,8 @@ import { cleanCharacter } from "./helper";
 // const max = 1011428;
 
 export const getRandomCharacter = async randomCharacterId => {
-  if (checkStorage(1)) {
-    return checkStorage(1)
+  if (checkLocalStorage(randomCharacterId)) {
+    return checkLocalStorage(randomCharacterId);
   }
   const timeStamp = Date.now();
   const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
@@ -19,7 +19,6 @@ export const getRandomCharacter = async randomCharacterId => {
     const response = await fetch(url);
     const data = await response.json();
     const character = cleanCharacter(data.data.results[0]);
-    //storeCharacter(character.id);
     return character;
   } catch {
     return "error";
@@ -27,19 +26,23 @@ export const getRandomCharacter = async randomCharacterId => {
   //return mockData[randomCharacterId];
 };
 
-const checkStorage = id => {
+const checkLocalStorage = id => {
   const storage = JSON.parse(localStorage.getItem("marvelous"));
   if (storage) {
     return storage.find(char => char.id === id);
   }
 };
 
-const storeCharacter = id => {
+export const localStoreCharacter = character => {
   const storage = JSON.parse(localStorage.getItem("marvelous"));
   if (storage) {
-    return storage.find(char => char.id === id);
+    const updatedStorage = [...storage, character];
+    localStorage.setItem("marvelous", JSON.stringify(updatedStorage));
+    return updatedStorage;
   }
+  localStorage.setItem("marvelous", JSON.stringify([character]));
 };
+
 
 const mockData = [
   {
