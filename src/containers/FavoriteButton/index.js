@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {} from "../../actions";
+import { toggleFavorite } from "../../actions";
 import "./FavoriteButton.css";
 
 class FavoriteButton extends Component {
@@ -9,13 +9,16 @@ class FavoriteButton extends Component {
   }
 
   handleFavoriteClick = () => {
-
+    const { displatchToggleFavorite, id } = this.props;
+    displatchToggleFavorite(id);
   };
 
   render() {
     return (
       <i
-        className={"fa-star" + (this.props.favorited ? " fas favorited" : " far")}
+        className={
+          "fa-star" + (this.props.favorited ? " fas favorited" : " far")
+        }
         onClick={this.handleFavoriteClick}
       />
     );
@@ -25,7 +28,7 @@ class FavoriteButton extends Component {
 export const mapStateToProps = state => ({});
 
 export const mapDispatchToProps = dispatch => ({
-  
+  displatchToggleFavorite: id => dispatch(toggleFavorite(id))
 });
 
 export default connect(

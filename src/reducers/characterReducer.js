@@ -7,6 +7,12 @@ export const characterReducer = (state = [], action) => {
         case "FORWARD":
           return [...state, action.character];
       }
+    case "TOGGLE_FAVORITE":
+      return state.map(char => {
+        return char.id === action.id
+          ? { ...char, favorited: !char.favorited }
+          : char;
+      });
     default:
       return state;
   }
