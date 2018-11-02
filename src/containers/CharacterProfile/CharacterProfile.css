@@ -44,3 +44,17 @@
   justify-content: center;
 }
 
+.fa-chevron-circle-left,
+.fa-chevron-circle-right {
+  color: lightgrey;
+  font-size: 66px;
+}
+
+.fa-chevron-circle-left:hover,
+.fa-chevron-circle-right:hover {
+  border: 3px solid lightgrey;
+  border-radius: 50%;
+  color: red;
+  margin: 5px;
+  transition: all 0.4s ease-in-out;
+}

@@ -14,6 +14,7 @@ class FavoriteButton extends Component {
   };
 
   render() {
+    console.log(this.props.favorited)
     return (
       <i
         className={

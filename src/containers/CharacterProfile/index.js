@@ -39,7 +39,6 @@ class CharacterProfile extends Component {
       const { id, name, description, pic, favorited } = this.props.storedCharacters[
         this.props.currentIndex
       ];
-      console.log(this.props.storedCharacters);
       return (
         <div className="CharacterProfile">
           <nav className="nav-left">
@@ -51,7 +50,7 @@ class CharacterProfile extends Component {
           <section className="profile-wrapper">
             <img className="picture" alt="character" src={pic} />
             <article className="description">
-            <FavoriteButton id={id}/>
+            <FavoriteButton id={id} favorited={favorited}/>
               <h3>Description</h3>
               <br />
               <p>{id}</p>
