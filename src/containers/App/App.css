@@ -8,4 +8,7 @@
 }
 
 .App {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 215px 1fr 200px;
 }

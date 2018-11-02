@@ -2,14 +2,16 @@ import React from "react";
 import { connect } from "react-redux";
 import { storeCharacter } from "../../actions";
 import marvelUniverse from "../../images/marvel-universe.png";
-import "./Main.css";
+import "./LandingPage.css";
 
-const Main = () => {
+const LandingPage = () => {
   return (
     <main className="Main">
-      <img className="marvel-uni-img" src={marvelUniverse} />
+      <div className="img-wrapper">
+        <img className="marvel-uni-img" src={marvelUniverse} />
+      </div>
     </main>
   );
 };
 
-export default Main;
+export default LandingPage;

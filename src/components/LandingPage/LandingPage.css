@@ -1,0 +1,14 @@
+.Main {
+  background-color: black;
+}
+
+.img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100%
+}
+
+.marvel-uni-img {
+  background-color: grey;
+}

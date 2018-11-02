@@ -4,7 +4,7 @@ import { getRandomCharacter } from "../../utilities/apiCalls";
 import { storeCharacter } from "../../actions";
 import Header from "../../components/Header";
 import CharacterProfile from "../CharacterProfile";
-import Main from "../Main";
+import LandingPage from "../../components/LandingPage";
 import "./App.css";
 
 let counter = 0;
@@ -46,8 +46,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <CharacterProfile getCharacter={this.getCharacter} />
-        {/* <Main /> */}
+        {/* <CharacterProfile getCharacter={this.getCharacter} /> */}
+        <LandingPage />
       </div>
     );
   }
