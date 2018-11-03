@@ -1,3 +1,32 @@
 .Footer {
-  /* height: 100px; */
+  display: flex;
+  grid-area: footer;
+  justify-content: center;
+}
+
+.fav-btn {
+  background-color: black;
+  border-top-left-radius: 55px;
+  border-top-right-radius: 55px;
+  border: 1px solid black;
+  color: white;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: lighter;
+  outline: none;
+  transition: all 0.4s ease-in-out;
+  width: 40%;
+}
+
+.fav-btn:hover {
+  background-color: lightgrey;
+  color: red;
+}
+
+@media screen and (max-width: 1150px) {
+  .fav-btn {
+    border-radius: 0;
+    font-size: 20px;
+    width: 100%
+  }
 }

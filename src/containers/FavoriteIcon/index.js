@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { toggleFavorite } from "../../actions";
-import "./FavoriteButton.css";
+import "./FavoriteIcon.css";
 
-class FavoriteButton extends Component {
+class FavoriteIcon extends Component {
   constructor(props) {
     super(props);
   }
@@ -14,7 +14,6 @@ class FavoriteButton extends Component {
   };
 
   render() {
-    console.log(this.props.favorited)
     return (
       <i
         className={
@@ -35,4 +34,4 @@ export const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(FavoriteButton);
+)(FavoriteIcon);

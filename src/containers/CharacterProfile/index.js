@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateStorageDetails } from "../../actions";
-import FavoriteButton from "../FavoriteButton";
+import FavoriteIcon from "../FavoriteIcon";
+import spiderManLoading from "../../images/spiderman-loading.gif";
 import "./CharacterProfile.css";
 
 class CharacterProfile extends Component {
@@ -29,11 +30,12 @@ class CharacterProfile extends Component {
     dispatchStorageDetailsUpdate(updatedIndex, updatedCount);
   };
 
-  handleFavoriteClick = () => {};
-
   render() {
-    const { storedCharacters, characterCount } = this.props;
-    if (storedCharacters.length >= 3) {
+    if (
+      this.props.showFavorites ||
+      this.props.storedCharacters.length >= 3 &&
+      this.props.storedCharacters[this.props.currentIndex]
+    ) {
       const {
         id,
         name,
@@ -41,6 +43,7 @@ class CharacterProfile extends Component {
         pic,
         favorited
       } = this.props.storedCharacters[this.props.currentIndex];
+      
       return (
         <div className="CharacterProfile">
           <nav className="nav-left">
@@ -50,14 +53,19 @@ class CharacterProfile extends Component {
             />
           </nav>
           <section className="profile-wrapper">
-            <img className="picture" alt="character" src={pic} />
+            <div className="picture-wrapper">
+              <img className="picture" alt="character" src={pic} />
+            </div>
             <div className="description-comics-wrapper">
-              <article className="description">
-                <FavoriteButton id={id} favorited={favorited} />
-                <h3 className="description-title">Description</h3>
-                <br />
-                <p>{id}</p>
-              </article>
+              <section className="description">
+                <h3 className="name">{name}</h3>
+                <FavoriteIcon id={id} favorited={favorited} />
+                <article className="description-text">
+                  <h3 className="description-title">Description</h3>
+                  <br />
+                  <p className="desctiption-text">{description}</p>
+                </article>
+              </section>
               <article className="comics">
                 comics comics comics comics comics
               </article>
@@ -72,7 +80,12 @@ class CharacterProfile extends Component {
         </div>
       );
     } else {
-      return <div>loading</div>;
+      return (
+        <div className="loading-screen">
+          <img className="loading-pic" src={spiderManLoading} />
+          <h3 className="loading-msg">Loading...</h3>
+        </div>
+      );
     }
   }
 }
@@ -80,7 +93,7 @@ class CharacterProfile extends Component {
 export const mapStateToProps = state => ({
   storedCharacters: state.characters,
   characterCount: state.storageDetails.count,
-  currentIndex: state.storageDetails.currentIndex
+  currentIndex: state.storageDetails.currentIndex,
 });
 
 export const mapDispatchToProps = dispatch => ({

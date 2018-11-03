@@ -1,8 +1,8 @@
 .Header {
   background-color: red;
   display: flex;
+  grid-area: header;
   justify-content: space-around;
-  height: 215px;
   background: linear-gradient(to right, red, rgb(255, 83, 112));
   text-align: center;
 }
@@ -13,29 +13,34 @@
   bottom: 20px;
   color: white;
   font-family: "Anton", sans-serif;
-  font-size: 160px;
+  font-size: 150px;
   position: relative;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .explore-marvel-text {
-  bottom: 60px;
+  bottom: 57px;
   color: white;
   font-family: "Roboto", sans-serif;
   font-size: 26px;
   position: relative;
-  /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-  1px 1px 0 #000; */
 }
 
 .spider-man-pic,
 .wolverine-pic {
-  height: 200px;
-  width: 200px;
+  height: 190px;
+  width: 190px;
 }
 
 .spider-man-pic {
   position: relative;
   top: 6px;
+}
+
+@media screen and (max-width: 1060px) {
+  .spider-man-pic,
+  .wolverine-pic {
+    display: none;
+  }
 }

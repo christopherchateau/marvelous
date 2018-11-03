@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getRandomCharacter } from "../../utilities/apiCalls";
+import {
+  getRandomCharacter,
+  localStoreCharacter
+} from "../../utilities/apiCalls";
 import { storeCharacter } from "../../actions";
 import Header from "../../components/Header";
 import CharacterProfile from "../CharacterProfile";
 import LandingPage from "../../components/LandingPage";
+import FavoritesMenu from "../FavoritesMenu";
 import Footer from "../Footer";
 import "./App.css";
 
@@ -20,12 +24,15 @@ class App extends Component {
   };
 
   getCharacter = async direction => {
-    const character = await getRandomCharacter(this.generateRandomId());
+    const randomId = this.generateRandomId();
+    if (this.stopDuplicates(randomId)) return;
+
+    const character = await getRandomCharacter(randomId);
     console.log(character);
 
-    this.validateCharacter(character)
-      ? this.getCharacter()
-      : this.props.dispatchStoreCharacter(character, direction);
+    !this.validateCharacter(character)
+      ? await this.getCharacter(direction)
+      : await this.props.dispatchStoreCharacter(character, direction);
   };
 
   initializeStoreWithThreeCharacters = async () => {
@@ -34,20 +41,36 @@ class App extends Component {
     }
   };
 
-  validateCharacter = data => {
-    return data === "error" || data.pic.includes("image_not_available");
+  stopDuplicates = id => {
+    return this.props.storedCharacters.find(char => char.id === id);
+  };
+
+  validateCharacter = character => {
+    if (!character.show || character === "error") return false;
+    if (character.pic.includes("image_not_available")) {
+      character.show = false;
+      localStoreCharacter(character);
+      return false;
+    }
+    localStoreCharacter(character);
+    return true;
   };
 
   generateRandomId = () => {
-    return counter++;
-    //return Math.floor(Math.random() * 627) + 1010801;
+    // return counter++;
+    return Math.floor(Math.random() * 627) + 1010801;
   };
 
   render() {
     return (
       <div className="App">
         <Header />
-        <CharacterProfile getCharacter={this.getCharacter} />
+        {this.props.showFavorites ? (
+          <FavoritesMenu />
+        ) : (
+          <CharacterProfile getCharacter={this.getCharacter} />
+        )}
+
         {/* <LandingPage /> */}
         <Footer />
       </div>
@@ -56,7 +79,8 @@ class App extends Component {
 }
 
 export const mapStateToProps = state => ({
-  storedCharacters: state.characters
+  storedCharacters: state.characters,
+  showFavorites: state.showFavorites
 });
 
 export const mapDispatchToProps = dispatch => ({

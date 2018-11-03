@@ -8,7 +8,18 @@
 }
 
 .App {
+  background: url("../../images/comic-bg.jpg");
   height: 100vh;
   display: grid;
-  grid-template-rows: 215px 1fr 100px;
+  grid-template-rows: 200px 1fr 80px;
+  grid-template-areas: "header" "main" "footer"
+}
+
+@media screen and (max-width: 1150px) {
+  .App {
+    grid-template-rows: 200px 50px auto;
+    grid-template-areas: "header" "footer" "main";
+    background-repeat: repeat-y;
+    /* height: auto; */
+  }
 }

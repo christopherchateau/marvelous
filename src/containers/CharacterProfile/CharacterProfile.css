@@ -1,58 +1,82 @@
 .CharacterProfile {
-  background: url("../../images/comic-bg.jpg");
   display: grid;
+  grid-area: main;
   grid-template-columns: 100px 1fr 100px;
 }
 
 .profile-wrapper {
-  background: black;
+  background-color: black;
   display: grid;
-  grid-template-areas:
-    "picture description-comics-wrapper";
+  grid-template-areas: "picture description-comics-wrapper";
   grid-template-columns: 1fr 1fr;
   height: 90%;
   margin: auto;
   width: 80%;
 }
 
-.picture {
+.picture-wrapper {
+  align-items: center;
+  display: flex;
   grid-area: picture;
-  height: 90%;
-  margin: 5% auto;
+  justify-content: center;
+}
+
+.picture {
+  margin: 5% 5%;
+  object-fit: cover;
+  max-height: 40vh;
+  max-width: 40vh;
 }
 
 .description-comics-wrapper {
   grid-area: description-comics-wrapper;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center
+  justify-content: space-evenly;
+  align-items: center;
+}
 
+.name {
+  background-color: red;
+  color: white;
+  font-size: 26px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+  text-align: left;
+  width: 90%;
 }
 
 .description {
   flex-direction: column;
-  /* margin: auto 26px; */
-  padding: 60px;
+  padding: 20px;
   position: relative;
+  text-align: left;
 }
 
 .description-title {
   background-color: silver;
+  padding-left: 5px;
+}
+
+.description-text {
+  height: 100%;
+}
+
+.description-text {
+  overflow: scroll;
 }
 
 .comics {
   align-items: center;
   justify-content: center;
-  /* margin: auto 26px; */
 }
 
 .description,
 .comics {
   background-color: lightgrey;
   display: flex;
-  height: 250px;
-  width: 90%
+  height: 40%;
+  width: 90%;
 }
 
 .nav-left,
@@ -63,9 +87,18 @@
   justify-content: center;
 }
 
+.nav-left {
+  border-bottom-right-radius: 75px;
+}
+
+.nav-right {
+  border-bottom-left-radius: 55px;
+}
+
 .fa-chevron-circle-left,
 .fa-chevron-circle-right {
   color: lightgrey;
+  cursor: pointer;
   font-size: 66px;
 }
 
@@ -76,4 +109,68 @@
   color: red;
   margin: 5px;
   transition: all 0.4s ease-in-out;
+}
+
+.loading-screen {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  margin-top: 10vh;
+  position: relative;
+}
+
+.loading-pic {
+  background-color: grey;
+  border: 8px solid black;
+  border-radius: 50px;
+  height: 40vh;
+  padding: 0 50px 50px;
+}
+
+.loading-msg {
+  bottom: 45px;
+  color: white;
+  font-size: 22px;
+  position: relative;
+}
+
+@media screen and (max-width: 1200px) {
+  .name {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .profile-wrapper {
+    grid-template-areas: "picture" "description-comics-wrapper";
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .picture {
+    height: 500px;
+  }
+  .profile-wrapper { 
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .CharacterProfile {
+    grid-template-columns: 50px 1fr 50px;
+    height: auto;
+  }
+
+  .description-comics-wrapper {
+  }
+
+  .description-text {
+    height: auto;
+  }
+
+  .fa-chevron-circle-left,
+  .fa-chevron-circle-right {
+    font-size: 36px;
+  }
 }
