@@ -19,7 +19,8 @@ import "./App.css";
 export class App extends Component {
 
   componentDidMount = () => {
-    this.initializeStoreWithThreeCharacters();
+    //this.initializeStoreWithThreeCharacters();
+    this.getCharacter("BACK")
   };
 
   getCharacter = async direction => {

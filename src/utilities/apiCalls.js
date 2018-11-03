@@ -3,9 +3,9 @@ import apiKeys from "../apiKeys";
 import { cleanCharacter } from "./helper";
 
 export const getRandomCharacter = async randomId => {
-  if (checkLocalStorage(randomId)) {
-    return checkLocalStorage(randomId);
-  }
+  // if (checkLocalStorage(randomId)) {
+  //   return checkLocalStorage(randomId);
+  // }
   const timeStamp = Date.now();
   const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
   const url = `http://gateway.marvel.com/v1/public/characters/${randomId}?ts=${timeStamp}&apikey=${
@@ -14,7 +14,16 @@ export const getRandomCharacter = async randomId => {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    const character = cleanCharacter(data.data.results[0]);
+    const comicCovers = await Promise.all(
+      data.data.results[0].comics.items.map(async comic => {
+        const data = await fetch(comic.resourceURI +
+            `?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`)
+        const comicInfo = await data.json();
+        const thumbnail = comicInfo.data.results[0].thumbnail;
+        return thumbnail.path + '.' + thumbnail.extension;
+      })
+    );
+    const character = cleanCharacter(data.data.results[0], comicCovers);
     return character;
   } catch {
     return "error";
