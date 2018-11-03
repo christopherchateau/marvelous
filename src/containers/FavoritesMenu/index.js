@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { showFavorites, updateStorageDetails } from "../../actions";
+import captAmerica from "../../images/capt-america.gif";
 import "./FavoritesMenu.css";
 
 class FavoritesMenu extends Component {
-
   handleFavoriteClick = event => {
     const {
       dispatchStorageDetailsUpdate,
@@ -18,17 +18,18 @@ class FavoritesMenu extends Component {
       }
       return currentIndex;
     }, 0);
-    console.log(currentIndex);
     dispatchStorageDetailsUpdate(currentIndex, storedCharacters.length);
     dispatchShowFavorites();
   };
 
   render() {
     const { favoriteCharacters } = this.props;
-    if (favoriteCharacters) {
+
+    if (favoriteCharacters.length) {
       const favorites = favoriteCharacters.map(fav => {
         return (
           <li
+            key={fav.nam}
             className="fav-list-item"
             id={fav.id}
             onClick={this.handleFavoriteClick}
@@ -49,7 +50,14 @@ class FavoritesMenu extends Component {
     } else {
       return (
         <div className="FavoritesMenu">
-          <nav className="fav-menu">NO FAVORITES</nav>
+          <section className="fav-menu empty">
+            <img
+              className="capt-america"
+              alt="Captain America"
+              src={captAmerica}
+            />
+            <h3>No favorites selected</h3>
+          </section>
         </div>
       );
     }
