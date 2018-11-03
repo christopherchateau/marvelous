@@ -11,7 +11,6 @@ describe("favoritesReducer", () => {
     const action = {
       type: "SHOW_FAVORITES"
     };
-
     let mockState = false;
     let result = favoritesReducer(mockState, action);
     expect(result).toEqual(true);
@@ -19,5 +18,5 @@ describe("favoritesReducer", () => {
     mockState = true;
     result = favoritesReducer(mockState, action);
     expect(result).toEqual(false);
-  });
+  }); 
 });
