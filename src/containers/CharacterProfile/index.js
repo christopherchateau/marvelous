@@ -7,10 +7,6 @@ import spiderManLoading from "../../images/spiderman-loading.gif";
 import "./CharacterProfile.css";
 
 export class CharacterProfile extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleArrowClick = direction => {
     let {
       currentIndex,
@@ -34,8 +30,8 @@ export class CharacterProfile extends Component {
   render() {
     if (
       this.props.showFavorites ||
-      this.props.storedCharacters.length >= 3 &&
-      this.props.storedCharacters[this.props.currentIndex]
+      (this.props.storedCharacters.length >= 3 &&
+        this.props.storedCharacters[this.props.currentIndex])
     ) {
       const {
         id,
@@ -44,7 +40,7 @@ export class CharacterProfile extends Component {
         pic,
         favorited
       } = this.props.storedCharacters[this.props.currentIndex];
-      
+
       return (
         <div className="CharacterProfile">
           <nav className="nav-left">
@@ -83,7 +79,11 @@ export class CharacterProfile extends Component {
     } else {
       return (
         <div className="loading-screen">
-          <img className="loading-pic" src={spiderManLoading} />
+          <img
+            className="loading-pic"
+            alt="Spiderman loading"
+            src={spiderManLoading}
+          />
           <h3 className="loading-msg">Loading...</h3>
         </div>
       );
@@ -94,7 +94,7 @@ export class CharacterProfile extends Component {
 export const mapStateToProps = state => ({
   storedCharacters: state.characters,
   characterCount: state.storageDetails.count,
-  currentIndex: state.storageDetails.currentIndex,
+  currentIndex: state.storageDetails.currentIndex
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -113,4 +113,4 @@ CharacterProfile.propTypes = {
   getCharacter: PropTypes.func.isRequired,
   characterCount: PropTypes.number.isRequired,
   currentIndex: PropTypes.number.isRequired
-}
+};

@@ -14,7 +14,7 @@ export class FavoritesMenu extends Component {
     } = this.props;
 
     let currentIndex = storedCharacters.reduce((currentIndex, char, index) => {
-      if (char.id == event.target.id) {
+      if (char.id === +event.target.id) {
         currentIndex = index;
       }
       return currentIndex;

@@ -6,7 +6,11 @@ const LandingPage = () => {
   return (
     <main className="Main">
       <div className="img-wrapper">
-        <img className="marvel-uni-img" src={marvelUniverse} />
+        <img
+          className="marvel-uni-img"
+          alt="Marvel Universe"
+          src={marvelUniverse}
+        />
       </div>
     </main>
   );

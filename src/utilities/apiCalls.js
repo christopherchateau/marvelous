@@ -2,9 +2,6 @@ import { MD5 } from "crypto-js";
 import apiKeys from "../apiKeys";
 import { cleanCharacter } from "./helper";
 
-// const min = 1010801;
-// const max = 1011428;
-
 export const getRandomCharacter = async randomId => {
   if (checkLocalStorage(randomId)) {
     return checkLocalStorage(randomId);
@@ -14,15 +11,10 @@ export const getRandomCharacter = async randomId => {
   const url = `http://gateway.marvel.com/v1/public/characters/${randomId}?ts=${timeStamp}&apikey=${
     apiKeys.public
   }&hash=${hash}`;
-  // const test = await fetch(`http://gateway.marvel.com/v1/public/comics/30216?ts=${timeStamp}&apikey=${
-  //   apiKeys.public}&hash=${hash}`)
-  // console.log(test)  
-
   try {
     const response = await fetch(url);
     const data = await response.json();
     const character = cleanCharacter(data.data.results[0]);
-
     return character;
   } catch {
     return "error";

@@ -6,9 +6,10 @@
   display: flex;
   justify-content: center;
   align-content: center;
-  height: 100%
+  /* height: 100% */
 }
 
 .marvel-uni-img {
   background-color: grey;
+  
 }

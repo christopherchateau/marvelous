@@ -14,12 +14,9 @@ import FavoritesMenu from "../FavoritesMenu";
 import Footer from "../Footer";
 import "./App.css";
 
-let counter = 0;
+//let counter = 0;
 
 export class App extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount = () => {
     this.initializeStoreWithThreeCharacters();

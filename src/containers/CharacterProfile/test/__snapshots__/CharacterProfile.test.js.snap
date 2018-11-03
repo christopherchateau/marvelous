@@ -25,6 +25,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <img
+          alt="Spiderman loading"
           className="loading-pic"
           src="spiderman-loading.gif"
         />,
@@ -43,6 +44,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "alt": "Spiderman loading",
           "className": "loading-pic",
           "src": "spiderman-loading.gif",
         },
@@ -73,6 +75,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <img
+            alt="Spiderman loading"
             className="loading-pic"
             src="spiderman-loading.gif"
           />,
@@ -91,6 +94,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "alt": "Spiderman loading",
             "className": "loading-pic",
             "src": "spiderman-loading.gif",
           },

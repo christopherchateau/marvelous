@@ -5,10 +5,6 @@ import PropTypes from "prop-types";
 import "./FavoriteIcon.css";
 
 export class FavoriteIcon extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleFavoriteClick = () => {
     const { dispatchToggleFavorite, id } = this.props;
     dispatchToggleFavorite(id);
@@ -37,4 +33,4 @@ export default connect(
 
 FavoriteIcon.propTypes = {
   dispatchToggleFavorite: PropTypes.func.isRequired
-}
+};

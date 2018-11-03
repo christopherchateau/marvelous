@@ -1,6 +1,6 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
-import { storeCharacter, updateStorageDetails } from "../../../actions";
+import { shallow } from "enzyme";
+import { storeCharacter } from "../../../actions";
 import { App, mapDispatchToProps, mapStateToProps } from "../index";
 
 describe("App", () => {
@@ -47,6 +47,14 @@ describe("App", () => {
       const expected = false;
       const mappedProps = mapStateToProps(mockState);
       expect(mappedProps.showFavorites).toEqual(expected);
+    });
+  });
+
+  describe("generateRandomId", () => {
+    it("should generate a randome ID between 1010801 and 1011428", () => {
+      const randomId = wrapper.instance().generateRandomId();
+      expect(randomId).toBeGreaterThanOrEqual(1010801);
+      expect(randomId).toBeLessThanOrEqual(1011428);
     });
   });
 });
