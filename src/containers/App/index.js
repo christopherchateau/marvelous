@@ -23,7 +23,10 @@ class App extends Component {
   };
 
   getCharacter = async direction => {
-    const character = await getRandomCharacter(this.generateRandomId());
+    const randomId = this.generateRandomId();
+    if (this.stopDuplicates(randomId)) return;
+
+    const character = await getRandomCharacter(randomId);
     console.log(character);
 
     !this.validateCharacter(character)
@@ -36,6 +39,10 @@ class App extends Component {
       await this.getCharacter("BACK");
     }
   };
+
+  stopDuplicates = (id) => {
+    return this.props.storedCharacters.find(char => char.id === id);
+  }
 
   validateCharacter = character => {
     if (!character.show || character === "error") return false;

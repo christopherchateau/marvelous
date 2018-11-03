@@ -5,13 +5,13 @@ import { cleanCharacter } from "./helper";
 // const min = 1010801;
 // const max = 1011428;
 
-export const getRandomCharacter = async randomCharacterId => {
-  if (checkLocalStorage(randomCharacterId)) {
-    return checkLocalStorage(randomCharacterId);
+export const getRandomCharacter = async randomId => {
+  if (checkLocalStorage(randomId)) {
+    return checkLocalStorage(randomId);
   }
   const timeStamp = Date.now();
   const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
-  const url = `http://gateway.marvel.com/v1/public/characters/${randomCharacterId}?ts=${timeStamp}&apikey=${
+  const url = `http://gateway.marvel.com/v1/public/characters/${randomId}?ts=${timeStamp}&apikey=${
     apiKeys.public
   }&hash=${hash}`;
   //const searchUrl = `http://gateway.marvel.com/v1/public/characters?name=spider-man&ts=${ts}&apikey=${apiKey}&hash=${hashA}`;
@@ -23,7 +23,7 @@ export const getRandomCharacter = async randomCharacterId => {
   } catch {
     return "error";
   }
-  //return mockData[randomCharacterId];
+  //return mockData[randomId];
 };
 
 const checkLocalStorage = id => {
