@@ -39,39 +39,38 @@
 .name {
   background-color: red;
   color: white;
-  font-size: 26px;
+  font-size: 30px;
   margin-bottom: 10px;
   padding-left: 5px;
   text-align: left;
-  width: 90%;
 }
 
 .description {
   background-color: lightgrey;
   flex-direction: column;
-  padding: 20px;
+  height: 40%;
   position: relative;
   text-align: left;
 }
 
 .description-title {
   background-color: silver;
-  padding-left: 5px;
+  margin-bottom: 10px;
 }
 
 .description-text {
-  height: 100%;
-}
-
-.description-text {
+  padding: 5px;
   overflow: scroll;
+}
+
+.description-p {
+  padding: 5px;
 }
 
 .description,
 .comics {
   display: flex;
-  height: 40%;
-  width: 600px;
+  width: 30vw;
 }
 
 .comics {
@@ -80,7 +79,7 @@
 }
 
 .comic-cover {
-  border: 4px solid black;
+  border: 1px solid silver;
   height: 200px;
 }
 
