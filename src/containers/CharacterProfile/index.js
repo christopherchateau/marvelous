@@ -42,6 +42,7 @@ class CharacterProfile extends Component {
         pic,
         favorited
       } = this.props.storedCharacters[this.props.currentIndex];
+      
       return (
         <div className="CharacterProfile">
           <nav className="nav-left">

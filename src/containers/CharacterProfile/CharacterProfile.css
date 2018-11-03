@@ -22,11 +22,9 @@
 
 .picture {
   margin: 5% 5%;
-  height: 90%;
-  width: 90%;
-  object-fit: contain;
+  object-fit: cover;
   max-height: 40vh;
-  max-width: 40vh
+  max-width: 40vh;
 }
 
 .description-comics-wrapper {
@@ -70,7 +68,7 @@
 .comics {
   background-color: lightgrey;
   display: flex;
-  height: 250px;
+  height: 40%;
   width: 90%;
 }
 
