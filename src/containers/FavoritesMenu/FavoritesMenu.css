@@ -12,7 +12,7 @@
   opacity: 0.85;
   overflow: auto;
   padding: 0 10%;
-  width: 60%;
+  width: 50%;
 }
 
 .favs-list {
@@ -26,18 +26,23 @@
 }
 
 .fav-list-item {
+  align-items: center;
+  background-color: black;
+  border-bottom: 1px solid black;
+  border-radius: 20px;
+  color: lightgrey;
+  display: flex;
   font-size: 22px;
   font-weight: bold;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid black;
   justify-content: space-between;
   margin: 5px;
+  padding-left: 10px;
 }
 
 .fav-list-item:hover {
   background-color: lightgrey;
+  color: black;
   cursor: pointer;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   transition: all 0.3s ease-in-out;
 }
