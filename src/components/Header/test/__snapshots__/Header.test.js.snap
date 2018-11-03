@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render like snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Header />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <img
+          alt="wolverine"
+          className="wolverine-pic"
+          src="wolverine.png"
+        />,
+        <article>
+          <h1
+            className="main-logo"
+          >
+            MARVELOUS
+          </h1>
+          <h4
+            className="explore-marvel-text"
+          >
+            Explore the Marvel Universe one character at at time.
+          </h4>
+        </article>,
+        <img
+          alt="spider-man"
+          className="spider-man-pic"
+          src="spider-man.png"
+        />,
+      ],
+      "className": "Header",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "wolverine",
+          "className": "wolverine-pic",
+          "src": "wolverine.png",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h1
+              className="main-logo"
+            >
+              MARVELOUS
+            </h1>,
+            <h4
+              className="explore-marvel-text"
+            >
+              Explore the Marvel Universe one character at at time.
+            </h4>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "MARVELOUS",
+              "className": "main-logo",
+            },
+            "ref": null,
+            "rendered": "MARVELOUS",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Explore the Marvel Universe one character at at time.",
+              "className": "explore-marvel-text",
+            },
+            "ref": null,
+            "rendered": "Explore the Marvel Universe one character at at time.",
+            "type": "h4",
+          },
+        ],
+        "type": "article",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "spider-man",
+          "className": "spider-man-pic",
+          "src": "spider-man.png",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+    ],
+    "type": "header",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <img
+            alt="wolverine"
+            className="wolverine-pic"
+            src="wolverine.png"
+          />,
+          <article>
+            <h1
+              className="main-logo"
+            >
+              MARVELOUS
+            </h1>
+            <h4
+              className="explore-marvel-text"
+            >
+              Explore the Marvel Universe one character at at time.
+            </h4>
+          </article>,
+          <img
+            alt="spider-man"
+            className="spider-man-pic"
+            src="spider-man.png"
+          />,
+        ],
+        "className": "Header",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "wolverine",
+            "className": "wolverine-pic",
+            "src": "wolverine.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h1
+                className="main-logo"
+              >
+                MARVELOUS
+              </h1>,
+              <h4
+                className="explore-marvel-text"
+              >
+                Explore the Marvel Universe one character at at time.
+              </h4>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "MARVELOUS",
+                "className": "main-logo",
+              },
+              "ref": null,
+              "rendered": "MARVELOUS",
+              "type": "h1",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Explore the Marvel Universe one character at at time.",
+                "className": "explore-marvel-text",
+              },
+              "ref": null,
+              "rendered": "Explore the Marvel Universe one character at at time.",
+              "type": "h4",
+            },
+          ],
+          "type": "article",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "spider-man",
+            "className": "spider-man-pic",
+            "src": "spider-man.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+      ],
+      "type": "header",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

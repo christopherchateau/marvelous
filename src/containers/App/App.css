@@ -15,6 +15,11 @@
   grid-template-areas: "header" "main" "footer"
 }
 
-@media screen and (max-width: 1000px) {
-
+@media screen and (max-width: 1150px) {
+  .App {
+    grid-template-rows: 200px 50px auto;
+    grid-template-areas: "header" "footer" "main";
+    background-repeat: repeat-y;
+    /* height: auto; */
+  }
 }

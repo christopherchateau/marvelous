@@ -15,10 +15,18 @@
   font-weight: lighter;
   outline: none;
   transition: all 0.4s ease-in-out;
-  width: 30%;
+  width: 40%;
 }
 
 .fav-btn:hover {
   background-color: lightgrey;
   color: red;
+}
+
+@media screen and (max-width: 1150px) {
+  .fav-btn {
+    border-radius: 0;
+    font-size: 20px;
+    width: 100%
+  }
 }
