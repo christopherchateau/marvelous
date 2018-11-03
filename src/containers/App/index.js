@@ -41,9 +41,9 @@ class App extends Component {
     }
   };
 
-  stopDuplicates = (id) => {
+  stopDuplicates = id => {
     return this.props.storedCharacters.find(char => char.id === id);
-  }
+  };
 
   validateCharacter = character => {
     if (!character.show || character === "error") return false;
@@ -65,8 +65,12 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <FavoritesMenu />
-        {/* <CharacterProfile getCharacter={this.getCharacter} /> */}
+        {this.props.showFavorites ? (
+          <FavoritesMenu />
+        ) : (
+          <CharacterProfile getCharacter={this.getCharacter} />
+        )}
+
         {/* <LandingPage /> */}
         <Footer />
       </div>
@@ -75,7 +79,8 @@ class App extends Component {
 }
 
 export const mapStateToProps = state => ({
-  storedCharacters: state.characters
+  storedCharacters: state.characters,
+  showFavorites: state.showFavorites
 });
 
 export const mapDispatchToProps = dispatch => ({

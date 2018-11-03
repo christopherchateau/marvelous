@@ -94,8 +94,6 @@ export const mapStateToProps = state => ({
   storedCharacters: state.characters,
   characterCount: state.storageDetails.count,
   currentIndex: state.storageDetails.currentIndex,
-  favoriteCharacters: state.characters.filter(ch => ch.favorited),
-  showFavorites: state.showFavorites
 });
 
 export const mapDispatchToProps = dispatch => ({

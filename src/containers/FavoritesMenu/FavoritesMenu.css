@@ -1,5 +1,43 @@
 .FavoritesMenu {
-  height: 200px;
-  width: 200px;
-  border: 4px solid blue;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.fav-menu {
+  background-color: red;
+  border: 4px solid black;
+  border-radius: 50px;
+  height: 40vh;
+  opacity: 0.85;
+  overflow: auto;
+  padding: 0 10%;
+  width: 60%;
+}
+
+.favs-list {
+  list-style-type: none;
+}
+
+.fav-list-pic {
+  height: 70px;
+  border-radius: 30%;
+  margin: 5px;
+}
+
+.fav-list-item {
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.fav-list-item:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: all 0.3s ease-in-out;
 }
