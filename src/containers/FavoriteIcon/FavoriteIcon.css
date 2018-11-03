@@ -6,8 +6,8 @@
   font-size: 32px;
   padding: 4px;
   position: absolute;
-  right: 4px;
-  top: 6px;
+  right: 8px;
+  top: 12px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
   1px 1px 0 #000;
 }

@@ -1,18 +1,41 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { showFavorites, updateStorageDetails } from "../../actions";
 import "./FavoritesMenu.css";
 
 class FavoritesMenu extends Component {
+
+  handleFavoriteClick = event => {
+    const {
+      dispatchStorageDetailsUpdate,
+      dispatchShowFavorites,
+      storedCharacters
+    } = this.props;
+
+    let currentIndex = storedCharacters.reduce((currentIndex, char, index) => {
+      if (char.id == event.target.id) {
+        currentIndex = index;
+      }
+      return currentIndex;
+    }, 0);
+    console.log(currentIndex);
+    dispatchStorageDetailsUpdate(currentIndex, storedCharacters.length);
+    dispatchShowFavorites();
+  };
+
   render() {
     const { favoriteCharacters } = this.props;
-    console.log(favoriteCharacters);
     if (favoriteCharacters) {
       const favorites = favoriteCharacters.map(fav => {
         return (
-          
-            <li className="fav-list-item">{fav.name}<img className="fav-list-pic" src={fav.pic} /></li>
-            
-      
+          <li
+            className="fav-list-item"
+            id={fav.id}
+            onClick={this.handleFavoriteClick}
+          >
+            {fav.name}
+            <img className="fav-list-pic" src={fav.pic} />
+          </li>
         );
       });
 
@@ -34,7 +57,17 @@ class FavoritesMenu extends Component {
 }
 
 export const mapStateToProps = state => ({
+  storedCharacters: state.characters,
   favoriteCharacters: state.characters.filter(ch => ch.favorited)
 });
 
-export default connect(mapStateToProps)(FavoritesMenu);
+export const mapDispatchToProps = dispatch => ({
+  dispatchShowFavorites: () => dispatch(showFavorites()),
+  dispatchStorageDetailsUpdate: (index, count) =>
+    dispatch(updateStorageDetails(index, count))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FavoritesMenu);
