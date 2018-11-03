@@ -1,7 +1,5 @@
-/* eslint-disable */
-
 import React from "react";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import { updateStorageDetails } from "../../../actions";
 import {
   CharacterProfile,
@@ -13,7 +11,7 @@ describe("CharacterProfile", () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(
+    wrapper = shallow(
       <CharacterProfile
         dispatchStorageDetailsUpdate={jest.fn()}
         storedCharacters={[]}
