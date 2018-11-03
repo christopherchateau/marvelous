@@ -48,7 +48,7 @@
 .description {
   background-color: lightgrey;
   flex-direction: column;
-  height: 40%;
+  height: 30vh;
   position: relative;
   text-align: left;
 }
@@ -59,8 +59,8 @@
 }
 
 .description-text {
+  overflow: auto;
   padding: 5px;
-  overflow: scroll;
 }
 
 .description-p {
@@ -79,8 +79,14 @@
 }
 
 .comic-cover {
-  border: 1px solid silver;
+  border: 6px solid black;
   height: 200px;
+}
+
+.no-comics-msg {
+  color: white;
+  font-size: 26px;
+  margin: 50px auto;
 }
 
 .nav-left,
@@ -137,6 +143,13 @@
   color: white;
   font-size: 22px;
   position: relative;
+}
+
+@media screen and (max-height: 850px) {
+  .comics,
+  .comic-cover {
+    height: 150px;
+  }
 }
 
 @media screen and (max-width: 1200px) {

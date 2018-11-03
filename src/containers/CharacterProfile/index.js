@@ -42,9 +42,14 @@ export class CharacterProfile extends Component {
         comics
       } = this.props.storedCharacters[this.props.currentIndex];
 
-      const comicCovers = comics.map(comic =>  {
+
+      let comicCovers = comics.map(comic =>  {
         return <img className="comic-cover" key={comic} alt="Comic book cover" src={comic}/>
       })
+
+      if (!comicCovers.length) {
+        comicCovers = <h3 className="no-comics-msg">No comics found</h3>
+      }
       return (
         <div className="CharacterProfile">
           <nav className="nav-left">
