@@ -51,10 +51,24 @@ describe("App", () => {
   });
 
   describe("generateRandomId", () => {
-    it("should generate a randome ID between 1010801 and 1011428", () => {
+    it("should generate a random ID between 1010801 and 1011428", () => {
       const randomId = wrapper.instance().generateRandomId();
       expect(randomId).toBeGreaterThanOrEqual(1010801);
       expect(randomId).toBeLessThanOrEqual(1011428);
+    });
+  });
+
+  describe("stopDuplicates", () => {
+    it("should stop duplicate characters", () => {
+      wrapper = shallow(
+        <App
+          dispatchStoreCharacter={jest.fn()}
+          storedCharacters={[{ name: "Spider-Man", id: 1 }]}
+          showFavorites={false}
+        />
+      );
+      expect(wrapper.instance().stopDuplicates(1)).toBeTruthy;
+      expect(wrapper.instance().stopDuplicates(2)).toBeFalsy;
     });
   });
 });

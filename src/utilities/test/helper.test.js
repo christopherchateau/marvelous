@@ -3,7 +3,6 @@ import { cleanCharacter } from "../helper";
 describe("helper", () => {
   it("should remove unwanted character data and add favorited & show props", () => {
     const characterData = {
-      comics: { items: [] },
       description: "n/a",
       events: {},
       id: 1010808,
@@ -18,16 +17,17 @@ describe("helper", () => {
       },
       urls: []
     };
+    const comicCovers = ["http://i.annihil.us/u/prod/marvel/i/mg/c/10/537bad9caa831.jpg"]
     const expected = {
       name: "Hawkeye (Kate Bishop)",
       id: 1010808,
       description: "n/a",
       pic: "http://i.annihil.us/u/prod/marvel/i/mg/c/10/537bad9caa831.jpg",
-      comics: [],
+      comics: ["http://i.annihil.us/u/prod/marvel/i/mg/c/10/537bad9caa831.jpg"],
       favorited: false,
       show: true
     };
-    const result = cleanCharacter(characterData);
+    const result = cleanCharacter(characterData, comicCovers);
     expect(result).toEqual(expected);
   });
 });
