@@ -14,6 +14,7 @@ describe("CharacterProfile", () => {
     wrapper = shallow(
       <CharacterProfile
         dispatchStorageDetailsUpdate={jest.fn()}
+        getCharacter={jest.fn()}
         storedCharacters={[]}
         characterCount={3}
         currentIndex={1}

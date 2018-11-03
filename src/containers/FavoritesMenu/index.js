@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { showFavorites, updateStorageDetails } from "../../actions";
+import PropTypes from "prop-types";
 import captAmerica from "../../images/capt-america.gif";
 import "./FavoritesMenu.css";
 
-class FavoritesMenu extends Component {
+export class FavoritesMenu extends Component {
   handleFavoriteClick = event => {
     const {
       dispatchStorageDetailsUpdate,
@@ -35,7 +36,11 @@ class FavoritesMenu extends Component {
             onClick={this.handleFavoriteClick}
           >
             {fav.name}
-            <img className="fav-list-pic" alt="Character thubmails" src={fav.pic} />
+            <img
+              className="fav-list-pic"
+              alt="Character thubmails"
+              src={fav.pic}
+            />
           </li>
         );
       });
@@ -79,3 +84,10 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(FavoritesMenu);
+
+FavoritesMenu.propTypes = {
+  storedCharacters: PropTypes.array.isRequired,
+  favoriteCharacters: PropTypes.array.isRequired,
+  dispatchShowFavorites: PropTypes.func.isRequired,
+  dispatchStorageDetailsUpdate: PropTypes.func.isRequired
+};

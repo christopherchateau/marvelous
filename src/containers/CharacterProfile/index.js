@@ -110,6 +110,7 @@ export default connect(
 CharacterProfile.propTypes = {
   dispatchStorageDetailsUpdate: PropTypes.func.isRequired,
   storedCharacters: PropTypes.array.isRequired,
+  getCharacter: PropTypes.func.isRequired,
   characterCount: PropTypes.number.isRequired,
   currentIndex: PropTypes.number.isRequired
 }
