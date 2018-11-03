@@ -5,6 +5,8 @@ import {
   localStoreCharacter
 } from "../../utilities/apiCalls";
 import { storeCharacter } from "../../actions";
+import { Route, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 import Header from "../../components/Header";
 import CharacterProfile from "../CharacterProfile";
 import LandingPage from "../../components/LandingPage";
@@ -14,7 +16,7 @@ import "./App.css";
 
 let counter = 0;
 
-class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props);
   }
@@ -88,7 +90,14 @@ export const mapDispatchToProps = dispatch => ({
     dispatch(storeCharacter(character, frontOrBack))
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(App));
+
+
+App.propTypes = {
+  dispatchStoreCharacter: PropTypes.func.isRequired,
+  storedCharacters: PropTypes.array.isRequired,
+  showFavorites: PropTypes.bool.isRequired
+}

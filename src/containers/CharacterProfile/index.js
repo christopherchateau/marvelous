@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateStorageDetails } from "../../actions";
+import PropTypes from "prop-types";
 import FavoriteIcon from "../FavoriteIcon";
 import spiderManLoading from "../../images/spiderman-loading.gif";
 import "./CharacterProfile.css";
 
-class CharacterProfile extends Component {
+export class CharacterProfile extends Component {
   constructor(props) {
     super(props);
   }
@@ -105,3 +106,10 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(CharacterProfile);
+
+CharacterProfile.propTypes = {
+  dispatchStorageDetailsUpdate: PropTypes.func.isRequired,
+  storedCharacters: PropTypes.array.isRequired,
+  characterCount: PropTypes.number.isRequired,
+  currentIndex: PropTypes.number.isRequired
+}
