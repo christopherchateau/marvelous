@@ -29,8 +29,8 @@ class FavoritesMenu extends Component {
       const favorites = favoriteCharacters.map(fav => {
         return (
           <li
-            key={fav.nam}
             className="fav-list-item"
+            key={fav.id}
             id={fav.id}
             onClick={this.handleFavoriteClick}
           >
