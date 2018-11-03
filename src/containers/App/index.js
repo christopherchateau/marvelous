@@ -17,10 +17,8 @@ import "./App.css";
 //let counter = 0;
 
 export class App extends Component {
-
   componentDidMount = () => {
-    //this.initializeStoreWithThreeCharacters();
-    this.getCharacter("BACK")
+    this.initializeStoreWithThreeCharacters();
   };
 
   getCharacter = async direction => {
@@ -88,14 +86,15 @@ export const mapDispatchToProps = dispatch => ({
     dispatch(storeCharacter(character, frontOrBack))
 });
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App));
-
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);
 
 App.propTypes = {
   dispatchStoreCharacter: PropTypes.func.isRequired,
   storedCharacters: PropTypes.array.isRequired,
   showFavorites: PropTypes.bool.isRequired
-}
+};

@@ -38,9 +38,13 @@ export class CharacterProfile extends Component {
         name,
         description,
         pic,
-        favorited
+        favorited,
+        comics
       } = this.props.storedCharacters[this.props.currentIndex];
 
+      const comicCovers = comics.map(comic =>  {
+        return <img className="comic-cover" key={comic} alt="Comic book cover" src={comic}/>
+      })
       return (
         <div className="CharacterProfile">
           <nav className="nav-left">
@@ -64,7 +68,7 @@ export class CharacterProfile extends Component {
                 </article>
               </section>
               <article className="comics">
-                comics comics comics comics comics
+                {comicCovers}
               </article>
             </div>
           </section>
