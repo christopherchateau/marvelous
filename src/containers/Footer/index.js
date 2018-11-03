@@ -8,8 +8,8 @@ class Footer extends Component {
     return (
       <div className="Footer">
         <button onClick={this.props.dispatchshowFavorites} className="fav-btn">
-          <i className="fa-star far fav-btn-star" />
           <h3 className="my-favs">My Favorites</h3>
+          <i className="fa-star far fav-btn-star" />
         </button>
       </div>
     );

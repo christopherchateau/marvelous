@@ -63,7 +63,7 @@ class CharacterProfile extends Component {
                 <article className="description-text">
                   <h3 className="description-title">Description</h3>
                   <br />
-                  <p>{description}</p>
+                  <p className="desctiption-text">{description}</p>
                 </article>
               </section>
               <article className="comics">

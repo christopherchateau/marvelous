@@ -1,6 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-import { storeCharacter } from "../../actions";
 import marvelUniverse from "../../images/marvel-universe.png";
 import "./LandingPage.css";
 

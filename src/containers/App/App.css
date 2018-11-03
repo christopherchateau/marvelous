@@ -11,5 +11,5 @@
   background: url("../../images/comic-bg.jpg");
   height: 100vh;
   display: grid;
-  grid-template-rows: 215px 1fr 100px;
+  grid-template-rows: 215px 1fr 80px;
 }

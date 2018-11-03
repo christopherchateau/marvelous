@@ -10,23 +10,24 @@
   border: none;
   color: lightgrey;
   cursor: pointer;
-  font-size: 50px;
+  font-size: 30px;
   outline: none;
   padding-bottom: 18px;
   transition: all 0.4s ease-in-out;
-  width: 80%
+  width: 50%
 }
 
 .fav-btn:hover {
   background-color: lightgrey;
-  border: 8px solid black;
+  border: 1px solid black;
   color: black;
 }
 
 .fav-btn-star {
   background-color: transparent;
   color: lightgrey;
-  font-size: 52px;
+  font-size: 40px;
+  left: 4px;
   position: relative;
 }
 
@@ -37,5 +38,5 @@
 .my-favs {
   display: inline;
   position: relative;
-  top: 9px;
+  top: 12px;
 }

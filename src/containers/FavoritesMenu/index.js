@@ -35,7 +35,7 @@ class FavoritesMenu extends Component {
             onClick={this.handleFavoriteClick}
           >
             {fav.name}
-            <img className="fav-list-pic" src={fav.pic} />
+            <img className="fav-list-pic" alt="Character thubmails" src={fav.pic} />
           </li>
         );
       });

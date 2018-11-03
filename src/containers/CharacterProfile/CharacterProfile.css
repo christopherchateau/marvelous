@@ -45,7 +45,6 @@
 
 .description {
   flex-direction: column;
-  overflow: scroll;
   padding: 20px;
   position: relative;
   text-align: center;
@@ -57,6 +56,10 @@
 
 .description-title {
   background-color: silver;
+}
+
+.description-text {
+  overflow: scroll;
 }
 
 .comics {
