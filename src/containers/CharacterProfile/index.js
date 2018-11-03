@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateStorageDetails } from "../../actions";
-import FavoriteButton from "../FavoriteButton";
+import FavoriteIcon from "../FavoriteIcon";
 import spiderManLoading from "../../images/spiderman-loading.gif";
 import "./CharacterProfile.css";
 
@@ -58,7 +58,7 @@ class CharacterProfile extends Component {
             <div className="description-comics-wrapper">
               <section className="description">
                 <h3 className="name">{name}</h3>
-                <FavoriteButton id={id} favorited={favorited} />
+                <FavoriteIcon id={id} favorited={favorited} />
                 <article className="description-text">
                   <h3 className="description-title">Description</h3>
                   <br />

@@ -15,7 +15,6 @@ export const toggleFavorite = id => ({
   id
 });
 
-export const showFavorites = bool => ({
-  type: "SHOW",
-  displayFavorites: bool
+export const showFavorites = () => ({
+  type: "SHOW_FAVORITES"
 });
