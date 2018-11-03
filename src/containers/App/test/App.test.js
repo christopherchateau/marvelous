@@ -22,4 +22,16 @@ describe("App", () => {
   it("should match snapshot", () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  describe("mapDispatchToProps", () => {
+    it('should dispatch storeCharacter when dispatchStoreCharacter is called', () => {
+      const mockDispatch = jest.fn()
+      const actionToDispatch = storeCharacter({name: 'Spider-Man', id: 1});
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.dispatchStoreCharacter({name: 'Spider-Man', id: 1})
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    })
+
+  })
 });

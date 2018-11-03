@@ -2,8 +2,8 @@
 
 import React from "react";
 import { shallow } from "enzyme";
-//import { loadMovies, setErrorMessage } from "../../../actions";
-import { CharacterProfile } from "../index";
+import { updateStorageDetails } from "../../../actions";
+import { CharacterProfile, mapDispatchToProps } from "../index";
 
 describe("CharacterProfile", () => {
   let wrapper;
@@ -29,25 +29,18 @@ describe("CharacterProfile", () => {
 });
 
 describe("mapDispatchToProps", () => {
-  it.skip("should call dispatch with load movies action when handleFetch is called", () => {
-    const wrapper = shallow(<App handleFetch={jest.fn()} />);
-
+  it("should call dispatch storageDetailsUpdate when dispatchStorageDetailsUpdate is called", () => {
     const mockDispatch = jest.fn();
-    const actionToDispatch = loadMovies([{ title: "Raising Arizona" }]);
+    const actionToDispatch = updateStorageDetails({
+      currentIndex: 1,
+      count: 3
+    });
 
     const mappedProps = mapDispatchToProps(mockDispatch);
-    mappedProps.handleFetch([{ title: "Raising Arizona" }]);
-    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
-  });
-
-  it.skip("should call dispatch with setErrorMessage when handleErrorMessage is called", () => {
-    const wrapper = shallow(<App handleErrorMessage={jest.fn()} />);
-
-    const mockDispatch = jest.fn();
-    const actionToDispatch = setErrorMessage({ message: "Invalid login" });
-
-    const mappedProps = mapDispatchToProps(mockDispatch);
-    mappedProps.handleErrorMessage({ message: "Invalid login" });
+    mappedProps.dispatchStorageDetailsUpdate({
+      currentIndex: 1,
+      count: 3
+    });
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
 });
