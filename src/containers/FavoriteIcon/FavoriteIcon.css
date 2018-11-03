@@ -8,8 +8,6 @@
   position: absolute;
   right: 8px;
   top: 12px;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-  1px 1px 0 #000;
 }
 
 .fa-star:hover {

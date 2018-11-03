@@ -1,5 +1,6 @@
 .CharacterProfile {
   display: grid;
+  grid-area: main;
   grid-template-columns: 100px 1fr 100px;
 }
 
@@ -32,7 +33,7 @@
   grid-area: description-comics-wrapper;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -41,13 +42,15 @@
   color: white;
   font-size: 26px;
   margin-bottom: 10px;
+  text-align: left;
+  width: 90%;
 }
 
 .description {
   flex-direction: column;
   padding: 20px;
   position: relative;
-  text-align: center;
+  text-align: left;
 }
 
 .description-text {
@@ -128,4 +131,10 @@
   color: white;
   font-size: 22px;
   position: relative;
+}
+
+@media screen and (max-width: 1200px) {
+  .name {
+    width: 80%;
+  }
 }

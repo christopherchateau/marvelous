@@ -1,5 +1,6 @@
 .Footer {
   display: flex;
+  grid-area: footer;
   justify-content: center;
 }
 
@@ -7,36 +8,17 @@
   background-color: black;
   border-top-left-radius: 55px;
   border-top-right-radius: 55px;
-  border: none;
-  color: lightgrey;
+  border: 1px solid black;
+  color: white;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 28px;
+  font-weight: lighter;
   outline: none;
-  padding-bottom: 18px;
   transition: all 0.4s ease-in-out;
-  width: 50%
+  width: 30%;
 }
 
 .fav-btn:hover {
   background-color: lightgrey;
-  border: 1px solid black;
-  color: black;
-}
-
-.fav-btn-star {
-  background-color: transparent;
-  color: lightgrey;
-  font-size: 40px;
-  left: 4px;
-  position: relative;
-}
-
-.fav-btn-star:hover {
-  color: black;
-}
-
-.my-favs {
-  display: inline;
-  position: relative;
-  top: 12px;
+  color: red;
 }

@@ -14,16 +14,19 @@ export const getRandomCharacter = async randomId => {
   const url = `http://gateway.marvel.com/v1/public/characters/${randomId}?ts=${timeStamp}&apikey=${
     apiKeys.public
   }&hash=${hash}`;
-  //const searchUrl = `http://gateway.marvel.com/v1/public/characters?name=spider-man&ts=${ts}&apikey=${apiKey}&hash=${hashA}`;
+  // const test = await fetch(`http://gateway.marvel.com/v1/public/comics/30216?ts=${timeStamp}&apikey=${
+  //   apiKeys.public}&hash=${hash}`)
+  // console.log(test)  
+
   try {
     const response = await fetch(url);
     const data = await response.json();
     const character = cleanCharacter(data.data.results[0]);
+
     return character;
   } catch {
     return "error";
   }
-  //return mockData[randomId];
 };
 
 const checkLocalStorage = id => {
