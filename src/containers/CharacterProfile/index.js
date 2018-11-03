@@ -32,6 +32,7 @@ class CharacterProfile extends Component {
 
   render() {
     if (
+      this.props.showFavorites ||
       this.props.storedCharacters.length >= 3 &&
       this.props.storedCharacters[this.props.currentIndex]
     ) {
@@ -92,7 +93,9 @@ class CharacterProfile extends Component {
 export const mapStateToProps = state => ({
   storedCharacters: state.characters,
   characterCount: state.storageDetails.count,
-  currentIndex: state.storageDetails.currentIndex
+  currentIndex: state.storageDetails.currentIndex,
+  favoriteCharacters: state.characters.filter(ch => ch.favorited),
+  showFavorites: state.showFavorites
 });
 
 export const mapDispatchToProps = dispatch => ({

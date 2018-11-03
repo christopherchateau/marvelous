@@ -8,6 +8,7 @@ import { storeCharacter } from "../../actions";
 import Header from "../../components/Header";
 import CharacterProfile from "../CharacterProfile";
 import LandingPage from "../../components/LandingPage";
+import FavoritesMenu from "../FavoritesMenu";
 import Footer from "../Footer";
 import "./App.css";
 
@@ -64,7 +65,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <CharacterProfile getCharacter={this.getCharacter} />
+        <FavoritesMenu />
+        {/* <CharacterProfile getCharacter={this.getCharacter} /> */}
         {/* <LandingPage /> */}
         <Footer />
       </div>
