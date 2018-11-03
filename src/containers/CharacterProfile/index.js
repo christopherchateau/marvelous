@@ -31,7 +31,6 @@ class CharacterProfile extends Component {
   };
 
   render() {
-    console.log(this.props);
     if (
       this.props.storedCharacters.length >= 3 &&
       this.props.storedCharacters[this.props.currentIndex]

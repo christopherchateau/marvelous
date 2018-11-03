@@ -35,14 +35,14 @@ const checkLocalStorage = id => {
 
 export const localStoreCharacter = character => {
   const storage = JSON.parse(localStorage.getItem("marvelous"));
-  if (storage) {
+  if (storage && !checkLocalStorage(character.id)) {
     const updatedStorage = [...storage, character];
     localStorage.setItem("marvelous", JSON.stringify(updatedStorage));
-    return updatedStorage;
   }
-  localStorage.setItem("marvelous", JSON.stringify([character]));
+  if (!storage) {
+    localStorage.setItem("marvelous", JSON.stringify([character]));
+  }
 };
-
 
 const mockData = [
   {
