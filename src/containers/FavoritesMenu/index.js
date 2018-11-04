@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { showFavorites, updateStorageDetails } from "../../actions";
+import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import captAmerica from "../../images/capt-america.gif";
 import "./FavoritesMenu.css";
@@ -19,7 +20,7 @@ export class FavoritesMenu extends Component {
       }
       return currentIndex;
     }, 0);
-    
+
     dispatchStorageDetailsUpdate(currentIndex, storedCharacters.length);
     dispatchShowFavorites();
   };
@@ -30,7 +31,7 @@ export class FavoritesMenu extends Component {
     if (favoriteCharacters.length) {
       const favorites = favoriteCharacters.map(fav => {
         return (
-          <li
+          <NavLink to="/characters"
             className="fav-list-item"
             key={fav.id}
             id={fav.id}
@@ -42,7 +43,7 @@ export class FavoritesMenu extends Component {
               alt="Character thubmails"
               src={fav.pic}
             />
-          </li>
+          </NavLink>
         );
       });
       return (

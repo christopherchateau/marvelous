@@ -11,9 +11,9 @@
   border: 1px solid black;
   color: white;
   cursor: pointer;
-  font-size: 28px;
   font-weight: lighter;
   outline: none;
+  text-decoration: none;
   transition: all 0.4s ease-in-out;
   width: 40%;
 }
@@ -21,6 +21,12 @@
 .fav-btn:hover {
   background-color: lightgrey;
   color: red;
+}
+
+.my-favs {
+  font-size: 48px;
+  text-align: center;
+  padding-top: 14px;
 }
 
 @media screen and (max-width: 1150px) {
