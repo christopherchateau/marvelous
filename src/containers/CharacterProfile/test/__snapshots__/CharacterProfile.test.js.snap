@@ -8,6 +8,7 @@ ShallowWrapper {
     currentIndex={1}
     dispatchStorageDetailsUpdate={[MockFunction]}
     getCharacter={[MockFunction]}
+    showFavorites={false}
     storedCharacters={Array []}
   />,
   Symbol(enzyme.__renderer__): Object {

@@ -19,6 +19,7 @@ export class FavoritesMenu extends Component {
       }
       return currentIndex;
     }, 0);
+    
     dispatchStorageDetailsUpdate(currentIndex, storedCharacters.length);
     dispatchShowFavorites();
   };
@@ -44,7 +45,6 @@ export class FavoritesMenu extends Component {
           </li>
         );
       });
-
       return (
         <div className="FavoritesMenu">
           <nav className="fav-menu">

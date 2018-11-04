@@ -8,52 +8,59 @@ export const getRandomCharacter = async randomId => {
   }
   const timeStamp = Date.now();
   const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
-  const url = `http://gateway.marvel.com/v1/public/characters/${randomId}?ts=${timeStamp}&apikey=${
-    apiKeys.public
-  }&hash=${hash}`;
+  const rootUrl = `http://gateway.marvel.com/v1/public/characters/${randomId}`;
+  const validation = `?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`;
   try {
-    const response = await fetch(url);
+    const response = await fetch(rootUrl + validation);
     const data = await response.json();
-    const comicCovers = await Promise.all(
-      data.data.results[0].comics.items.map(async comic => {
-        const data = await fetch(
-          comic.resourceURI +
-            `?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`
-        );
-        const comicInfo = await data.json();
-        const thumbnail = comicInfo.data.results[0].thumbnail;
-
-        return thumbnail.path + "." + thumbnail.extension;
-      })
-    );
-
-    const filteredPics = comicCovers.filter(
-      src => !src.includes("image_not_available")
-    );
-    console.log(comicCovers)
-    const character = cleanCharacter(data.data.results[0], filteredPics);
+    const filteredComics = await getComics(data, validation);
+    const character = cleanCharacter(data.data.results[0], filteredComics);
     return character;
   } catch {
     return "error";
   }
 };
 
+const getComics = async (data, validation) => {
+  const comicCovers = await Promise.all(
+    data.data.results[0].comics.items.map(async comic => {
+      const data = await fetch(comic.resourceURI + validation);
+      const comicInfo = await data.json();
+      const thumbnail = comicInfo.data.results[0].thumbnail;
+      return thumbnail.path + "." + thumbnail.extension;
+    })
+  );
+  return filterPics(comicCovers);
+};
+
+export const localStoreCharacter = character => {
+  const storage = getLocalStorage();
+  if (storage && !checkLocalStorage(character.id)) {
+    const updatedStorage = [...storage, character];
+    setLocalStorage(updatedStorage);
+  }
+  if (!storage) {
+    setLocalStorage([character]);
+  }
+};
+
+const setLocalStorage = item => {
+  localStorage.setItem("marvelous", JSON.stringify(item));
+};
+
+const getLocalStorage = () => {
+  return JSON.parse(localStorage.getItem("marvelous"));
+};
+
 const checkLocalStorage = id => {
-  const storage = JSON.parse(localStorage.getItem("marvelous"));
+  const storage = getLocalStorage();
   if (storage) {
     return storage.find(char => char.id === id);
   }
 };
 
-export const localStoreCharacter = character => {
-  const storage = JSON.parse(localStorage.getItem("marvelous"));
-  if (storage && !checkLocalStorage(character.id)) {
-    const updatedStorage = [...storage, character];
-    localStorage.setItem("marvelous", JSON.stringify(updatedStorage));
-  }
-  if (!storage) {
-    localStorage.setItem("marvelous", JSON.stringify([character]));
-  }
+const filterPics = comicCovers => {
+  return comicCovers.filter(src => !src.includes("image_not_available"));
 };
 
 const mockData = [

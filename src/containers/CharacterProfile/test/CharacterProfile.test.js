@@ -18,6 +18,7 @@ describe("CharacterProfile", () => {
         storedCharacters={[]}
         characterCount={3}
         currentIndex={1}
+        showFavorites={false}
       />
     );
   });
@@ -28,6 +29,23 @@ describe("CharacterProfile", () => {
 
   it("should match snapshot", () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it("should render loading screen if less than 3 characters loaded", () => {
+    wrapper = shallow(
+      <CharacterProfile
+        dispatchStorageDetailsUpdate={jest.fn()}
+        getCharacter={jest.fn()}
+        storedCharacters={[
+          { name: "Wolverine", id: 2, comics: [] },
+          { name: "Spider-Man", id: 3, comics: [] }
+        ]}
+        characterCount={3}
+        currentIndex={1}
+        showFavorites={false}
+      />
+    );
+    expect(wrapper.find(".loading-screen")).toHaveLength(1);
   });
 
   describe("mapStateToProps", () => {

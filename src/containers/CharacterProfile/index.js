@@ -74,7 +74,6 @@ export class CharacterProfile extends Component {
                 <FavoriteIcon id={id} favorited={favorited} />
                 <article className="description-text">
                   <h3 className="description-title">Description</h3>
-                  {/* <br /> */}
                   <p className="description-p">{description}</p>
                 </article>
               </section>

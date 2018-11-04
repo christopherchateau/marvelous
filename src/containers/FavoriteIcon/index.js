@@ -9,7 +9,6 @@ export class FavoriteIcon extends Component {
     const { dispatchToggleFavorite, id } = this.props;
     dispatchToggleFavorite(id);
   };
-
   render() {
     return (
       <i
