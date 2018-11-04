@@ -24,4 +24,22 @@ describe("actions", () => {
     const result = actions.updateStorageDetails(currentIndex, count);
     expect(result).toEqual(expectedAction);
   });
+
+  it("should have a type of TOGGLE_FAVORITE", () => {
+    const id = 11111;
+    const expectedAction = {
+      type: "TOGGLE_FAVORITE",
+      id
+    };
+    const result = actions.toggleFavorite(id);
+    expect(result).toEqual(expectedAction);
+  });
+
+  it("should have a type of SHOW_FAVORITES", () => {
+    const expectedAction = {
+      type: "SHOW_FAVORITES"
+    };
+    const result = actions.showFavorites();
+    expect(result).toEqual(expectedAction);
+  });
 });

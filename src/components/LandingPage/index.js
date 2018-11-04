@@ -1,14 +1,22 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import Header from "../../components/Header";
 import marvelUniverse from "../../images/marvel-universe.png";
 import "./LandingPage.css";
 
 const LandingPage = () => {
   return (
-    <main className="Main">
+    <NavLink className="Main" to='/characters'>
+    <Header />
       <div className="img-wrapper">
-        <img className="marvel-uni-img" src={marvelUniverse} />
+      <h3 className="click-anywhere">Click to begin!</h3>
+        {/* <img
+          className="marvel-uni-img"
+          alt="Marvel Universe"
+          src={marvelUniverse}
+        /> */}
       </div>
-    </main>
+    </NavLink>
   );
 };
 

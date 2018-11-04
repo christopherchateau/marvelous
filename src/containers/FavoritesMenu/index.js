@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { showFavorites, updateStorageDetails } from "../../actions";
+import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 import captAmerica from "../../images/capt-america.gif";
 import "./FavoritesMenu.css";
 
-class FavoritesMenu extends Component {
+export class FavoritesMenu extends Component {
   handleFavoriteClick = event => {
     const {
       dispatchStorageDetailsUpdate,
@@ -13,11 +15,12 @@ class FavoritesMenu extends Component {
     } = this.props;
 
     let currentIndex = storedCharacters.reduce((currentIndex, char, index) => {
-      if (char.id == event.target.id) {
+      if (char.id === +event.target.id) {
         currentIndex = index;
       }
       return currentIndex;
     }, 0);
+
     dispatchStorageDetailsUpdate(currentIndex, storedCharacters.length);
     dispatchShowFavorites();
   };
@@ -28,18 +31,21 @@ class FavoritesMenu extends Component {
     if (favoriteCharacters.length) {
       const favorites = favoriteCharacters.map(fav => {
         return (
-          <li
+          <NavLink to="/characters"
             className="fav-list-item"
             key={fav.id}
             id={fav.id}
             onClick={this.handleFavoriteClick}
           >
             {fav.name}
-            <img className="fav-list-pic" alt="Character thubmails" src={fav.pic} />
-          </li>
+            <img
+              className="fav-list-pic"
+              alt="Character thubmails"
+              src={fav.pic}
+            />
+          </NavLink>
         );
       });
-
       return (
         <div className="FavoritesMenu">
           <nav className="fav-menu">
@@ -79,3 +85,10 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(FavoritesMenu);
+
+FavoritesMenu.propTypes = {
+  storedCharacters: PropTypes.array.isRequired,
+  favoriteCharacters: PropTypes.array.isRequired,
+  dispatchShowFavorites: PropTypes.func.isRequired,
+  dispatchStorageDetailsUpdate: PropTypes.func.isRequired
+};

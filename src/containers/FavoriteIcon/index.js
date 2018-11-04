@@ -1,18 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { toggleFavorite } from "../../actions";
+import PropTypes from "prop-types";
 import "./FavoriteIcon.css";
 
-class FavoriteIcon extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+export class FavoriteIcon extends Component {
   handleFavoriteClick = () => {
-    const { displatchToggleFavorite, id } = this.props;
-    displatchToggleFavorite(id);
+    const { dispatchToggleFavorite, id } = this.props;
+    dispatchToggleFavorite(id);
   };
-
   render() {
     return (
       <i
@@ -25,13 +21,15 @@ class FavoriteIcon extends Component {
   }
 }
 
-export const mapStateToProps = state => ({});
-
 export const mapDispatchToProps = dispatch => ({
-  displatchToggleFavorite: id => dispatch(toggleFavorite(id))
+  dispatchToggleFavorite: id => dispatch(toggleFavorite(id))
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(FavoriteIcon);
+
+FavoriteIcon.propTypes = {
+  dispatchToggleFavorite: PropTypes.func.isRequired
+};

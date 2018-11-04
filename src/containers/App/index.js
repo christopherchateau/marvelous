@@ -5,6 +5,8 @@ import {
   localStoreCharacter
 } from "../../utilities/apiCalls";
 import { storeCharacter } from "../../actions";
+import { Route, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 import Header from "../../components/Header";
 import CharacterProfile from "../CharacterProfile";
 import LandingPage from "../../components/LandingPage";
@@ -12,13 +14,9 @@ import FavoritesMenu from "../FavoritesMenu";
 import Footer from "../Footer";
 import "./App.css";
 
-let counter = 0;
+//let counter = 0;
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+export class App extends Component {
   componentDidMount = () => {
     this.initializeStoreWithThreeCharacters();
   };
@@ -62,17 +60,20 @@ class App extends Component {
   };
 
   render() {
+    const { pathname } = this.props.location;
     return (
       <div className="App">
-        <Header />
-        {this.props.showFavorites ? (
-          <FavoritesMenu />
-        ) : (
-          <CharacterProfile getCharacter={this.getCharacter} />
-        )}
-
-        {/* <LandingPage /> */}
-        <Footer />
+        {pathname !== "/" && <Header />}
+        <Route exact path="/" component={LandingPage} />
+        <Route
+          exact
+          path="/characters"
+          component={() => (
+            <CharacterProfile getCharacter={this.getCharacter} />
+          )}
+        />
+        <Route exact path="/favorites" component={FavoritesMenu} />
+        {pathname !== "/" && <Footer />}
       </div>
     );
   }
@@ -88,7 +89,15 @@ export const mapDispatchToProps = dispatch => ({
     dispatch(storeCharacter(character, frontOrBack))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);
+
+App.propTypes = {
+  dispatchStoreCharacter: PropTypes.func.isRequired,
+  storedCharacters: PropTypes.array.isRequired,
+  showFavorites: PropTypes.bool.isRequired
+};

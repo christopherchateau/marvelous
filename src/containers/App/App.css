@@ -17,9 +17,9 @@
 
 @media screen and (max-width: 1150px) {
   .App {
-    grid-template-rows: 200px 50px auto;
+    grid-template-rows: 200px 50px 1fr;
     grid-template-areas: "header" "footer" "main";
-    background-repeat: repeat-y;
-    /* height: auto; */
+    height: auto;
+    min-height: 100vh;
   }
 }

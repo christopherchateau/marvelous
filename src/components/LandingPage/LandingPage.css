@@ -1,14 +1,26 @@
 .Main {
-  background-color: black;
+  background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.728));
+  cursor: pointer;
+  display: grid;
+  grid-template-areas: "header" "landing";
+  grid-template-rows: 200px 1fr;
+  height: 100vh;
+  text-decoration: none;
+  width: 100vw;
 }
 
 .img-wrapper {
+  align-items: center;
+  background-image: url("../../images/marvel-universe.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   display: flex;
-  justify-content: center;
-  align-content: center;
-  height: 100%
+  flex-direction: column;
 }
 
-.marvel-uni-img {
-  background-color: grey;
+.click-anywhere {
+  color: white;
+  font-size: 26px;
+  padding: 6px;
 }
