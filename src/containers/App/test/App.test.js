@@ -11,6 +11,7 @@ describe("App", () => {
         dispatchStoreCharacter={jest.fn()}
         storedCharacters={[]}
         showFavorites={false}
+        localStoreCharacter={jest.fn()}
       />
     );
   });
@@ -69,6 +70,37 @@ describe("App", () => {
       );
       expect(wrapper.instance().stopDuplicates(1)).toBeTruthy;
       expect(wrapper.instance().stopDuplicates(2)).toBeFalsy;
+    });
+  });
+
+  describe("validateCharacter", () => {
+    it("should filter cards marked show:false", () => {
+      const mockCharacter = { name: "Spider-Man", show: false };
+      expect(wrapper.instance().validateCharacter(mockCharacter)).toBe(false);
+    });
+
+    it("should filter error responses", () => {
+      const mockCharacter = "error";
+      expect(wrapper.instance().validateCharacter(mockCharacter)).toBe(false);
+    });
+
+    it("should mark characters without images as show:false", () => {
+      const mockCharacter = {
+        name: "Spider-Man",
+        show: true,
+        pic: "www.image_not_available.com"
+      };
+      expect(wrapper.instance().validateCharacter(mockCharacter)).toBe(false);
+      expect(mockCharacter.show).toBe(false);
+    });
+
+    it("should return true if character is validated", () => {
+      const mockCharacter = {
+        name: "Spider-Man",
+        show: true,
+        pic: "www.image_totally_available.com"
+      };
+      expect(wrapper.instance().validateCharacter(mockCharacter)).toBe(true);
     });
   });
 });
