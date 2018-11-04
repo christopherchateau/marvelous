@@ -60,18 +60,20 @@ export class App extends Component {
   };
 
   render() {
+    const { pathname } = this.props.location;
     return (
       <div className="App">
-      <Header />
-      <Route exact path='/' component={LandingPage}/>
-      <Route exact path='/characters' component={() => <CharacterProfile getCharacter={this.getCharacter} />}/>
-      <Route exact path='/favorites' component={FavoritesMenu}/>
-        {/* {this.props.showFavorites ? (
-          <FavoritesMenu />
-        ) : (
-          <CharacterProfile getCharacter={this.getCharacter} />
-        )} */}
-        <Footer />
+        {pathname !== "/" && <Header />}
+        <Route exact path="/" component={LandingPage} />
+        <Route
+          exact
+          path="/characters"
+          component={() => (
+            <CharacterProfile getCharacter={this.getCharacter} />
+          )}
+        />
+        <Route exact path="/favorites" component={FavoritesMenu} />
+        {pathname !== "/" && <Footer />}
       </div>
     );
   }

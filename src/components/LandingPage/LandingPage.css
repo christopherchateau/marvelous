@@ -1,5 +1,5 @@
 .Main {
-  background-color: black;
+  background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.728));
   cursor: pointer;
   display: grid;
   grid-template-areas: "header" "landing";
@@ -9,25 +9,18 @@
   width: 100vw;
 }
 
-header {
-  grid-area: landing;
-}
-
 .img-wrapper {
   align-items: center;
+  background-image: url("../../images/marvel-universe.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   display: flex;
   flex-direction: column;
-  grid-area: landing;
 }
 
 .click-anywhere {
   color: white;
-  font-size: 32px;
-  padding: 20px;
-  text-align: center;
-}
-
-.marvel-uni-img {
-  background-color: grey;
-  height: 60vh;
+  font-size: 26px;
+  padding: 6px;
 }
