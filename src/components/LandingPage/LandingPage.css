@@ -1,15 +1,33 @@
 .Main {
   background-color: black;
+  cursor: pointer;
+  display: grid;
+  grid-template-areas: "header" "landing";
+  grid-template-rows: 200px 1fr;
+  height: 100vh;
+  text-decoration: none;
+  width: 100vw;
+}
+
+header {
+  grid-area: landing;
 }
 
 .img-wrapper {
+  align-items: center;
   display: flex;
-  justify-content: center;
-  align-content: center;
-  /* height: 100% */
+  flex-direction: column;
+  grid-area: landing;
+}
+
+.click-anywhere {
+  color: white;
+  font-size: 32px;
+  padding: 20px;
+  text-align: center;
 }
 
 .marvel-uni-img {
   background-color: grey;
-  
+  height: 60vh;
 }

@@ -18,7 +18,7 @@ import "./App.css";
 
 export class App extends Component {
   componentDidMount = () => {
-    this.initializeStoreWithThreeCharacters();
+    //this.initializeStoreWithThreeCharacters();
   };
 
   getCharacter = async direction => {
@@ -62,15 +62,15 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        {this.props.showFavorites ? (
+        {/* <Header /> */}
+        {/* {this.props.showFavorites ? (
           <FavoritesMenu />
         ) : (
           <CharacterProfile getCharacter={this.getCharacter} />
-        )}
+        )} */}
 
-        {/* <LandingPage /> */}
-        <Footer />
+        <LandingPage />
+        {/* <Footer /> */}
       </div>
     );
   }

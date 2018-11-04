@@ -1,9 +1,10 @@
 .Header {
+  background: linear-gradient(to right, red, rgb(255, 83, 112));
   background-color: red;
   display: flex;
   grid-area: header;
+  height: 200px;
   justify-content: space-around;
-  background: linear-gradient(to right, red, rgb(255, 83, 112));
   text-align: center;
 }
 
