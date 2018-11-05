@@ -48,6 +48,62 @@ describe("CharacterProfile", () => {
     expect(wrapper.find(".loading-screen")).toHaveLength(1);
   });
 
+  it("should render character profile when 3+ characters loaded", () => {
+    wrapper = shallow(
+      <CharacterProfile
+        dispatchStorageDetailsUpdate={jest.fn()}
+        getCharacter={jest.fn()}
+        storedCharacters={[
+          { name: "Wolverine", id: 2, comics: [] },
+          { name: "Spider-Man", id: 3, comics: [] },
+          { name: "Hulk", id: 4, comics: [] }
+        ]}
+        characterCount={3}
+        currentIndex={1}
+        showFavorites={false}
+      />
+    );
+    expect(wrapper.find(".CharacterProfile")).toHaveLength(1);
+    expect(wrapper.find(".loading-screen")).toHaveLength(0);
+  });
+
+  it("should display no comics found message when zero covers loaded", () => {
+    wrapper = shallow(
+      <CharacterProfile
+        dispatchStorageDetailsUpdate={jest.fn()}
+        getCharacter={jest.fn()}
+        storedCharacters={[
+          { name: "Wolverine", id: 2, comics: [] },
+          { name: "Spider-Man", id: 3, comics: [] },
+          { name: "Hulk", id: 4, comics: [] }
+        ]}
+        characterCount={3}
+        currentIndex={1}
+        showFavorites={false}
+      />
+    );
+    expect(wrapper.find(".no-comics-msg")).toHaveLength(1);
+  });
+
+  it("should display covers when url's provided", () => {
+    wrapper = shallow(
+      <CharacterProfile
+        dispatchStorageDetailsUpdate={jest.fn()}
+        getCharacter={jest.fn()}
+        storedCharacters={[
+          { name: "Wolverine", id: 2, comics: [] },
+          { name: "Spider-Man", id: 3, comics: ["www.comic-cover.url"] },
+          { name: "Hulk", id: 4, comics: [] }
+        ]}
+        characterCount={3}
+        currentIndex={1}
+        showFavorites={false}
+      />
+    );
+    expect(wrapper.find(".comic-cover")).toHaveLength(1);
+    expect(wrapper.find(".no-comics-msg")).toHaveLength(0);
+  });
+
   describe("mapStateToProps", () => {
     let mockState;
 

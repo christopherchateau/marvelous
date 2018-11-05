@@ -42,13 +42,13 @@ export class CharacterProfile extends Component {
         comics
       } = this.props.storedCharacters[this.props.currentIndex];
 
-      let comicCovers = comics.map(comic => {
+      let comicCovers = comics.map(comicUrl => {
         return (
           <img
             className="comic-cover"
-            key={comic}
+            key={comicUrl}
             alt="Comic book cover"
-            src={comic}
+            src={comicUrl}
           />
         );
       });
