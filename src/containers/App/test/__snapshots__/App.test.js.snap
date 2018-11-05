@@ -6,6 +6,11 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <App
     dispatchStoreCharacter={[MockFunction]}
     localStoreCharacter={[MockFunction]}
+    location={
+      Object {
+        "pathname": "/",
+      }
+    }
     showFavorites={false}
     storedCharacters={Array []}
   />,
@@ -23,31 +28,37 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Header />,
-        <Connect(CharacterProfile)
-          getCharacter={[Function]}
+        false,
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/"
         />,
-        <Connect(Footer) />,
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/characters"
+        />,
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/favorites"
+        />,
+        false,
       ],
       "className": "App",
     },
     "ref": null,
     "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
+      false,
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "getCharacter": [Function],
+          "component": [Function],
+          "exact": true,
+          "path": "/",
         },
         "ref": null,
         "rendered": null,
@@ -57,11 +68,29 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
-        "props": Object {},
+        "props": Object {
+          "component": [Function],
+          "exact": true,
+          "path": "/characters",
+        },
         "ref": null,
         "rendered": null,
         "type": [Function],
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "component": [Function],
+          "exact": true,
+          "path": "/favorites",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      false,
     ],
     "type": "div",
   },
@@ -72,31 +101,37 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Header />,
-          <Connect(CharacterProfile)
-            getCharacter={[Function]}
+          false,
+          <Route
+            component={[Function]}
+            exact={true}
+            path="/"
           />,
-          <Connect(Footer) />,
+          <Route
+            component={[Function]}
+            exact={true}
+            path="/characters"
+          />,
+          <Route
+            component={[Function]}
+            exact={true}
+            path="/favorites"
+          />,
+          false,
         ],
         "className": "App",
       },
       "ref": null,
       "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
+        false,
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "getCharacter": [Function],
+            "component": [Function],
+            "exact": true,
+            "path": "/",
           },
           "ref": null,
           "rendered": null,
@@ -106,11 +141,29 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "class",
-          "props": Object {},
+          "props": Object {
+            "component": [Function],
+            "exact": true,
+            "path": "/characters",
+          },
           "ref": null,
           "rendered": null,
           "type": [Function],
         },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "component": [Function],
+            "exact": true,
+            "path": "/favorites",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        false,
       ],
       "type": "div",
     },

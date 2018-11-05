@@ -21,7 +21,7 @@ export const getRandomCharacter = async randomId => {
   }
 };
 
-const getComics = async (data, validation) => {
+export const getComics = async (data, validation) => {
   const comicCovers = await Promise.all(
     data.data.results[0].comics.items.map(async comic => {
       const data = await fetch(comic.resourceURI + validation);
@@ -44,22 +44,22 @@ export const localStoreCharacter = character => {
   }
 };
 
-const setLocalStorage = item => {
+export const setLocalStorage = item => {
   localStorage.setItem("marvelous", JSON.stringify(item));
 };
 
-const getLocalStorage = () => {
+export const getLocalStorage = () => {
   return JSON.parse(localStorage.getItem("marvelous"));
 };
 
-const checkLocalStorage = id => {
+export const checkLocalStorage = id => {
   const storage = getLocalStorage();
   if (storage) {
     return storage.find(char => char.id === id);
   }
 };
 
-const filterPics = comicCovers => {
+export const filterPics = comicCovers => {
   return comicCovers.filter(src => !src.includes("image_not_available"));
 };
 

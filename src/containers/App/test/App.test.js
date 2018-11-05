@@ -12,6 +12,7 @@ describe("App", () => {
         storedCharacters={[]}
         showFavorites={false}
         localStoreCharacter={jest.fn()}
+        location={{ pathname: "/" }}
       />
     );
   });
@@ -66,6 +67,7 @@ describe("App", () => {
           dispatchStoreCharacter={jest.fn()}
           storedCharacters={[{ name: "Spider-Man", id: 1 }]}
           showFavorites={false}
+          location={{ pathname: "/" }}
         />
       );
       expect(wrapper.instance().stopDuplicates(1)).toBeTruthy;
