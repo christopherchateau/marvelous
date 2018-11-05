@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  getRandomCharacter,
-  localStoreCharacter
-} from "../../utilities/apiCalls";
+import { localStoreCharacter } from "../../utilities/helper";
+import { getRandomCharacter } from "../../utilities/apiCalls";
 import { storeCharacter } from "../../actions";
 import { Route, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";

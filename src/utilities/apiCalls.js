@@ -1,6 +1,6 @@
 import { MD5 } from "crypto-js";
 import apiKeys from "../apiKeys";
-import { cleanCharacter } from "./helper";
+import { checkLocalStorage, cleanCharacter, filterPics } from "./helper";
 
 export const getRandomCharacter = async randomId => {
   if (checkLocalStorage(randomId)) {
@@ -31,36 +31,6 @@ export const getComics = async (data, validation) => {
     })
   );
   return filterPics(comicCovers);
-};
-
-export const localStoreCharacter = character => {
-  const storage = getLocalStorage();
-  if (storage && !checkLocalStorage(character.id)) {
-    const updatedStorage = [...storage, character];
-    setLocalStorage(updatedStorage);
-  }
-  if (!storage) {
-    setLocalStorage([character]);
-  }
-};
-
-export const setLocalStorage = item => {
-  localStorage.setItem("marvelous", JSON.stringify(item));
-};
-
-export const getLocalStorage = () => {
-  return JSON.parse(localStorage.getItem("marvelous"));
-};
-
-export const checkLocalStorage = id => {
-  const storage = getLocalStorage();
-  if (storage) {
-    return storage.find(char => char.id === id);
-  }
-};
-
-export const filterPics = comicCovers => {
-  return comicCovers.filter(src => !src.includes("image_not_available"));
 };
 
 const mockData = [

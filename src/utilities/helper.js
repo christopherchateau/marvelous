@@ -9,3 +9,33 @@ export const cleanCharacter = (character, comicCovers) => {
     show: true
   }
 }
+
+export const localStoreCharacter = character => {
+  const storage = getLocalStorage();
+  if (storage && !checkLocalStorage(character.id)) {
+    const updatedStorage = [...storage, character];
+    setLocalStorage(updatedStorage);
+  }
+  if (!storage) {
+    setLocalStorage([character]);
+  }
+};
+
+export const setLocalStorage = item => {
+  localStorage.setItem("marvelous", JSON.stringify(item));
+};
+
+export const getLocalStorage = () => {
+  return JSON.parse(localStorage.getItem("marvelous"));
+};
+
+export const checkLocalStorage = id => {
+  const storage = getLocalStorage();
+  if (storage) {
+    return storage.find(char => char.id === id);
+  }
+};
+
+export const filterPics = comicCovers => {
+  return comicCovers.filter(src => !src.includes("image_not_available"));
+};
