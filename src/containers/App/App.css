@@ -23,3 +23,15 @@
     min-height: 100vh;
   }
 }
+
+@media screen and (max-width: 560px) {
+  .App {
+    grid-template-rows: 140px 50px 1fr;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .App {
+    grid-template-rows: 100px 30px 1fr;
+  }
+}

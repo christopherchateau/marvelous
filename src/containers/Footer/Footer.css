@@ -40,3 +40,9 @@
     padding-top: 4px;
   }
 }
+
+@media screen and (max-width: 420px) {
+  .my-favs {
+    font-size: 18px;
+  }
+}

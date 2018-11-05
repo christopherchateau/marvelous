@@ -10,17 +10,17 @@
 }
 
 .img-wrapper {
-  align-items: center;
+  align-items: flex-end;
   background-image: url("../../images/marvel-universe.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
 .click-anywhere {
   color: white;
-  font-size: 26px;
+  font-size: 46px;
   padding: 6px;
 }

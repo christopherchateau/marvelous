@@ -10,11 +10,6 @@ const LandingPage = () => {
     <Header />
       <div className="img-wrapper">
       <h3 className="click-anywhere">Click to begin!</h3>
-        {/* <img
-          className="marvel-uni-img"
-          alt="Marvel Universe"
-          src={marvelUniverse}
-        /> */}
       </div>
     </NavLink>
   );

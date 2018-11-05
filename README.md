@@ -1,5 +1,5 @@
 # Marvelous
-Marvelous was a solo project completed in one week. I was randomly assigned the Marvel API to use as the main content source and 'parents of young children' as the target audience. My goal was to create a simple application that a parent could show to a child too young to read a comic book or watch many of the Marvel movies, in order to introduce them to the Marvel Universe. It could also be valuable to the parent of a child who is interested in Marvel to familiarize themselves with the content their child is digesting. 
+Marvelous was a solo project completed in one week in Mod 3 at Turing. My goal was to create a simple, visual application that a parent could use to introduce a young child to the Marvel Universe. It could also be useful for a parent looking to familiarize themselves with the content their son or daughter is digesting.
 
 ### API's
 
@@ -27,9 +27,9 @@ Marvelous was a solo project completed in one week. I was randomly assigned the 
 
 ### Original Wireframe:
 
-<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/wireframe-1.jpg" width="600" />
+<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/wireframe-2.jpg" width="600" />
 
-<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/wireframe-2.jpg" width="400" />
+<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/wireframe-1.jpg" width="400" />
 
 ### Setup
 
