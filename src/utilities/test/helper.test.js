@@ -53,6 +53,7 @@ describe("helper", () => {
       expect(retrieved).toEqual("info");
     });
   });
+
   describe("checkLocalStorage", () => {
     it("should find characters in local storage based on id", () => {
       const character = { name: "Spider-Man", id: 1 };
@@ -123,6 +124,14 @@ describe("helper", () => {
       const retrieved = helper.getLocalStorage();
       expect(retrieved[0]).toEqual(characters[0]);
       expect(retrieved[1]).toBeUndefined();
+    });
+  });
+
+  describe.skip("generateRandomId", () => {
+    it("should generate a random ID between 1010801 and 1011428", () => {
+      const randomId = helper.generateRandomId();
+      expect(randomId).toBeGreaterThanOrEqual(1010801);
+      expect(randomId).toBeLessThanOrEqual(1011428);
     });
   });
 });

@@ -1,3 +1,6 @@
+import { MD5 } from "crypto-js";
+import apiKeys from "../apiKeys";
+
 export const cleanCharacter = (character, comicCovers) => {
   return {
     name: character.name,
@@ -42,3 +45,16 @@ export const filterPics = comicCovers => {
       !src.includes("image_not_available") && comicCovers.indexOf(src) === index
   );
 };
+
+export const generateRandomId = () => {
+  //return Math.floor(Math.random() * 9) + 1;
+  return Math.floor(Math.random() * 627) + 1010801;
+};
+
+export const prepareUrls = (randomId) => {
+  const timeStamp = Date.now();
+  const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
+  const root = `http://gateway.marvel.com/v1/public/characters/${randomId}`;
+  const validation = `?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`;
+  return { root, validation }
+}

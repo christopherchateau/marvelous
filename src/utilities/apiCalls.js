@@ -1,25 +1,20 @@
-import { MD5 } from "crypto-js";
-import apiKeys from "../apiKeys";
-import { checkLocalStorage, cleanCharacter, filterPics } from "./helper";
+import { checkLocalStorage, cleanCharacter, filterPics, prepareUrls } from "./helper";
 
 export const getRandomCharacter = async randomId => {
   if (checkLocalStorage(randomId)) {
     return checkLocalStorage(randomId);
   }
-  // const timeStamp = Date.now();
-  // const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
-  // const rootUrl = `http://gateway.marvel.com/v1/public/characters/${randomId}`;
-  // const validation = `?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`;
-  // try {
-  //   const response = await fetch(rootUrl + validation);
-  //   const data = await response.json();
-  //   const filteredComics = await getComics(data, validation);
-  //   const character = cleanCharacter(data.data.results[0], filteredComics);
-  //   return character;
-  return mockData[randomId]
-  // } catch {
-  //   return "error";
-  // }
+  const url = prepareUrls(randomId);
+  try {
+    const response = await fetch(url.root + url.validation);
+    const data = await response.json();
+    const filteredComics = await getComics(data, url.validation);
+    const character = cleanCharacter(data.data.results[0], filteredComics);
+    return character;
+  //return mockData[randomId]
+  } catch {
+    return "error";
+  }
 };
 
 export const getComics = async (data, validation) => {

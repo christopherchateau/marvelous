@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { localStoreCharacter } from "../../utilities/helper";
+import { localStoreCharacter, generateRandomId } from "../../utilities/helper";
 import { getRandomCharacter } from "../../utilities/apiCalls";
 import { storeCharacter } from "../../actions";
 import { Route, withRouter } from "react-router-dom";
@@ -18,7 +18,7 @@ export class App extends Component {
   };
 
   getCharacter = async direction => {
-    const randomId = this.generateRandomId();
+    const randomId = generateRandomId();
     if (this.stopDuplicates(randomId)) return;
 
     const character = await getRandomCharacter(randomId);
@@ -48,11 +48,6 @@ export class App extends Component {
     }
     localStoreCharacter(character);
     return true;
-  };
-
-  generateRandomId = () => {
-    return Math.floor(Math.random() * 9);
-    //return Math.floor(Math.random() * 627) + 1010801;
   };
 
   render() {
