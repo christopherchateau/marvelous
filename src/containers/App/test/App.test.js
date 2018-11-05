@@ -78,7 +78,7 @@ describe("App", () => {
       expect(wrapper.instance().validateCharacter(mockCharacter)).toBe(true);
     });
   });
-  
+
   describe("mapDispatchToProps", () => {
     it("should dispatch storeCharacter when dispatchStoreCharacter is called", () => {
       const mockDispatch = jest.fn();

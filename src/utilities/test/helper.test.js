@@ -68,6 +68,7 @@ describe("helper", () => {
       expect(found).toBeUndefined();
     });
   });
+  
   describe("filterPics", () => {
     it("should filter missing images ", () => {
       const comicCovers = [

@@ -6,19 +6,20 @@ export const getRandomCharacter = async randomId => {
   if (checkLocalStorage(randomId)) {
     return checkLocalStorage(randomId);
   }
-  const timeStamp = Date.now();
-  const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
-  const rootUrl = `http://gateway.marvel.com/v1/public/characters/${randomId}`;
-  const validation = `?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`;
-  try {
-    const response = await fetch(rootUrl + validation);
-    const data = await response.json();
-    const filteredComics = await getComics(data, validation);
-    const character = cleanCharacter(data.data.results[0], filteredComics);
-    return character;
-  } catch {
-    return "error";
-  }
+  // const timeStamp = Date.now();
+  // const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
+  // const rootUrl = `http://gateway.marvel.com/v1/public/characters/${randomId}`;
+  // const validation = `?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`;
+  // try {
+  //   const response = await fetch(rootUrl + validation);
+  //   const data = await response.json();
+  //   const filteredComics = await getComics(data, validation);
+  //   const character = cleanCharacter(data.data.results[0], filteredComics);
+  //   return character;
+  return mockData[randomId]
+  // } catch {
+  //   return "error";
+  // }
 };
 
 export const getComics = async (data, validation) => {
@@ -41,7 +42,8 @@ const mockData = [
     pic:
       "https://pbs.twimg.com/profile_images/image_not_available/gpfF5-xH_400x400.jpg",
     comics: ["asdf"],
-    favorited: false
+    favorited: false,
+    show: true
   },
   {
     name: "spider-man2",
@@ -50,7 +52,8 @@ const mockData = [
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
     comics: ["asdf"],
-    favorited: false
+    favorited: false,
+    show: true
   },
   {
     name: "spider-man3",
@@ -59,7 +62,8 @@ const mockData = [
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
     comics: ["asdf"],
-    favorited: true
+    favorited: true,
+    show: true
   },
   {
     name: "spider-man4",
@@ -68,7 +72,8 @@ const mockData = [
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
     comics: ["asdf"],
-    favorited: false
+    favorited: false,
+    show: true
   },
   {
     name: "spider-man5",
@@ -77,7 +82,8 @@ const mockData = [
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
     comics: ["asdf"],
-    favorited: true
+    favorited: true,
+    show: true
   },
   {
     name: "spider-man6",
@@ -86,7 +92,8 @@ const mockData = [
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
     comics: ["asdf"],
-    favorited: false
+    favorited: false,
+    show: true
   },
   {
     name: "spider-man7",
@@ -95,7 +102,8 @@ const mockData = [
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
     comics: ["asdf"],
-    favorited: true
+    favorited: true,
+    show: true
   },
   {
     name: "spider-man8",
@@ -104,7 +112,8 @@ const mockData = [
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
     comics: ["asdf"],
-    favorited: false
+    favorited: false,
+    show: true
   },
   {
     name: "spider-man9",
@@ -113,7 +122,8 @@ const mockData = [
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
     comics: ["asdf"],
-    favorited: false
+    favorited: false,
+    show: true
   },
   {
     name: "spider-man10",
@@ -122,6 +132,7 @@ const mockData = [
     pic:
       "https://pbs.twimg.com/profile_images/847820097821581312/gpfF5-xH_400x400.jpg",
     comics: ["asdf"],
-    favorited: false
+    favorited: false,
+    show: true
   }
 ];

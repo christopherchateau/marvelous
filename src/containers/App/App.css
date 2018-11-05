@@ -9,10 +9,10 @@
 
 .App {
   background: url("../../images/comic-bg.jpg");
-  height: 100vh;
   display: grid;
   grid-template-rows: 200px 1fr 80px;
-  grid-template-areas: "header" "main" "footer"
+  grid-template-areas: "header" "main" "footer";
+  height: 100vh;
 }
 
 @media screen and (max-width: 1150px) {

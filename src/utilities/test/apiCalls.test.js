@@ -3,7 +3,7 @@ import * as api from "../apiCalls";
 describe("apiCalls", () => {
   describe("getRandomCharacter", () => {
     it.skip("should call fetch for random character ", () => {
-      window.fetch = jest.fn().mockImplementation(() => 
+      window.fetch = jest.fn().mockImplementation(() =>
         Promise.resolve({
           json: () => ({ results: "character info" })
         })
