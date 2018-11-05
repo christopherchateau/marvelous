@@ -1,13 +1,21 @@
 import { MD5 } from "crypto-js";
 import apiKeys from "../apiKeys";
+import { getRandomCharacter, getComics } from "./apiCalls";
 
-export const cleanCharacter = (character, comicCovers) => {
+export const randomCharacter = async () => {
+  const randomId = generateRandomId();
+  if (checkLocalStorage(randomId)) {
+    return checkLocalStorage(randomId);
+  }
+  const url = prepareUrls(randomId);
+  const characterData = await getRandomCharacter(url);
+  const comicCovers = await getComics(characterData, url.validation);
   return {
-    name: character.name,
-    id: character.id,
-    description: character.description || "No description found.",
-    pic: character.thumbnail.path + "." + character.thumbnail.extension,
-    comics: comicCovers,
+    name: characterData.name,
+    id: characterData.id,
+    description: characterData.description || "No description found.",
+    pic: characterData.thumbnail.path + "." + characterData.thumbnail.extension,
+    comics: filterPics(comicCovers),
     favorited: false,
     show: true
   };
@@ -51,10 +59,10 @@ export const generateRandomId = () => {
   return Math.floor(Math.random() * 627) + 1010801;
 };
 
-export const prepareUrls = (randomId) => {
+export const prepareUrls = randomId => {
   const timeStamp = Date.now();
   const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
   const root = `http://gateway.marvel.com/v1/public/characters/${randomId}`;
   const validation = `?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`;
-  return { root, validation }
-}
+  return { root, validation };
+};

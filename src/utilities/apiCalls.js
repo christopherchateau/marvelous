@@ -1,25 +1,20 @@
-import { checkLocalStorage, cleanCharacter, filterPics, prepareUrls } from "./helper";
+import { randomCharacter, filterPics, prepareUrls } from "./helper";
 
-export const getRandomCharacter = async randomId => {
-  if (checkLocalStorage(randomId)) {
-    return checkLocalStorage(randomId);
-  }
-  const url = prepareUrls(randomId);
+export const getRandomCharacter = async url => {
   try {
     const response = await fetch(url.root + url.validation);
     const data = await response.json();
-    const filteredComics = await getComics(data, url.validation);
-    const character = cleanCharacter(data.data.results[0], filteredComics);
-    return character;
-  //return mockData[randomId]
+    const characterData = data.data.results[0];
+    return characterData;
+    //return mockData[randomId]
   } catch {
     return "error";
   }
 };
 
-export const getComics = async (data, validation) => {
+export const getComics = async (characterData, validation) => {
   const comicCovers = await Promise.all(
-    data.data.results[0].comics.items.map(async comic => {
+    characterData.comics.items.map(async comic => {
       const data = await fetch(comic.resourceURI + validation);
       const comicInfo = await data.json();
       const thumbnail = comicInfo.data.results[0].thumbnail;
