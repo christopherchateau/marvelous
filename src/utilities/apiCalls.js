@@ -1,6 +1,6 @@
 import { MD5 } from "crypto-js";
 import apiKeys from "../apiKeys";
-import { cleanCharacter } from "./helper";
+import { checkLocalStorage, cleanCharacter, filterPics } from "./helper";
 
 export const getRandomCharacter = async randomId => {
   if (checkLocalStorage(randomId)) {
@@ -21,7 +21,7 @@ export const getRandomCharacter = async randomId => {
   }
 };
 
-const getComics = async (data, validation) => {
+export const getComics = async (data, validation) => {
   const comicCovers = await Promise.all(
     data.data.results[0].comics.items.map(async comic => {
       const data = await fetch(comic.resourceURI + validation);
@@ -31,36 +31,6 @@ const getComics = async (data, validation) => {
     })
   );
   return filterPics(comicCovers);
-};
-
-export const localStoreCharacter = character => {
-  const storage = getLocalStorage();
-  if (storage && !checkLocalStorage(character.id)) {
-    const updatedStorage = [...storage, character];
-    setLocalStorage(updatedStorage);
-  }
-  if (!storage) {
-    setLocalStorage([character]);
-  }
-};
-
-const setLocalStorage = item => {
-  localStorage.setItem("marvelous", JSON.stringify(item));
-};
-
-const getLocalStorage = () => {
-  return JSON.parse(localStorage.getItem("marvelous"));
-};
-
-const checkLocalStorage = id => {
-  const storage = getLocalStorage();
-  if (storage) {
-    return storage.find(char => char.id === id);
-  }
-};
-
-const filterPics = comicCovers => {
-  return comicCovers.filter(src => !src.includes("image_not_available"));
 };
 
 const mockData = [

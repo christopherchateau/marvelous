@@ -15,78 +15,46 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "function",
     "props": Object {
-      "children": <div
-        className="img-wrapper"
-      >
-        <img
-          alt="Marvel Universe"
-          className="marvel-uni-img"
-          src="marvel-universe.png"
-        />
-      </div>,
-      "className": "Main",
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <img
-          alt="Marvel Universe"
-          className="marvel-uni-img"
-          src="marvel-universe.png"
-        />,
-        "className": "img-wrapper",
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "alt": "Marvel Universe",
-          "className": "marvel-uni-img",
-          "src": "marvel-universe.png",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "img",
-      },
-      "type": "div",
-    },
-    "type": "main",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <div
+      "activeClassName": "active",
+      "aria-current": "page",
+      "children": Array [
+        <Header />,
+        <div
           className="img-wrapper"
         >
-          <img
-            alt="Marvel Universe"
-            className="marvel-uni-img"
-            src="marvel-universe.png"
-          />
+          <h3
+            className="click-anywhere"
+          >
+            Click to begin!
+          </h3>
         </div>,
-        "className": "Main",
+      ],
+      "className": "Main",
+      "to": "/characters",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
       },
-      "ref": null,
-      "rendered": Object {
+      Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <img
-            alt="Marvel Universe"
-            className="marvel-uni-img"
-            src="marvel-universe.png"
-          />,
+          "children": <h3
+            className="click-anywhere"
+          >
+            Click to begin!
+          </h3>,
           "className": "img-wrapper",
         },
         "ref": null,
@@ -95,17 +63,81 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "alt": "Marvel Universe",
-            "className": "marvel-uni-img",
-            "src": "marvel-universe.png",
+            "children": "Click to begin!",
+            "className": "click-anywhere",
           },
           "ref": null,
-          "rendered": null,
-          "type": "img",
+          "rendered": "Click to begin!",
+          "type": "h3",
         },
         "type": "div",
       },
-      "type": "main",
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "activeClassName": "active",
+        "aria-current": "page",
+        "children": Array [
+          <Header />,
+          <div
+            className="img-wrapper"
+          >
+            <h3
+              className="click-anywhere"
+            >
+              Click to begin!
+            </h3>
+          </div>,
+        ],
+        "className": "Main",
+        "to": "/characters",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <h3
+              className="click-anywhere"
+            >
+              Click to begin!
+            </h3>,
+            "className": "img-wrapper",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Click to begin!",
+              "className": "click-anywhere",
+            },
+            "ref": null,
+            "rendered": "Click to begin!",
+            "type": "h3",
+          },
+          "type": "div",
+        },
+      ],
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {
