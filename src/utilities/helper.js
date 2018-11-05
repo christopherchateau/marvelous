@@ -11,7 +11,7 @@ export const randomCharacter = async () => {
     const url = prepareUrls(randomId);
     const characterData = await getRandomCharacter(url);
     const comicCovers = await comics(characterData, url.validation);
-    const filteredCovers = await filterCovers(comicCovers);
+    const filteredCovers = filterCovers(comicCovers);
     return {
       name: characterData.name,
       id: characterData.id,

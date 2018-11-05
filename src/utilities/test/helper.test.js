@@ -1,46 +1,47 @@
 import * as helper from "../helper";
+import { configure } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+
+configure({ adapter: new Adapter() });
+jest.mock("../apiCalls");
 
 describe("helper", () => {
   beforeEach(() => {
     localStorage.clear();
   });
 
-  it.skip(
-    "should remove unwanted character data and add favorited & show props",
-    () => {
-      const characterData = {
-        description: "n/a",
-        events: {},
-        id: 1010808,
-        modified: "2014-12-09T17:25:54-0500",
-        name: "Hawkeye (Kate Bishop)",
-        resourceURI: "http://gateway.marvel.com/v1/public/characters/1010808",
-        series: {},
-        stories: {},
-        thumbnail: {
-          path: "http://i.annihil.us/u/prod/marvel/i/mg/c/10/537bad9caa831",
-          extension: "jpg"
-        },
-        urls: []
-      };
-      const comicCovers = [
-        "http://i.annihil.us/u/prod/marvel/i/mg/c/10/537bad9caa831.jpg"
-      ];
+  describe("randomCharacter", () => {
+    it("should return character data in expected format and add favorited & show props", async () => {
       const expected = {
         name: "Hawkeye (Kate Bishop)",
         id: 1010808,
         description: "n/a",
         pic: "http://i.annihil.us/u/prod/marvel/i/mg/c/10/537bad9caa831.jpg",
-        comics: [
-          "http://i.annihil.us/u/prod/marvel/i/mg/c/10/537bad9caa831.jpg"
-        ],
+        comics: [],
         favorited: false,
         show: true
       };
-      const result = helper.randomCharacter();
+      const result = await helper.randomCharacter();
       expect(result).toEqual(expected);
-    }
-  );
+    });
+  });
+
+  describe("comics", () => {
+    it("should return comic covers in expected format", async () => {
+      const characterData = {
+        comics: {
+          items: [
+            "http://i.annihil.us/u/prod/marvel/i/mg/8/c0/515f0cae4224e.jpg"
+          ]
+        }
+      };
+      const expected = [
+        "http://i.annihil.us/u/prod/marvel/i/mg/8/c0/515f0cae4224e.jpg"
+      ];
+      const result = await helper.comics(characterData, "url");
+      expect(result).toEqual(expected);
+    });
+  });
 
   describe("setLocalStorage", () => {
     it("should set item to local storage", () => {
