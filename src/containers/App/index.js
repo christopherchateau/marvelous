@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { randomCharacter, localStoreCharacter, generateRandomId } from "../../utilities/helper";
-import { } from "../../utilities/apiCalls";
 import { storeCharacter } from "../../actions";
 import { Route, withRouter } from "react-router-dom";
 import Header from "../../components/Header";
@@ -40,7 +39,7 @@ export class App extends Component {
   };
 
   validateCharacter = character => {
-    if (!character.show || character === "error") return false;
+    if (!character.show || character === "failed to load") return false;
     if (character.pic.includes("image_not_available")) {
       character.show = false;
       localStoreCharacter(character);

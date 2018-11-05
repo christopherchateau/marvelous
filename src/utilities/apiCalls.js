@@ -1,27 +1,15 @@
-import { randomCharacter, filterPics, prepareUrls } from "./helper";
-
 export const getRandomCharacter = async url => {
-  try {
-    const response = await fetch(url.root + url.validation);
-    const data = await response.json();
-    const characterData = data.data.results[0];
-    return characterData;
-    //return mockData[randomId]
-  } catch {
-    return "error";
-  }
+  const response = await fetch(url.root + url.validation);
+  const data = await response.json();
+  const characterData = data.data.results[0];
+  return characterData;
+  //return mockData[randomId]
 };
 
-export const getComics = async (characterData, validation) => {
-  const comicCovers = await Promise.all(
-    characterData.comics.items.map(async comic => {
-      const data = await fetch(comic.resourceURI + validation);
-      const comicInfo = await data.json();
-      const thumbnail = comicInfo.data.results[0].thumbnail;
-      return thumbnail.path + "." + thumbnail.extension;
-    })
-  );
-  return filterPics(comicCovers);
+export const getComics = async (comicUri, validation) => {
+  const response = await fetch(comicUri + validation);
+  const comicInfo = await response.json();
+  return comicInfo;
 };
 
 const mockData = [

@@ -7,18 +7,35 @@ export const randomCharacter = async () => {
   if (checkLocalStorage(randomId)) {
     return checkLocalStorage(randomId);
   }
-  const url = prepareUrls(randomId);
-  const characterData = await getRandomCharacter(url);
-  const comicCovers = await getComics(characterData, url.validation);
-  return {
-    name: characterData.name,
-    id: characterData.id,
-    description: characterData.description || "No description found.",
-    pic: characterData.thumbnail.path + "." + characterData.thumbnail.extension,
-    comics: filterPics(comicCovers),
-    favorited: false,
-    show: true
-  };
+  try {
+    const url = prepareUrls(randomId);
+    const characterData = await getRandomCharacter(url);
+    const comicCovers = await comics(characterData, url.validation);
+    const filteredCovers = await filterCovers(comicCovers);
+    return {
+      name: characterData.name,
+      id: characterData.id,
+      description: characterData.description || "No description found.",
+      pic:
+        characterData.thumbnail.path + "." + characterData.thumbnail.extension,
+      comics: filteredCovers,
+      favorited: false,
+      show: true
+    };
+  } catch {
+    return "failed to load";
+  }
+};
+
+export const comics = async (characterData, validation) => {
+  const comicCovers = await Promise.all(
+    characterData.comics.items.map(async comic => {
+      const comicInfo = await getComics(comic.resourceURI, validation);
+      const thumbnail = comicInfo.data.results[0].thumbnail;
+      return thumbnail.path + "." + thumbnail.extension;
+    })
+  );
+  return comicCovers;
 };
 
 export const localStoreCharacter = character => {
@@ -47,7 +64,7 @@ export const checkLocalStorage = id => {
   }
 };
 
-export const filterPics = comicCovers => {
+export const filterCovers = comicCovers => {
   return comicCovers.filter(
     (src, index) =>
       !src.includes("image_not_available") && comicCovers.indexOf(src) === index
