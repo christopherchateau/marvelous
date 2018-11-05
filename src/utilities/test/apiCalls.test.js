@@ -7,12 +7,6 @@ describe("apiCalls", () => {
     localStorage.clear();
   });
 
-  describe("localStoreCharacter", () => {
-    it("should ", () => {
-
-    });
-  });
-
   describe("setLocalStorage", () => {
     it("should set item to local storage", () => {
       expect(localStorage).toHaveLength(0);
@@ -51,8 +45,44 @@ describe("apiCalls", () => {
         "image_totally_available.com"
       ];
       const filteredCovers = api.filterPics(comicCovers);
-      expect(filteredCovers).toHaveLength(1)
-      expect(filteredCovers[0]).toEqual(comicCovers[1])
+      expect(filteredCovers).toHaveLength(1);
+      expect(filteredCovers[0]).toEqual(comicCovers[1]);
+    });
+  });
+
+  describe("localStoreCharacter", () => {
+    it("should store character in array if local storage is empty", () => {
+      const character = { name: "Spider-Man", id: 1 };
+      api.localStoreCharacter(character);
+
+      expect(localStorage).toHaveLength(1);
+      const retrieved = api.getLocalStorage();
+      expect(retrieved[0]).toEqual(character);
+    });
+
+    it("should add character to local storage if not already stored", () => {
+      const characters = [
+        { name: "Spider-Man", id: 1 },
+        { name: "Wolverine", id: 2 }
+      ];
+      api.localStoreCharacter(characters[0]);
+      api.localStoreCharacter(characters[1]);
+
+      const retrieved = api.getLocalStorage();
+      expect(retrieved[0]).toEqual(characters[0]);
+      expect(retrieved[1]).toEqual(characters[1]);
+    });
+    it("should not add duplicate characters to storage", () => {
+      const characters = [
+        { name: "Spider-Man", id: 1 },
+        { name: "Wolverine", id: 2 }
+      ];
+      api.localStoreCharacter(characters[0]);
+      api.localStoreCharacter(characters[0]);
+
+      const retrieved = api.getLocalStorage();
+      expect(retrieved[0]).toEqual(characters[0]);
+      expect(retrieved[1]).toBeUndefined();
     });
   });
 });
