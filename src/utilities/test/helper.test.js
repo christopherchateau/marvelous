@@ -1,7 +1,6 @@
 import * as helper from "../helper";
 
 describe("helper", () => {
-
   beforeEach(() => {
     localStorage.clear();
   });
@@ -22,7 +21,9 @@ describe("helper", () => {
       },
       urls: []
     };
-    const comicCovers = ["http://i.annihil.us/u/prod/marvel/i/mg/c/10/537bad9caa831.jpg"]
+    const comicCovers = [
+      "http://i.annihil.us/u/prod/marvel/i/mg/c/10/537bad9caa831.jpg"
+    ];
     const expected = {
       name: "Hawkeye (Kate Bishop)",
       id: 1010808,
@@ -68,7 +69,7 @@ describe("helper", () => {
     });
   });
   describe("filterPics", () => {
-    it("should filter missing images", () => {
+    it("should filter missing images ", () => {
       const comicCovers = [
         "image_not_available.com",
         "image_totally_available.com"
@@ -76,6 +77,14 @@ describe("helper", () => {
       const filteredCovers = helper.filterPics(comicCovers);
       expect(filteredCovers).toHaveLength(1);
       expect(filteredCovers[0]).toEqual(comicCovers[1]);
+    });
+    it("should filter duplicate url's ", () => {
+      const comicCovers = [
+        "image_totally_available.com",
+        "image_totally_available.com"
+      ];
+      const filteredCovers = helper.filterPics(comicCovers);
+      expect(filteredCovers).toHaveLength(1);
     });
   });
 

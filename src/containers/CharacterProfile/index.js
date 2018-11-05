@@ -42,18 +42,16 @@ export class CharacterProfile extends Component {
         comics
       } = this.props.storedCharacters[this.props.currentIndex];
 
-      let comicCovers = comics
-        .filter((comic, index) => comics.indexOf(comic) === index)
-        .map(comic => {
-          return (
-            <img
-              className="comic-cover"
-              key={comic}
-              alt="Comic book cover"
-              src={comic}
-            />
-          );
-        });
+      let comicCovers = comics.map(comic => {
+        return (
+          <img
+            className="comic-cover"
+            key={Date.now()}
+            alt="Comic book cover"
+            src={comic}
+          />
+        );
+      });
 
       if (!comicCovers.length) {
         comicCovers = <h3 className="no-comics-msg">No comics found</h3>;

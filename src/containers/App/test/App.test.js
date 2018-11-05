@@ -25,33 +25,6 @@ describe("App", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  describe("mapDispatchToProps", () => {
-    it("should dispatch storeCharacter when dispatchStoreCharacter is called", () => {
-      const mockDispatch = jest.fn();
-      const actionToDispatch = storeCharacter({ name: "Spider-Man", id: 1 });
-
-      const mappedProps = mapDispatchToProps(mockDispatch);
-      mappedProps.dispatchStoreCharacter({ name: "Spider-Man", id: 1 });
-      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
-    });
-  });
-
-  describe("mapStateToProps", () => {
-    it("should return an array of characters", () => {
-      const mockState = { characters: [{ name: "Spider-Man", id: 1 }] };
-      const expected = [{ name: "Spider-Man", id: 1 }];
-      const mappedProps = mapStateToProps(mockState);
-      expect(mappedProps.storedCharacters).toEqual(expected);
-    });
-
-    it("should return count of stored characters", () => {
-      const mockState = { showFavorites: false };
-      const expected = false;
-      const mappedProps = mapStateToProps(mockState);
-      expect(mappedProps.showFavorites).toEqual(expected);
-    });
-  });
-
   describe("generateRandomId", () => {
     it("should generate a random ID between 1010801 and 1011428", () => {
       const randomId = wrapper.instance().generateRandomId();
@@ -103,6 +76,33 @@ describe("App", () => {
         pic: "www.image_totally_available.com"
       };
       expect(wrapper.instance().validateCharacter(mockCharacter)).toBe(true);
+    });
+  });
+  
+  describe("mapDispatchToProps", () => {
+    it("should dispatch storeCharacter when dispatchStoreCharacter is called", () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = storeCharacter({ name: "Spider-Man", id: 1 });
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.dispatchStoreCharacter({ name: "Spider-Man", id: 1 });
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+  });
+
+  describe("mapStateToProps", () => {
+    it("should return an array of characters", () => {
+      const mockState = { characters: [{ name: "Spider-Man", id: 1 }] };
+      const expected = [{ name: "Spider-Man", id: 1 }];
+      const mappedProps = mapStateToProps(mockState);
+      expect(mappedProps.storedCharacters).toEqual(expected);
+    });
+
+    it("should return count of stored characters", () => {
+      const mockState = { showFavorites: false };
+      const expected = false;
+      const mappedProps = mapStateToProps(mockState);
+      expect(mappedProps.showFavorites).toEqual(expected);
     });
   });
 });

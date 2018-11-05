@@ -2,13 +2,13 @@ export const cleanCharacter = (character, comicCovers) => {
   return {
     name: character.name,
     id: character.id,
-    description: character.description || 'No description found.',
-    pic: character.thumbnail.path + '.' + character.thumbnail.extension,
+    description: character.description || "No description found.",
+    pic: character.thumbnail.path + "." + character.thumbnail.extension,
     comics: comicCovers,
     favorited: false,
     show: true
-  }
-}
+  };
+};
 
 export const localStoreCharacter = character => {
   const storage = getLocalStorage();
@@ -37,5 +37,8 @@ export const checkLocalStorage = id => {
 };
 
 export const filterPics = comicCovers => {
-  return comicCovers.filter(src => !src.includes("image_not_available"));
+  return comicCovers.filter(
+    (src, index) =>
+      !src.includes("image_not_available") && comicCovers.indexOf(src) === index
+  );
 };
