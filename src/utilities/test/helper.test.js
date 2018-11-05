@@ -1,8 +1,4 @@
 import * as helper from "../helper";
-import { configure } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-
-configure({ adapter: new Adapter() });
 jest.mock("../apiCalls");
 
 describe("helper", () => {
@@ -23,6 +19,11 @@ describe("helper", () => {
       };
       const result = await helper.randomCharacter();
       expect(result).toEqual(expected);
+    });
+
+    it("should return 'failed to load' when fetch fails", async () => {
+      const result = await helper.randomCharacter();
+      expect(result).toEqual("failed to load");
     });
   });
 
@@ -77,7 +78,7 @@ describe("helper", () => {
   });
 
   describe("filterCovers", () => {
-    it("should filter missing images ", () => {
+    it("should filter missing images url's", () => {
       const comicCovers = [
         "image_not_available.com",
         "image_totally_available.com"
@@ -86,7 +87,8 @@ describe("helper", () => {
       expect(filteredCovers).toHaveLength(1);
       expect(filteredCovers[0]).toEqual(comicCovers[1]);
     });
-    it("should filter duplicate url's ", () => {
+
+    it("should filter duplicate url's", () => {
       const comicCovers = [
         "image_totally_available.com",
         "image_totally_available.com"
@@ -133,7 +135,7 @@ describe("helper", () => {
     });
   });
 
-  describe.skip("generateRandomId", () => {
+  describe("generateRandomId", () => {
     it("should generate a random ID between 1010801 and 1011428", () => {
       const randomId = helper.generateRandomId();
       expect(randomId).toBeGreaterThanOrEqual(1010801);
