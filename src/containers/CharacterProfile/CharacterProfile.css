@@ -99,7 +99,7 @@
 }
 
 .nav-left {
-  border-bottom-right-radius: 75px;
+  border-bottom-right-radius: 55px;
 }
 
 .nav-right {
@@ -164,13 +164,18 @@
     grid-template-areas: "picture" "description-comics-wrapper";
     grid-template-columns: 1fr;
     height: auto;
+    margin: 40px auto;
+    padding: 12px;
   }
 
   .picture {
     height: 500px;
   }
-  .profile-wrapper {
-    height: auto;
+
+  .description,
+  .comics {
+    margin: 20px 0;
+    width: 50vw;
   }
 }
 
@@ -190,6 +195,14 @@
   .fa-chevron-circle-left,
   .fa-chevron-circle-right {
     font-size: 36px;
+  }
+  .nav-left,
+  .nav-right {
+    height: 30vh;
+  }
+
+  .picture {
+    height: 400px;
   }
 }
 

@@ -46,7 +46,7 @@ export class CharacterProfile extends Component {
         return (
           <img
             className="comic-cover"
-            key={Date.now()}
+            key={comic}
             alt="Comic book cover"
             src={comic}
           />
