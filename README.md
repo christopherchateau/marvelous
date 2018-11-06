@@ -15,7 +15,7 @@ Marvelous offers enless scrolling in either direction. Character order is preser
 
 ### Desktop Screenshots:
 
-<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-giphy-1.png" width="800px" />
+<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-giphy-1.gif" width="600px" />
 
 <img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-desktop-1.png" width="800px" />
 
@@ -24,6 +24,8 @@ Marvelous offers enless scrolling in either direction. Character order is preser
 <img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-desktop-3.png" width="800px" />
 
 ### Tablet/Mobile Screenshots:
+
+<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-giphy-2.gif" width="600px" />
 
 <img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-mobile-1.png" width="400px" />
 
