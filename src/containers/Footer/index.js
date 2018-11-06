@@ -7,16 +7,15 @@ import "./Footer.css";
 
 export class Footer extends Component {
   render() {
+    const { dispatchShowFavorites, showFavorites, path } = this.props;
     let text;
-    this.props.path === "/favorites"
-      ? (text = "Characters")
-      : (text = "Favorites");
+    path === "/favorites" ? (text = "Characters") : (text = "Favorites");
 
     return (
       <div className="Footer">
         <NavLink
-          to={this.props.showFavorites ? "/characters" : "/favorites"}
-          onClick={this.props.dispatchShowFavorites}
+          to={showFavorites ? "/characters" : "/favorites"}
+          onClick={dispatchShowFavorites}
           className="fav-btn"
         >
           <h3 className="my-favs">{text}</h3>
