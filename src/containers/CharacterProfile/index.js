@@ -17,7 +17,7 @@ export class CharacterProfile extends Component {
 
     let updatedCount = characterCount;
     let updatedIndex = this.updateIndex(direction, currentIndex);
-
+    
     if (updatedIndex === 0 || updatedIndex === characterCount - 1) {
       updatedCount++;
       getCharacter(direction);

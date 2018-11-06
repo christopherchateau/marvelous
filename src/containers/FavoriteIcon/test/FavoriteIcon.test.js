@@ -26,6 +26,7 @@ describe("FavoriteIcon", () => {
   it("should add class of favorited when character is favorited", () => {
     expect(wrapper.find(".fa-star").hasClass("favorited")).toEqual(true);
     expect(wrapper.find(".fa-star").hasClass("fas")).toEqual(true);
+    expect(wrapper.find(".fa-star").hasClass("far")).toEqual(false);
   });
 
   it("should remove class of favorited when character is un-favorited", () => {
@@ -37,8 +38,8 @@ describe("FavoriteIcon", () => {
       />
     );
     expect(wrapper.find(".fa-star").hasClass("favorited")).toEqual(false);
+    expect(wrapper.find(".fa-star").hasClass("fas")).toEqual(false);
     expect(wrapper.find(".fa-star").hasClass("far")).toEqual(true);
-
   });
 
   describe("handleFavoriteClick", () => {

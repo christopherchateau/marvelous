@@ -69,7 +69,7 @@ describe("helper", () => {
       expect(found).toEqual(character);
     });
 
-    it("should return false if character isn't found", () => {
+    it("should return undefined if character isn't found", () => {
       const character = { name: "Spider-Man", id: 1 };
       helper.setLocalStorage([character]);
       const found = helper.checkLocalStorage(1111111);
@@ -105,7 +105,7 @@ describe("helper", () => {
 
       expect(localStorage).toHaveLength(1);
       const retrieved = helper.getLocalStorage();
-      expect(retrieved[0]).toEqual(character);
+      expect(retrieved).toEqual([character]);
     });
 
     it("should add character to local storage array if not stored", () => {
