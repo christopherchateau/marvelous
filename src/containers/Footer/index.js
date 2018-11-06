@@ -41,5 +41,6 @@ export default connect(
 
 Footer.propTypes = {
   dispatchShowFavorites: PropTypes.func.isRequired,
-  showFavorites: PropTypes.bool.isRequired
+  showFavorites: PropTypes.bool.isRequired,
+  path: PropTypes.string.isRequired
 };
