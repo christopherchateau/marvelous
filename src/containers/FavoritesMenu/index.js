@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { showFavorites, updateStorageDetails } from "../../actions";
 import { NavLink } from "react-router-dom";
+import { showFavorites, updateStorageDetails } from "../../actions";
 import PropTypes from "prop-types";
 import captAmerica from "../../images/capt-america.gif";
 import "./FavoritesMenu.css";
@@ -14,15 +14,18 @@ export class FavoritesMenu extends Component {
       storedCharacters
     } = this.props;
 
-    let currentIndex = storedCharacters.reduce((currentIndex, char, index) => {
+    let currentIndex = this.findCharacterIndex(storedCharacters, event);
+    dispatchStorageDetailsUpdate(currentIndex, storedCharacters.length);
+    dispatchShowFavorites();
+  };
+
+  findCharacterIndex = (storedCharacters, event) => {
+    return storedCharacters.reduce((currentIndex, char, index) => {
       if (char.id === +event.target.id) {
         currentIndex = index;
       }
       return currentIndex;
     }, 0);
-
-    dispatchStorageDetailsUpdate(currentIndex, storedCharacters.length);
-    dispatchShowFavorites();
   };
 
   render() {
@@ -31,7 +34,8 @@ export class FavoritesMenu extends Component {
     if (favoriteCharacters.length) {
       const favorites = favoriteCharacters.map(fav => {
         return (
-          <NavLink to="/characters"
+          <NavLink
+            to="/characters"
             className="fav-list-item"
             key={fav.id}
             id={fav.id}

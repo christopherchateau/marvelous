@@ -21,7 +21,7 @@
 
 .fav-list-pic {
   height: 70px;
-  border-radius: 30%;
+  border-radius: 20%;
   margin: 5px;
 }
 
@@ -38,7 +38,6 @@
   margin: 5px;
   padding-left: 10px;
   text-decoration: none;
-
 }
 
 .fav-list-item:hover {
@@ -49,14 +48,35 @@
 }
 
 .empty {
-  display:flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  justify-content: space-evenly;
   flex-direction: column;
   font-size: 32px;
+  text-align: center;
 }
 
 .capt-america {
   height: 60%;
   mix-blend-mode: multiply;
+}
+
+@media screen and (max-width: 1040px) {
+  .fav-list-item {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .fav-menu {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 560px) {
+  .empty {
+    font-size: 22px;
+  }
+
+  .capt-america {
+    height: 50%;
+  }
 }

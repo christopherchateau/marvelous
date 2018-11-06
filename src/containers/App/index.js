@@ -1,18 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { localStoreCharacter } from "../../utilities/helper";
-import { getRandomCharacter } from "../../utilities/apiCalls";
+import { randomCharacter, localStoreCharacter, generateRandomId } from "../../utilities/helper";
 import { storeCharacter } from "../../actions";
 import { Route, withRouter } from "react-router-dom";
-import PropTypes from "prop-types";
 import Header from "../../components/Header";
 import CharacterProfile from "../CharacterProfile";
 import LandingPage from "../../components/LandingPage";
 import FavoritesMenu from "../FavoritesMenu";
 import Footer from "../Footer";
+import PropTypes from "prop-types";
 import "./App.css";
-
-//let counter = 0;
 
 export class App extends Component {
   componentDidMount = () => {
@@ -20,10 +17,10 @@ export class App extends Component {
   };
 
   getCharacter = async direction => {
-    const randomId = this.generateRandomId();
+    const randomId = generateRandomId();
     if (this.stopDuplicates(randomId)) return;
 
-    const character = await getRandomCharacter(randomId);
+    const character = await randomCharacter(randomId);
     console.log(character);
 
     !this.validateCharacter(character)
@@ -42,7 +39,7 @@ export class App extends Component {
   };
 
   validateCharacter = character => {
-    if (!character.show || character === "error") return false;
+    if (!character.show || character === "failed to load") return false;
     if (character.pic.includes("image_not_available")) {
       character.show = false;
       localStoreCharacter(character);
@@ -50,11 +47,6 @@ export class App extends Component {
     }
     localStoreCharacter(character);
     return true;
-  };
-
-  generateRandomId = () => {
-    // return counter++;
-    return Math.floor(Math.random() * 627) + 1010801;
   };
 
   render() {

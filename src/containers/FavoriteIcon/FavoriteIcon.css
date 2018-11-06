@@ -17,3 +17,10 @@
 .favorited {
   color: red;
 }
+
+
+@media screen and (max-width: 650px) {
+  .fa-star {
+    font-size: 18px;
+  }
+}

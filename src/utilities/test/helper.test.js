@@ -1,40 +1,47 @@
 import * as helper from "../helper";
+jest.mock("../apiCalls");
 
 describe("helper", () => {
   beforeEach(() => {
     localStorage.clear();
   });
 
-  it("should remove unwanted character data and add favorited & show props", () => {
-    const characterData = {
-      description: "n/a",
-      events: {},
-      id: 1010808,
-      modified: "2014-12-09T17:25:54-0500",
-      name: "Hawkeye (Kate Bishop)",
-      resourceURI: "http://gateway.marvel.com/v1/public/characters/1010808",
-      series: {},
-      stories: {},
-      thumbnail: {
-        path: "http://i.annihil.us/u/prod/marvel/i/mg/c/10/537bad9caa831",
-        extension: "jpg"
-      },
-      urls: []
-    };
-    const comicCovers = [
-      "http://i.annihil.us/u/prod/marvel/i/mg/c/10/537bad9caa831.jpg"
-    ];
-    const expected = {
-      name: "Hawkeye (Kate Bishop)",
-      id: 1010808,
-      description: "n/a",
-      pic: "http://i.annihil.us/u/prod/marvel/i/mg/c/10/537bad9caa831.jpg",
-      comics: ["http://i.annihil.us/u/prod/marvel/i/mg/c/10/537bad9caa831.jpg"],
-      favorited: false,
-      show: true
-    };
-    const result = helper.cleanCharacter(characterData, comicCovers);
-    expect(result).toEqual(expected);
+  describe("randomCharacter", () => {
+    it("should return character data in expected format and add favorited & show props", async () => {
+      const expected = {
+        name: "Hawkeye (Kate Bishop)",
+        id: 1010808,
+        description: "n/a",
+        pic: "http://i.annihil.us/u/prod/marvel/i/mg/c/10/537bad9caa831.jpg",
+        comics: [],
+        favorited: false,
+        show: true
+      };
+      const result = await helper.randomCharacter();
+      expect(result).toEqual(expected);
+    });
+
+    it("should return 'failed to load' when fetch fails", async () => {
+      const result = await helper.randomCharacter();
+      expect(result).toEqual("failed to load");
+    });
+  });
+
+  describe("comics", () => {
+    it("should return comic covers in expected format", async () => {
+      const characterData = {
+        comics: {
+          items: [
+            "http://i.annihil.us/u/prod/marvel/i/mg/8/c0/515f0cae4224e.jpg"
+          ]
+        }
+      };
+      const expected = [
+        "http://i.annihil.us/u/prod/marvel/i/mg/8/c0/515f0cae4224e.jpg"
+      ];
+      const result = await helper.comics(characterData, "url");
+      expect(result).toEqual(expected);
+    });
   });
 
   describe("setLocalStorage", () => {
@@ -53,6 +60,7 @@ describe("helper", () => {
       expect(retrieved).toEqual("info");
     });
   });
+
   describe("checkLocalStorage", () => {
     it("should find characters in local storage based on id", () => {
       const character = { name: "Spider-Man", id: 1 };
@@ -68,22 +76,24 @@ describe("helper", () => {
       expect(found).toBeUndefined();
     });
   });
-  describe("filterPics", () => {
-    it("should filter missing images ", () => {
+
+  describe("filterCovers", () => {
+    it("should filter missing images url's", () => {
       const comicCovers = [
         "image_not_available.com",
         "image_totally_available.com"
       ];
-      const filteredCovers = helper.filterPics(comicCovers);
+      const filteredCovers = helper.filterCovers(comicCovers);
       expect(filteredCovers).toHaveLength(1);
       expect(filteredCovers[0]).toEqual(comicCovers[1]);
     });
-    it("should filter duplicate url's ", () => {
+
+    it("should filter duplicate url's", () => {
       const comicCovers = [
         "image_totally_available.com",
         "image_totally_available.com"
       ];
-      const filteredCovers = helper.filterPics(comicCovers);
+      const filteredCovers = helper.filterCovers(comicCovers);
       expect(filteredCovers).toHaveLength(1);
     });
   });
@@ -122,6 +132,14 @@ describe("helper", () => {
       const retrieved = helper.getLocalStorage();
       expect(retrieved[0]).toEqual(characters[0]);
       expect(retrieved[1]).toBeUndefined();
+    });
+  });
+
+  describe("generateRandomId", () => {
+    it("should generate a random ID between 1010801 and 1011428", () => {
+      const randomId = helper.generateRandomId();
+      expect(randomId).toBeGreaterThanOrEqual(1010801);
+      expect(randomId).toBeLessThanOrEqual(1011428);
     });
   });
 });

@@ -6,7 +6,9 @@ import { FavoriteIcon, mapDispatchToProps } from "../index";
 describe("FavoriteIcon", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<FavoriteIcon dispatchToggleFavorite={jest.fn()} />);
+    wrapper = shallow(
+      <FavoriteIcon dispatchToggleFavorite={jest.fn()} id={1} />
+    );
   });
 
   it("should exist", () => {
@@ -15,6 +17,17 @@ describe("FavoriteIcon", () => {
 
   it("should match snapshot", () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  describe("handleFavoriteClick", () => {
+    it("should call handleFavoriteClick favorite icon is clicked", () => {
+      const spy = spyOn(wrapper.instance(), "handleFavoriteClick");
+      const mockEvent = { preventDefault: jest.fn() };
+      wrapper.instance().forceUpdate();
+
+      wrapper.find(".fa-star").simulate("click", mockEvent);
+      expect(spy).toHaveBeenCalled();
+    });
   });
 
   describe("mapDispatchToProps", () => {

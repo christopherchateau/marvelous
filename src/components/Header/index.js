@@ -1,7 +1,6 @@
 import React from "react";
 import spiderMan from "../../images/spider-man.png";
 import wolverine from "../../images/wolverine.png";
-
 import "./Header.css";
 
 const Header = () => {

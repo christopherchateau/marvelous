@@ -9,7 +9,25 @@ ShallowWrapper {
     dispatchStorageDetailsUpdate={[MockFunction]}
     getCharacter={[MockFunction]}
     showFavorites={false}
-    storedCharacters={Array []}
+    storedCharacters={
+      Array [
+        Object {
+          "comics": Array [],
+          "id": 2,
+          "name": "Wolverine",
+        },
+        Object {
+          "comics": Array [],
+          "id": 3,
+          "name": "Spider-Man",
+        },
+        Object {
+          "comics": Array [],
+          "id": 4,
+          "name": "Hulk",
+        },
+      ]
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -25,18 +43,73 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <img
-          alt="Spiderman loading"
-          className="loading-pic"
-          src="spiderman-loading.gif"
-        />,
-        <h3
-          className="loading-msg"
+        <nav
+          className="nav-left"
         >
-          Loading...
-        </h3>,
+          <i
+            className="fas fa-chevron-circle-left"
+            onClick={[Function]}
+          />
+        </nav>,
+        <section
+          className="profile-wrapper"
+        >
+          <div
+            className="picture-wrapper"
+          >
+            <img
+              alt="character"
+              className="picture"
+            />
+          </div>
+          <div
+            className="description-comics-wrapper"
+          >
+            <section
+              className="description"
+            >
+              <h3
+                className="name"
+              >
+                Spider-Man
+              </h3>
+              <Connect(FavoriteIcon)
+                id={3}
+              />
+              <article
+                className="description-text"
+              >
+                <h3
+                  className="description-title"
+                >
+                  Description
+                </h3>
+                <p
+                  className="description-p"
+                />
+              </article>
+            </section>
+            <article
+              className="comics"
+            >
+              <h3
+                className="no-comics-msg"
+              >
+                No comics found
+              </h3>
+            </article>
+          </div>
+        </section>,
+        <nav
+          className="nav-right"
+        >
+          <i
+            className="fas fa-chevron-circle-right"
+            onClick={[Function]}
+          />
+        </nav>,
       ],
-      "className": "loading-screen",
+      "className": "CharacterProfile",
     },
     "ref": null,
     "rendered": Array [
@@ -45,25 +118,316 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "alt": "Spiderman loading",
-          "className": "loading-pic",
-          "src": "spiderman-loading.gif",
+          "children": <i
+            className="fas fa-chevron-circle-left"
+            onClick={[Function]}
+          />,
+          "className": "nav-left",
         },
         "ref": null,
-        "rendered": null,
-        "type": "img",
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "fas fa-chevron-circle-left",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "i",
+        },
+        "type": "nav",
       },
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Loading...",
-          "className": "loading-msg",
+          "children": Array [
+            <div
+              className="picture-wrapper"
+            >
+              <img
+                alt="character"
+                className="picture"
+              />
+            </div>,
+            <div
+              className="description-comics-wrapper"
+            >
+              <section
+                className="description"
+              >
+                <h3
+                  className="name"
+                >
+                  Spider-Man
+                </h3>
+                <Connect(FavoriteIcon)
+                  id={3}
+                />
+                <article
+                  className="description-text"
+                >
+                  <h3
+                    className="description-title"
+                  >
+                    Description
+                  </h3>
+                  <p
+                    className="description-p"
+                  />
+                </article>
+              </section>
+              <article
+                className="comics"
+              >
+                <h3
+                  className="no-comics-msg"
+                >
+                  No comics found
+                </h3>
+              </article>
+            </div>,
+          ],
+          "className": "profile-wrapper",
         },
         "ref": null,
-        "rendered": "Loading...",
-        "type": "h3",
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <img
+                alt="character"
+                className="picture"
+              />,
+              "className": "picture-wrapper",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "character",
+                "className": "picture",
+                "src": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <section
+                  className="description"
+                >
+                  <h3
+                    className="name"
+                  >
+                    Spider-Man
+                  </h3>
+                  <Connect(FavoriteIcon)
+                    id={3}
+                  />
+                  <article
+                    className="description-text"
+                  >
+                    <h3
+                      className="description-title"
+                    >
+                      Description
+                    </h3>
+                    <p
+                      className="description-p"
+                    />
+                  </article>
+                </section>,
+                <article
+                  className="comics"
+                >
+                  <h3
+                    className="no-comics-msg"
+                  >
+                    No comics found
+                  </h3>
+                </article>,
+              ],
+              "className": "description-comics-wrapper",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <h3
+                      className="name"
+                    >
+                      Spider-Man
+                    </h3>,
+                    <Connect(FavoriteIcon)
+                      id={3}
+                    />,
+                    <article
+                      className="description-text"
+                    >
+                      <h3
+                        className="description-title"
+                      >
+                        Description
+                      </h3>
+                      <p
+                        className="description-p"
+                      />
+                    </article>,
+                  ],
+                  "className": "description",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Spider-Man",
+                      "className": "name",
+                    },
+                    "ref": null,
+                    "rendered": "Spider-Man",
+                    "type": "h3",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "favorited": undefined,
+                      "id": 3,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <h3
+                          className="description-title"
+                        >
+                          Description
+                        </h3>,
+                        <p
+                          className="description-p"
+                        />,
+                      ],
+                      "className": "description-text",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Description",
+                          "className": "description-title",
+                        },
+                        "ref": null,
+                        "rendered": "Description",
+                        "type": "h3",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": undefined,
+                          "className": "description-p",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "p",
+                      },
+                    ],
+                    "type": "article",
+                  },
+                ],
+                "type": "section",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <h3
+                    className="no-comics-msg"
+                  >
+                    No comics found
+                  </h3>,
+                  "className": "comics",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "No comics found",
+                    "className": "no-comics-msg",
+                  },
+                  "ref": null,
+                  "rendered": "No comics found",
+                  "type": "h3",
+                },
+                "type": "article",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "section",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <i
+            className="fas fa-chevron-circle-right"
+            onClick={[Function]}
+          />,
+          "className": "nav-right",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "fas fa-chevron-circle-right",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "i",
+        },
+        "type": "nav",
       },
     ],
     "type": "div",
@@ -75,18 +439,73 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <img
-            alt="Spiderman loading"
-            className="loading-pic"
-            src="spiderman-loading.gif"
-          />,
-          <h3
-            className="loading-msg"
+          <nav
+            className="nav-left"
           >
-            Loading...
-          </h3>,
+            <i
+              className="fas fa-chevron-circle-left"
+              onClick={[Function]}
+            />
+          </nav>,
+          <section
+            className="profile-wrapper"
+          >
+            <div
+              className="picture-wrapper"
+            >
+              <img
+                alt="character"
+                className="picture"
+              />
+            </div>
+            <div
+              className="description-comics-wrapper"
+            >
+              <section
+                className="description"
+              >
+                <h3
+                  className="name"
+                >
+                  Spider-Man
+                </h3>
+                <Connect(FavoriteIcon)
+                  id={3}
+                />
+                <article
+                  className="description-text"
+                >
+                  <h3
+                    className="description-title"
+                  >
+                    Description
+                  </h3>
+                  <p
+                    className="description-p"
+                  />
+                </article>
+              </section>
+              <article
+                className="comics"
+              >
+                <h3
+                  className="no-comics-msg"
+                >
+                  No comics found
+                </h3>
+              </article>
+            </div>
+          </section>,
+          <nav
+            className="nav-right"
+          >
+            <i
+              className="fas fa-chevron-circle-right"
+              onClick={[Function]}
+            />
+          </nav>,
         ],
-        "className": "loading-screen",
+        "className": "CharacterProfile",
       },
       "ref": null,
       "rendered": Array [
@@ -95,25 +514,316 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "alt": "Spiderman loading",
-            "className": "loading-pic",
-            "src": "spiderman-loading.gif",
+            "children": <i
+              className="fas fa-chevron-circle-left"
+              onClick={[Function]}
+            />,
+            "className": "nav-left",
           },
           "ref": null,
-          "rendered": null,
-          "type": "img",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "fas fa-chevron-circle-left",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "i",
+          },
+          "type": "nav",
         },
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Loading...",
-            "className": "loading-msg",
+            "children": Array [
+              <div
+                className="picture-wrapper"
+              >
+                <img
+                  alt="character"
+                  className="picture"
+                />
+              </div>,
+              <div
+                className="description-comics-wrapper"
+              >
+                <section
+                  className="description"
+                >
+                  <h3
+                    className="name"
+                  >
+                    Spider-Man
+                  </h3>
+                  <Connect(FavoriteIcon)
+                    id={3}
+                  />
+                  <article
+                    className="description-text"
+                  >
+                    <h3
+                      className="description-title"
+                    >
+                      Description
+                    </h3>
+                    <p
+                      className="description-p"
+                    />
+                  </article>
+                </section>
+                <article
+                  className="comics"
+                >
+                  <h3
+                    className="no-comics-msg"
+                  >
+                    No comics found
+                  </h3>
+                </article>
+              </div>,
+            ],
+            "className": "profile-wrapper",
           },
           "ref": null,
-          "rendered": "Loading...",
-          "type": "h3",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <img
+                  alt="character"
+                  className="picture"
+                />,
+                "className": "picture-wrapper",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "character",
+                  "className": "picture",
+                  "src": undefined,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <section
+                    className="description"
+                  >
+                    <h3
+                      className="name"
+                    >
+                      Spider-Man
+                    </h3>
+                    <Connect(FavoriteIcon)
+                      id={3}
+                    />
+                    <article
+                      className="description-text"
+                    >
+                      <h3
+                        className="description-title"
+                      >
+                        Description
+                      </h3>
+                      <p
+                        className="description-p"
+                      />
+                    </article>
+                  </section>,
+                  <article
+                    className="comics"
+                  >
+                    <h3
+                      className="no-comics-msg"
+                    >
+                      No comics found
+                    </h3>
+                  </article>,
+                ],
+                "className": "description-comics-wrapper",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <h3
+                        className="name"
+                      >
+                        Spider-Man
+                      </h3>,
+                      <Connect(FavoriteIcon)
+                        id={3}
+                      />,
+                      <article
+                        className="description-text"
+                      >
+                        <h3
+                          className="description-title"
+                        >
+                          Description
+                        </h3>
+                        <p
+                          className="description-p"
+                        />
+                      </article>,
+                    ],
+                    "className": "description",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Spider-Man",
+                        "className": "name",
+                      },
+                      "ref": null,
+                      "rendered": "Spider-Man",
+                      "type": "h3",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "favorited": undefined,
+                        "id": 3,
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <h3
+                            className="description-title"
+                          >
+                            Description
+                          </h3>,
+                          <p
+                            className="description-p"
+                          />,
+                        ],
+                        "className": "description-text",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Description",
+                            "className": "description-title",
+                          },
+                          "ref": null,
+                          "rendered": "Description",
+                          "type": "h3",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": undefined,
+                            "className": "description-p",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "p",
+                        },
+                      ],
+                      "type": "article",
+                    },
+                  ],
+                  "type": "section",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <h3
+                      className="no-comics-msg"
+                    >
+                      No comics found
+                    </h3>,
+                    "className": "comics",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "No comics found",
+                      "className": "no-comics-msg",
+                    },
+                    "ref": null,
+                    "rendered": "No comics found",
+                    "type": "h3",
+                  },
+                  "type": "article",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "section",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <i
+              className="fas fa-chevron-circle-right"
+              onClick={[Function]}
+            />,
+            "className": "nav-right",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "fas fa-chevron-circle-right",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "i",
+          },
+          "type": "nav",
         },
       ],
       "type": "div",

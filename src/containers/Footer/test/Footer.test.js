@@ -20,16 +20,16 @@ describe("Footer", () => {
   });
 
   it("button text should read 'Favorites' show showFavorites is false", () => {
-    const message = wrapper.find('.my-favs')
-    expect(message.text()).toBe('Favorites')
+    const message = wrapper.find(".my-favs");
+    expect(message.text()).toBe("Favorites");
   });
 
   it("button text should read 'Characters' show showFavorites is true", () => {
     wrapper = shallow(
       <Footer dispatchShowFavorites={jest.fn()} showFavorites={true} />
     );
-    const message = wrapper.find('.my-favs')
-    expect(message.text()).toBe('Characters')
+    const message = wrapper.find(".my-favs");
+    expect(message.text()).toBe("Characters");
   });
 
   describe("mapDispatchToProps", () => {

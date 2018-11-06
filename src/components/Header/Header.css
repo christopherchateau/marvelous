@@ -45,3 +45,45 @@
     display: none;
   }
 }
+
+@media screen and (max-width: 720px) {
+  .main-logo {
+    font-size: 120px;
+    padding: 20px 0;
+  }
+
+  .explore-marvel-text {
+    bottom: 60px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .Header {
+    height: 140px;
+  }
+
+  .main-logo {
+    font-size: 90px;
+  }
+
+  .explore-marvel-text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .Header {
+    height: 100px;
+  }
+
+  .main-logo {
+    font-size: 70px;
+    padding: 10px 0;
+  }
+
+  .explore-marvel-text {
+    bottom: 44px;
+    font-size: 10px;
+  }
+}

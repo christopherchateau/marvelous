@@ -25,14 +25,6 @@ describe("App", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  describe("generateRandomId", () => {
-    it("should generate a random ID between 1010801 and 1011428", () => {
-      const randomId = wrapper.instance().generateRandomId();
-      expect(randomId).toBeGreaterThanOrEqual(1010801);
-      expect(randomId).toBeLessThanOrEqual(1011428);
-    });
-  });
-
   describe("stopDuplicates", () => {
     it("should stop duplicate characters", () => {
       wrapper = shallow(
@@ -78,7 +70,7 @@ describe("App", () => {
       expect(wrapper.instance().validateCharacter(mockCharacter)).toBe(true);
     });
   });
-  
+
   describe("mapDispatchToProps", () => {
     it("should dispatch storeCharacter when dispatchStoreCharacter is called", () => {
       const mockDispatch = jest.fn();

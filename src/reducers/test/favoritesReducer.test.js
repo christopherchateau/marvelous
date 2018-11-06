@@ -18,5 +18,5 @@ describe("favoritesReducer", () => {
     mockState = true;
     result = favoritesReducer(mockState, action);
     expect(result).toEqual(false);
-  }); 
+  });
 });
