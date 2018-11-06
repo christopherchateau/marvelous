@@ -1,8 +1,6 @@
 # Marvelous
 
-Marvelous was a solo project completed in one week in Mod 3 at Turing. My goal was to create a simple, visual application that a parent could use to introduce a young child to the Marvel Universe.
-
-Marvelous offers enless scrolling in either direction. Character order is preserved so the user is able to retrace their steps.
+Marvelous was a solo project completed in one week in Mod 3 at Turing. My goal was to create a simple, visual application that a parent could use to introduce a young child to the Marvel Universe. Marvelous offers enless scrolling in either direction. Character order is preserved so the user is able to retrace their steps.
 
 ### API's
 
@@ -20,9 +18,9 @@ Marvelous offers enless scrolling in either direction. Character order is preser
 
 ### Animated GIF's:
 
-<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-giphy-1.gif" width="600px" />
+<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-giphy-1.gif" width="800px" />
 
-<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-giphy-2.gif" width="600px" />
+<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-giphy-2.gif" width="800px" />
 
 ### Desktop Screenshots:
 
