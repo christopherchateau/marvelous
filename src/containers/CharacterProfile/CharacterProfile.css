@@ -160,6 +160,11 @@
 }
 
 @media screen and (max-width: 1150px) {
+  .CharacterProfile {
+    grid-template-columns: 50px 1fr 50px;
+    height: auto;
+  }
+
   .profile-wrapper {
     grid-template-areas: "picture" "description-comics-wrapper";
     grid-template-columns: 1fr;
@@ -173,25 +178,22 @@
     margin: 20px 0;
     width: 50vw;
   }
-}
 
-@media screen and (max-width: 750px) {
-  .CharacterProfile {
-    grid-template-columns: 50px 1fr 50px;
-    height: auto;
-  }
-
-  .description-text {
-    height: auto;
+  .nav-left,
+  .nav-right {
+    height: 30vh;
   }
 
   .fa-chevron-circle-left,
   .fa-chevron-circle-right {
     font-size: 36px;
   }
-  .nav-left,
-  .nav-right {
-    height: 30vh;
+}
+
+@media screen and (max-width: 750px) {
+
+  .description-text {
+    height: auto;
   }
 }
 
@@ -222,10 +224,10 @@
   .name {
     font-size: 16px;
   }
-  
-    .description {
-      width: 45vw;
-    }
+
+  .description {
+    width: 45vw;
+  }
 
   .description-title {
     font-size: 12px;
