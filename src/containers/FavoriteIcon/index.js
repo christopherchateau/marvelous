@@ -31,5 +31,6 @@ export default connect(
 )(FavoriteIcon);
 
 FavoriteIcon.propTypes = {
-  dispatchToggleFavorite: PropTypes.func.isRequired
+  dispatchToggleFavorite: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired
 };

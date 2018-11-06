@@ -15,7 +15,11 @@ describe("CharacterProfile", () => {
       <CharacterProfile
         dispatchStorageDetailsUpdate={jest.fn()}
         getCharacter={jest.fn()}
-        storedCharacters={[]}
+        storedCharacters={[
+          { name: "Wolverine", id: 2, comics: [] },
+          { name: "Spider-Man", id: 3, comics: [] },
+          { name: "Hulk", id: 4, comics: [] }
+        ]}
         characterCount={3}
         currentIndex={1}
         showFavorites={false}
@@ -102,6 +106,47 @@ describe("CharacterProfile", () => {
     );
     expect(wrapper.find(".comic-cover")).toHaveLength(1);
     expect(wrapper.find(".no-comics-msg")).toHaveLength(0);
+  });
+
+  describe("handleCardClick", () => {
+    it("should call handleAarowClick with 'BACK' when left arrow icon clicked", () => {
+      const spy = spyOn(wrapper.instance(), "handleArrowClick");
+      const mockEvent = { preventDefault: jest.fn() };
+      wrapper.instance().forceUpdate();
+
+      wrapper.find(".fa-chevron-circle-left").simulate("click", mockEvent);
+      expect(spy).toHaveBeenCalledWith("BACK");
+    });
+
+    it("should call handleAarowClick with 'FORWARD' when right arrow icon clicked", () => {
+      const spy = spyOn(wrapper.instance(), "handleArrowClick");
+      const mockEvent = { preventDefault: jest.fn() };
+      wrapper.instance().forceUpdate();
+
+      wrapper.find(".fa-chevron-circle-right").simulate("click", mockEvent);
+      expect(spy).toHaveBeenCalledWith("FORWARD");
+    });
+
+    it("should dispatch storage details when handleArrowClick is run", () => {});
+
+    it.skip("should call getCharacter if index is beginning or end of array", () => {
+      wrapper = shallow(
+        <CharacterProfile
+          dispatchStorageDetailsUpdate={jest.fn()}
+          getCharacter={jest.fn()}
+          storedCharacters={[
+            { name: "Wolverine", id: 2, comics: [] },
+            { name: "Spider-Man", id: 3, comics: [] },
+            { name: "Hulk", id: 4, comics: [] }
+          ]}
+          characterCount={3}
+          currentIndex={1}
+          showFavorites={false}
+        />
+      );
+      wrapper.instance().handleArrowClick();
+      expect(wrapper.props().getCharacter).toHaveBeenCalled();
+    });
   });
 
   describe("mapStateToProps", () => {

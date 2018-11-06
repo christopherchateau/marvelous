@@ -6,8 +6,34 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <FavoritesMenu
     dispatchShowFavorites={[MockFunction]}
     dispatchStorageDetailsUpdate={[MockFunction]}
-    favoriteCharacters={Array []}
-    storedCharacters={Array []}
+    favoriteCharacters={
+      Array [
+        Object {
+          "favorited": true,
+          "id": 2,
+          "name": "Spider-Man",
+        },
+      ]
+    }
+    storedCharacters={
+      Array [
+        Object {
+          "favorited": false,
+          "id": 1,
+          "name": "Wolverine",
+        },
+        Object {
+          "favorited": true,
+          "id": 2,
+          "name": "Spider-Man",
+        },
+        Object {
+          "favorited": false,
+          "id": 3,
+          "name": "Hulk",
+        },
+      ]
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -22,18 +48,28 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <section
-        className="fav-menu empty"
+      "children": <nav
+        className="fav-menu"
       >
-        <img
-          alt="Captain America"
-          className="capt-america"
-          src="capt-america.gif"
-        />
-        <h3>
-          No favorites selected
-        </h3>
-      </section>,
+        <ul
+          className="favs-list"
+        >
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="fav-list-item"
+            id={2}
+            onClick={[Function]}
+            to="/characters"
+          >
+            Spider-Man
+            <img
+              alt="Character thubmails"
+              className="fav-list-pic"
+            />
+          </NavLink>
+        </ul>
+      </nav>,
       "className": "FavoritesMenu",
     },
     "ref": null,
@@ -42,46 +78,94 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": Array [
-          <img
-            alt="Captain America"
-            className="capt-america"
-            src="capt-america.gif"
-          />,
-          <h3>
-            No favorites selected
-          </h3>,
-        ],
-        "className": "fav-menu empty",
+        "children": <ul
+          className="favs-list"
+        >
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="fav-list-item"
+            id={2}
+            onClick={[Function]}
+            to="/characters"
+          >
+            Spider-Man
+            <img
+              alt="Character thubmails"
+              className="fav-list-pic"
+            />
+          </NavLink>
+        </ul>,
+        "className": "fav-menu",
       },
       "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "alt": "Captain America",
-            "className": "capt-america",
-            "src": "capt-america.gif",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "img",
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="fav-list-item"
+              id={2}
+              onClick={[Function]}
+              to="/characters"
+            >
+              Spider-Man
+              <img
+                alt="Character thubmails"
+                className="fav-list-pic"
+              />
+            </NavLink>,
+          ],
+          "className": "favs-list",
         },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "No favorites selected",
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "2",
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": Array [
+                "Spider-Man",
+                <img
+                  alt="Character thubmails"
+                  className="fav-list-pic"
+                />,
+              ],
+              "className": "fav-list-item",
+              "id": 2,
+              "onClick": [Function],
+              "to": "/characters",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Spider-Man",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "Character thubmails",
+                  "className": "fav-list-pic",
+                  "src": undefined,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+            ],
+            "type": [Function],
           },
-          "ref": null,
-          "rendered": "No favorites selected",
-          "type": "h3",
-        },
-      ],
-      "type": "section",
+        ],
+        "type": "ul",
+      },
+      "type": "nav",
     },
     "type": "div",
   },
@@ -91,18 +175,28 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <section
-          className="fav-menu empty"
+        "children": <nav
+          className="fav-menu"
         >
-          <img
-            alt="Captain America"
-            className="capt-america"
-            src="capt-america.gif"
-          />
-          <h3>
-            No favorites selected
-          </h3>
-        </section>,
+          <ul
+            className="favs-list"
+          >
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="fav-list-item"
+              id={2}
+              onClick={[Function]}
+              to="/characters"
+            >
+              Spider-Man
+              <img
+                alt="Character thubmails"
+                className="fav-list-pic"
+              />
+            </NavLink>
+          </ul>
+        </nav>,
         "className": "FavoritesMenu",
       },
       "ref": null,
@@ -111,46 +205,94 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": Array [
-            <img
-              alt="Captain America"
-              className="capt-america"
-              src="capt-america.gif"
-            />,
-            <h3>
-              No favorites selected
-            </h3>,
-          ],
-          "className": "fav-menu empty",
+          "children": <ul
+            className="favs-list"
+          >
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="fav-list-item"
+              id={2}
+              onClick={[Function]}
+              to="/characters"
+            >
+              Spider-Man
+              <img
+                alt="Character thubmails"
+                className="fav-list-pic"
+              />
+            </NavLink>
+          </ul>,
+          "className": "fav-menu",
         },
         "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "alt": "Captain America",
-              "className": "capt-america",
-              "src": "capt-america.gif",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": "img",
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <NavLink
+                activeClassName="active"
+                aria-current="page"
+                className="fav-list-item"
+                id={2}
+                onClick={[Function]}
+                to="/characters"
+              >
+                Spider-Man
+                <img
+                  alt="Character thubmails"
+                  className="fav-list-pic"
+                />
+              </NavLink>,
+            ],
+            "className": "favs-list",
           },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "No favorites selected",
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "2",
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "aria-current": "page",
+                "children": Array [
+                  "Spider-Man",
+                  <img
+                    alt="Character thubmails"
+                    className="fav-list-pic"
+                  />,
+                ],
+                "className": "fav-list-item",
+                "id": 2,
+                "onClick": [Function],
+                "to": "/characters",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Spider-Man",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "Character thubmails",
+                    "className": "fav-list-pic",
+                    "src": undefined,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+              ],
+              "type": [Function],
             },
-            "ref": null,
-            "rendered": "No favorites selected",
-            "type": "h3",
-          },
-        ],
-        "type": "section",
+          ],
+          "type": "ul",
+        },
+        "type": "nav",
       },
       "type": "div",
     },

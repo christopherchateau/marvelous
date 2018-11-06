@@ -14,15 +14,18 @@ export class FavoritesMenu extends Component {
       storedCharacters
     } = this.props;
 
-    let currentIndex = storedCharacters.reduce((currentIndex, char, index) => {
+    let currentIndex = this.findCharacterIndex(storedCharacters, event);
+    dispatchStorageDetailsUpdate(currentIndex, storedCharacters.length);
+    dispatchShowFavorites();
+  };
+
+  findCharacterIndex = (storedCharacters, event) => {
+    return storedCharacters.reduce((currentIndex, char, index) => {
       if (char.id === +event.target.id) {
         currentIndex = index;
       }
       return currentIndex;
     }, 0);
-
-    dispatchStorageDetailsUpdate(currentIndex, storedCharacters.length);
-    dispatchShowFavorites();
   };
 
   render() {

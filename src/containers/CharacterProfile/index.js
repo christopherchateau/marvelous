@@ -14,7 +14,7 @@ export class CharacterProfile extends Component {
       dispatchStorageDetailsUpdate,
       getCharacter
     } = this.props;
-    
+
     let updatedIndex = currentIndex;
     let updatedCount = characterCount;
 
