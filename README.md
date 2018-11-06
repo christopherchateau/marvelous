@@ -15,19 +15,19 @@ Marvelous offers enless scrolling in either direction. Character order is preser
 
 ### Desktop Screenshots:
 
-<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-desktop-1.jpg" width="800px" />
+<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-desktop-1.png" width="800px" />
 
-<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-desktop-2.jpg" width="800px" />
+<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-desktop-2.png" width="800px" />
 
-<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-desktop-3.jpg" width="800px" />
+<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-desktop-3.png" width="800px" />
 
 ### Tablet/Mobile Screenshots:
 
-<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-mobile-1.jpg" width="400px" />
+<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-mobile-1.png" width="400px" />
 
-<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-mobile-2.jpg" width="400px" />
+<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-mobile-2.png" width="400px" />
 
-<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-mobile-3.jpg" width="400px" />
+<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-mobile-3.png" width="400px" />
 
 ### Original Wireframe:
 
