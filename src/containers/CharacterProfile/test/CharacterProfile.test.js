@@ -127,39 +127,30 @@ describe("CharacterProfile", () => {
       expect(spy).toHaveBeenCalledWith("FORWARD");
     });
 
-    it("should dispatch storage details when handleArrowClick is run", () => {});
+    it("should dispatch storage details when handleArrowClick is run", () => {
+      //const getCharacter = jest.fn()
+      const mockEvent = { preventDefault: jest.fn() };
+      wrapper.instance().forceUpdate();
+
+      wrapper.find(".fa-chevron-circle-right").simulate("click", mockEvent);
+      expect(wrapper.props().getCharacter).toHaveBeenCalled();
+    });
 
     it.skip("should call getCharacter if index is beginning or end of array", () => {
-      wrapper = shallow(
-        <CharacterProfile
-          dispatchStorageDetailsUpdate={jest.fn()}
-          getCharacter={jest.fn()}
-          storedCharacters={[
-            { name: "Wolverine", id: 2, comics: [] },
-            { name: "Spider-Man", id: 3, comics: [] },
-            { name: "Hulk", id: 4, comics: [] }
-          ]}
-          characterCount={3}
-          currentIndex={1}
-          showFavorites={false}
-        />
-      );
-      wrapper.instance().handleArrowClick();
-      expect(wrapper.props().getCharacter).toHaveBeenCalled();
     });
   });
 
-  describe('updateIndex', () => {
+  describe("updateIndex", () => {
     it("should increment index by one if direction is foward", () => {
-      const result = wrapper.instance().updateIndex("FORWARD", 1)
-      expect(result).toEqual(2)
+      const result = wrapper.instance().updateIndex("FORWARD", 1);
+      expect(result).toEqual(2);
     });
 
     it("should decrement index by one if direction is back", () => {
-      const result = wrapper.instance().updateIndex("BACK", 1)
-      expect(result).toEqual(0)
+      const result = wrapper.instance().updateIndex("BACK", 1);
+      expect(result).toEqual(0);
     });
-  })
+  });
 
   describe("mapStateToProps", () => {
     let mockState;
