@@ -149,6 +149,18 @@ describe("CharacterProfile", () => {
     });
   });
 
+  describe('updateIndex', () => {
+    it("should increment index by one if direction is foward", () => {
+      const result = wrapper.instance().updateIndex("FORWARD", 1)
+      expect(result).toEqual(2)
+    });
+
+    it("should decrement index by one if direction is back", () => {
+      const result = wrapper.instance().updateIndex("BACK", 1)
+      expect(result).toEqual(0)
+    });
+  })
+
   describe("mapStateToProps", () => {
     let mockState;
 

@@ -15,16 +15,19 @@ export class CharacterProfile extends Component {
       getCharacter
     } = this.props;
 
-    let updatedIndex = currentIndex;
     let updatedCount = characterCount;
+    let updatedIndex = this.updateIndex(direction, currentIndex);
 
-    direction === "FORWARD" ? updatedIndex++ : updatedIndex--;
     if (updatedIndex === 0 || updatedIndex === characterCount - 1) {
       updatedCount++;
       getCharacter(direction);
     }
     if (updatedIndex === 0) updatedIndex = 1;
     dispatchStorageDetailsUpdate(updatedIndex, updatedCount);
+  };
+
+  updateIndex = (direction, currentIndex) => {
+    return direction === "FORWARD" ? currentIndex + 1 : currentIndex - 1;
   };
 
   render() {

@@ -5,6 +5,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <FavoriteIcon
     dispatchToggleFavorite={[MockFunction]}
+    favorited={true}
     id={1}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -20,7 +21,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "className": "fa-star far",
+      "className": "fa-star fas favorited",
       "onClick": [Function],
     },
     "ref": null,
@@ -33,7 +34,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "className": "fa-star far",
+        "className": "fa-star fas favorited",
         "onClick": [Function],
       },
       "ref": null,
