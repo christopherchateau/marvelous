@@ -30,7 +30,6 @@ export class App extends Component {
     const randomId = generateRandomId();
     if (this.stopDuplicates(randomId)) return;
     const character = await randomCharacter(randomId);
-    console.log(character)
 
     !this.validateCharacter(character)
       ? await this.getCharacter(direction)
