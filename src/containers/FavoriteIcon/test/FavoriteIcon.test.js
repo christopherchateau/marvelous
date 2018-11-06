@@ -7,7 +7,11 @@ describe("FavoriteIcon", () => {
   let wrapper;
   beforeEach(() => {
     wrapper = shallow(
-      <FavoriteIcon dispatchToggleFavorite={jest.fn()} id={1} />
+      <FavoriteIcon
+        dispatchToggleFavorite={jest.fn()}
+        id={1}
+        favorited={true}
+      />
     );
   });
 
@@ -17,6 +21,24 @@ describe("FavoriteIcon", () => {
 
   it("should match snapshot", () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it("should add class of favorited when character is favorited", () => {
+    expect(wrapper.find(".fa-star").hasClass("favorited")).toEqual(true);
+    expect(wrapper.find(".fa-star").hasClass("fas")).toEqual(true);
+  });
+
+  it("should remove class of favorited when character is un-favorited", () => {
+    wrapper = shallow(
+      <FavoriteIcon
+        dispatchToggleFavorite={jest.fn()}
+        id={1}
+        favorited={false}
+      />
+    );
+    expect(wrapper.find(".fa-star").hasClass("favorited")).toEqual(false);
+    expect(wrapper.find(".fa-star").hasClass("far")).toEqual(true);
+
   });
 
   describe("handleFavoriteClick", () => {

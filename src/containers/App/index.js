@@ -20,20 +20,21 @@ export class App extends Component {
     this.initializeStoreWithThreeCharacters();
   };
 
-  getCharacter = async direction => {
-    const randomId = generateRandomId();
-    if (this.stopDuplicates(randomId)) return;
-    const character = await randomCharacter(randomId);
-
-    !this.validateCharacter(character)
-      ? await this.getCharacter(direction)
-      : await this.props.dispatchStoreCharacter(character, direction);
-  };
-
   initializeStoreWithThreeCharacters = async () => {
     while (this.props.storedCharacters.length < 3) {
       await this.getCharacter("BACK");
     }
+  };
+
+  getCharacter = async direction => {
+    const randomId = generateRandomId();
+    if (this.stopDuplicates(randomId)) return;
+    const character = await randomCharacter(randomId);
+    console.log(character)
+
+    !this.validateCharacter(character)
+      ? await this.getCharacter(direction)
+      : await this.props.dispatchStoreCharacter(character, direction);
   };
 
   stopDuplicates = id => {
@@ -65,7 +66,7 @@ export class App extends Component {
           )}
         />
         <Route exact path="/favorites" component={FavoritesMenu} />
-        {pathname !== "/" && <Footer />}
+        {pathname !== "/" && <Footer path={pathname} />}
       </div>
     );
   }

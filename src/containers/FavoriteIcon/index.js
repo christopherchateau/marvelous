@@ -9,12 +9,12 @@ export class FavoriteIcon extends Component {
     const { dispatchToggleFavorite, id } = this.props;
     dispatchToggleFavorite(id);
   };
+
   render() {
+    const { favorited } = this.props;
     return (
       <i
-        className={
-          "fa-star" + (this.props.favorited ? " fas favorited" : " far")
-        }
+        className={"fa-star" + (favorited ? " fas favorited" : " far")}
         onClick={this.handleFavoriteClick}
       />
     );

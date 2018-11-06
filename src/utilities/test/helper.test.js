@@ -108,7 +108,7 @@ describe("helper", () => {
       expect(retrieved[0]).toEqual(character);
     });
 
-    it("should add character to local storage if not already stored", () => {
+    it("should add character to local storage array if not stored", () => {
       const characters = [
         { name: "Spider-Man", id: 1 },
         { name: "Wolverine", id: 2 }

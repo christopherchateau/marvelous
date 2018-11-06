@@ -5,6 +5,7 @@ import { FavoritesMenu, mapDispatchToProps, mapStateToProps } from "../index";
 
 describe("FavoritesMenu", () => {
   let wrapper;
+
   beforeEach(() => {
     wrapper = shallow(
       <FavoritesMenu
