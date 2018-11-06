@@ -9,7 +9,6 @@ import {
 
 describe("CharacterProfile", () => {
   let wrapper;
-
   beforeEach(() => {
     wrapper = shallow(
       <CharacterProfile

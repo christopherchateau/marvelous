@@ -10,7 +10,6 @@ export class Footer extends Component {
     const { dispatchShowFavorites, showFavorites, path } = this.props;
     let text;
     path === "/favorites" ? (text = "Characters") : (text = "Favorites");
-
     return (
       <div className="Footer">
         <NavLink

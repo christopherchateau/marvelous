@@ -28,14 +28,21 @@ export const randomCharacter = async () => {
 };
 
 export const comics = async (characterData, validation) => {
-  const comicCovers = await Promise.all(
+  return await Promise.all(
     characterData.comics.items.map(async comic => {
       const comicInfo = await getComics(comic.resourceURI, validation);
       const thumbnail = comicInfo.data.results[0].thumbnail;
       return thumbnail.path + "." + thumbnail.extension;
     })
   );
-  return comicCovers;
+};
+
+export const prepareUrls = randomId => {
+  const timeStamp = Date.now();
+  const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
+  const root = `http://gateway.marvel.com/v1/public/characters/${randomId}`;
+  const validation = `?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`;
+  return { root, validation };
 };
 
 export const localStoreCharacter = character => {
@@ -73,12 +80,4 @@ export const filterCovers = comicCovers => {
 
 export const generateRandomId = () => {
   return Math.floor(Math.random() * 627) + 1010801;
-};
-
-export const prepareUrls = randomId => {
-  const timeStamp = Date.now();
-  const hash = MD5(timeStamp + apiKeys.private + apiKeys.public);
-  const root = `http://gateway.marvel.com/v1/public/characters/${randomId}`;
-  const validation = `?ts=${timeStamp}&apikey=${apiKeys.public}&hash=${hash}`;
-  return { root, validation };
 };

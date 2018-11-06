@@ -30,7 +30,6 @@ export class FavoritesMenu extends Component {
 
   render() {
     const { favoriteCharacters } = this.props;
-
     if (favoriteCharacters.length) {
       const favorites = favoriteCharacters.map(fav => {
         return (
