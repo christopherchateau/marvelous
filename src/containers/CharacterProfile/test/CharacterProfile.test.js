@@ -126,18 +126,6 @@ describe("CharacterProfile", () => {
       wrapper.find(".fa-chevron-circle-right").simulate("click", mockEvent);
       expect(spy).toHaveBeenCalledWith("FORWARD");
     });
-
-    it("should dispatch storage details when handleArrowClick is run", () => {
-      //const getCharacter = jest.fn()
-      const mockEvent = { preventDefault: jest.fn() };
-      wrapper.instance().forceUpdate();
-
-      wrapper.find(".fa-chevron-circle-right").simulate("click", mockEvent);
-      expect(wrapper.props().getCharacter).toHaveBeenCalled();
-    });
-
-    it.skip("should call getCharacter if index is beginning or end of array", () => {
-    });
   });
 
   describe("updateIndex", () => {
