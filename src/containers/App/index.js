@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { randomCharacter, localStoreCharacter, generateRandomId } from "../../utilities/helper";
+import {
+  randomCharacter,
+  localStoreCharacter,
+  generateRandomId
+} from "../../utilities/helper";
 import { storeCharacter } from "../../actions";
 import { Route, withRouter } from "react-router-dom";
 import Header from "../../components/Header";
@@ -19,9 +23,7 @@ export class App extends Component {
   getCharacter = async direction => {
     const randomId = generateRandomId();
     if (this.stopDuplicates(randomId)) return;
-
     const character = await randomCharacter(randomId);
-    console.log(character);
 
     !this.validateCharacter(character)
       ? await this.getCharacter(direction)

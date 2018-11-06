@@ -47,7 +47,7 @@ describe("App", () => {
     });
 
     it("should filter error responses", () => {
-      const mockCharacter = "error";
+      const mockCharacter = "failed to load";
       expect(wrapper.instance().validateCharacter(mockCharacter)).toBe(false);
     });
 
