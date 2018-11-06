@@ -65,7 +65,7 @@ export class App extends Component {
           )}
         />
         <Route exact path="/favorites" component={FavoritesMenu} />
-        {pathname !== "/" && <Footer />}
+        {pathname !== "/" && <Footer path={pathname}/>}
       </div>
     );
   }

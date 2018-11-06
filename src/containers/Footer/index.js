@@ -8,7 +8,10 @@ import "./Footer.css";
 export class Footer extends Component {
   render() {
     let text;
-    this.props.showFavorites ? (text = "Characters") : (text = "Favorites");
+    this.props.path === "/favorites"
+      ? (text = "Characters")
+      : (text = "Favorites");
+
     return (
       <div className="Footer">
         <NavLink
