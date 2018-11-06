@@ -29,8 +29,8 @@ export class App extends Component {
   getCharacter = async direction => {
     const randomId = generateRandomId();
     if (this.stopDuplicates(randomId)) return;
-    const character = await randomCharacter(randomId);
 
+    const character = await randomCharacter(randomId);
     !this.validateCharacter(character)
       ? await this.getCharacter(direction)
       : await this.props.dispatchStoreCharacter(character, direction);
