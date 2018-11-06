@@ -6,7 +6,9 @@ import { FavoriteIcon, mapDispatchToProps } from "../index";
 describe("FavoriteIcon", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<FavoriteIcon dispatchToggleFavorite={jest.fn()} id={1}/>);
+    wrapper = shallow(
+      <FavoriteIcon dispatchToggleFavorite={jest.fn()} id={1} />
+    );
   });
 
   it("should exist", () => {
