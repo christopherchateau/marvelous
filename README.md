@@ -12,6 +12,23 @@ Marvelous was a solo project completed in one week in Mod 3 at Turing. My goal w
 - Redux
 - React Router
 
+### Setup
+
+Clone this repo
+
+Request a private API key from Marvel
+
+Run `npm install` from the root directory
+
+Run `npm start` and visit localhost:3000 in your browser
+
+### Test Driven Development
+
+Marvelous uses Jest and Enzyme for frontend testing.
+
+Run with `npm test` from the root directory
+
+
 ### Original Assignment
 
 [Binary Challenge](http://frontend.turing.io/projects/binary-challenge.html) from the Turing School of Software & Design
