@@ -6,11 +6,12 @@ Marvelous was a solo project completed in one week in Mod 3 at Turing. My goal w
 
 - Marvel
 
-### Primary JavaScript Technologies Used
+### Primary Technologies Used
 
 - React
 - Redux
 - React Router
+- Fully tested with Jest and Enzyme 
 
 ### Setup
 
@@ -60,17 +61,3 @@ Run with `npm test` from the root directory
 <img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/wireframe-2.jpg" width="400" />
 
 <img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/wireframe-1.jpg" width="300" />
-
-### Setup
-
-Clone this repo
-
-Run `npm install` from the root directory
-
-Run `npm start` and visit localhost:3000 in your browser
-
-### Test Driven Development
-
-Marvelous uses Jest and Enzyme for frontend testing.
-
-Run with `npm test` from the root directory
