@@ -6,12 +6,11 @@ Marvelous was a solo project completed in one week in Mod 3 at Turing. My goal w
 
 - Marvel
 
-### Primary Technologies Used
+### Primary JavaScript Technologies Used
 
 - React
 - Redux
 - React Router
-- Fully tested with Jest and Enzyme 
 
 ### Setup
 
