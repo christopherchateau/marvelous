@@ -8,15 +8,15 @@ Marvelous was a solo project completed in one week in Mod 3 at Turing. My goal w
 
 ### Primary JavaScript Technologies Used
 
-- React
+- ReactJS
 - Redux
 - React Router
 
 ### Setup
 
-Clone this repo
-
 Request a private API key from Marvel
+
+Clone this repo
 
 Run `npm install` from the root directory
 
@@ -54,6 +54,10 @@ Run with `npm test` from the root directory
 <img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-mobile-2.png" width="400px" />
 
 <img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-mobile-3.png" width="400px" />
+
+### Test Coverage:
+
+<img src="https://github.com/christopherchateau/marvelous/blob/master/src/images/marvelous-test-coverage.png" width="800px" />
 
 ### Original Wireframe:
 
